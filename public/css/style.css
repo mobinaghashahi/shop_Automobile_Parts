@@ -68,9 +68,7 @@ li.dropdown {
     border: 2px solid #ed6a12;
     border-radius: 10px;
     height: 25px;
-    width: 260px
-}
-input[type=text], textarea {
+    width: 260px;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
@@ -80,7 +78,7 @@ input[type=text], textarea {
     margin: 5px 1px 3px 0px;
 }
 
-input[type=text]:focus, textarea:focus {
+.inputSearch:focus {
     box-shadow: 0 0 10px #ed6a12;
     padding: 3px 0px 3px 3px;
     margin: 5px 1px 3px 0px;
