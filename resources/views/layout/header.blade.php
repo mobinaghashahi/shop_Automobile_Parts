@@ -5,6 +5,7 @@
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/RWD.css" rel="stylesheet">
     <link href="/css/styleLogos.css" rel="stylesheet">
+    <link href="/css/styleNavBar.css" rel="stylesheet">
 </head>
 <body>
 
@@ -29,14 +30,28 @@
     </div>
     <div class="col-12 header">
         <ul class="ulNavigator">
-            <li><a href="#home">خانه</a></li>
-            <li><a href="#news">اخبار</a></li>
-            <li class="dropdown">
-                <a class="dropbtn">محصولات</a>
-                <div class="dropdown-content">
-                    <a href="#">Link 1</a>
+            <li><a class="level1" href="#home">خانه</a></li>
+            <li class="dropdown"><a class="dropBtn level1">برندها</a>
+                <div class="dropdownContentLevel1">
+                    <a href="#">Link 22</a>
                     <a href="#">Link 2</a>
                     <a href="#">Link 3</a>
+                </div>
+            </li>
+            <li class="dropdown">
+                <a class="dropBtn level1">محصولات</a>
+                <div class="dropdownContentLevel1">
+                    <a class="level2" href="#">سایپا</a>
+                    <div class="dropdownContentLevel2">
+                        <a class="level3" href="#">ساینا</a>
+                        <a href="#">تیبا</a>
+                        <a href="#">کوییک</a>
+                    </div>
+                    <a class="level2" href="#">ایران خودرو</a>
+                    <div class="dropdownContentLevel2">
+                        <a href="#">پژو</a>
+                        <a href="#">پیکان</a>
+                    </div>
                 </div>
             </li>
         </ul>

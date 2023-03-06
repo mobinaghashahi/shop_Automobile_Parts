@@ -1,0 +1,81 @@
+
+.ulNavigator {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.ulNavigator li {
+    float: right;
+}
+
+.level1{
+    max-width: 50px;
+    min-width: 50px;
+    text-align: center;
+}
+
+li a, .dropBtn {
+    display: inline-block;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown:hover .dropBtn {
+    background-color: #ed6a12;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdownContentLevel1 {
+    margin: 0px 0px 0px -78px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdownContentLevel1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdownContentLevel1 {
+    background-color: #f1f1f1
+}
+
+.dropdown:hover .dropdownContentLevel1 {
+    display: block;
+}
+
+.dropdownContentLevel2 {
+    margin: -49px 0px 0px -160px;
+    display: none;
+    position: absolute;
+    background-color: #e7e7e7;
+    min-width: 160px;
+    box-shadow: 0px 100px 160px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+
+
+.level2:hover + .dropdownContentLevel2{
+    display: block;
+}
+.dropdownContentLevel2:hover{
+    display: block;
+}
+.dropdownContentLevel1:hover .level2:hover {
+    background-color: #ff8f34;
+}
+
