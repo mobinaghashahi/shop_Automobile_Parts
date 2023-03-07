@@ -2,18 +2,10 @@
     <div class="col-12 divItemsFooter">
         <div class="col-3 divItemFooter">
             <div class="divTextItemsFooter">
-                <a>خرید آسان</a>
+                <a>ارسال به سرار ایران</a>
             </div>
             <div>
-                <img src="/logo/easy.png" width="50" height="60" >
-            </div>
-        </div>
-        <div class="col-3 divItemFooter">
-            <div class="divTextItemsFooter">
-                <a>خرید امن</a>
-            </div>
-            <div>
-                <img src="/logo/shild.png" width="50" height="60" >
+                <img src="/logo/truck.png" width="90" height="60" >
             </div>
         </div>
         <div class="col-3 divItemFooter">
@@ -26,10 +18,18 @@
         </div>
         <div class="col-3 divItemFooter">
             <div class="divTextItemsFooter">
-                <a>ارسال به سرار ایران</a>
+                <a>خرید امن</a>
             </div>
             <div>
-                <img src="/logo/truck.png" width="90" height="60" >
+                <img src="/logo/shild.png" width="50" height="60" >
+            </div>
+        </div>
+        <div class="col-3 divItemFooter">
+            <div class="divTextItemsFooter">
+                <a>خرید آسان</a>
+            </div>
+            <div>
+                <img src="/logo/easy.png" width="50" height="60" >
             </div>
         </div>
     </div>
