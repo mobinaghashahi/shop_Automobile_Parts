@@ -34,8 +34,10 @@
                 <div class="dropdownContentLevel1">
                     <a class="level2" href="#">Karmatek <img style="padding-left: 5px;" src="/logo/kat.png" width="25"
                                                              height="25"></a>
-                    <a class="level2" href="#">GMB</a>
-                    <a class="level2" href="#">GISP</a>
+                    <a class="level2" href="#">GMB<img style="padding-left: 5px;" src="/logo/gmb.png" width="25"
+                                                       height="25"></a>
+                    <a class="level2" href="#">GISP<img style="padding-left: 5px;" src="/logo/gisp.png" width="25"
+                                                        height="25"></a>
                 </div>
             </li>
             <li class="dropdown">
