@@ -3,9 +3,9 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/RWD.css" rel="stylesheet">
     <link href="/css/styleLogos.css" rel="stylesheet">
     <link href="/css/styleNavBar.css" rel="stylesheet">
+    <link href="/css/RWD.css" rel="stylesheet">
 </head>
 <body>
 
@@ -16,9 +16,11 @@
         </a>
     </div>
     <div class="col-12">
-        <a href="#">
-            <img class="logo" src="/logo/logo.png">
-        </a>
+        <div>
+            <a href="#">
+                <img class="logo" src="/logo/logo.png">
+            </a>
+        </div>
         <div class="middleHeader">
             <div class="divUserName">
                 <a>محمد مبین آقاشاهی</a>
