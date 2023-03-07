@@ -1,5 +1,8 @@
-
+.header{
+    background-color: #174799;
+}
 .ulNavigator {
+    text-align: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -11,8 +14,8 @@
 }
 
 .level1{
-    max-width: 50px;
-    min-width: 50px;
+    max-width: 60px;
+    min-width: 60px;
     text-align: center;
 }
 
@@ -23,9 +26,20 @@ li a, .dropBtn {
     text-decoration: none;
 }
 
+@keyframes navBarDropDownBtn {
+    0% {
+        background-color: #174799;
+    }
+    100% {
+        background-color: #ed6a12;
+    }
+}
+
 .dropdown:hover .dropBtn {
+    animation: navBarDropDownBtn 0.5s ease-in-out;
     background-color: #ed6a12;
 }
+
 
 li.dropdown {
     display: inline-block;
@@ -46,7 +60,7 @@ li.dropdown {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    text-align: left;
+    text-align: center;
 }
 
 .dropdownContentLevel1 {
@@ -77,5 +91,34 @@ li.dropdown {
 }
 .dropdownContentLevel1:hover .level2:hover {
     background-color: #ff8f34;
+}
+
+
+.level2{
+    border-bottom: 1px solid rgba(0,0,0,0.24);
+    border-left: 1px solid rgba(0,0,0,0.24);
+    max-height: 24px;
+    background: linear-gradient(35deg, #ffffff 0%, #c7c7c7 50%, #ffffff 100%);
+}
+
+@keyframes levelsBtn {
+    0% {
+        font-size: 15px;
+    }
+    100% {
+        font-size: 17px;
+    }
+}
+
+.level2:hover,.level3:hover{
+    animation: levelsBtn 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+.level3{
+    border-bottom: 1px solid rgba(0,0,0,0.24);
+    border-left: 1px solid rgba(0,0,0,0.24);
+    max-height: 24px;
+    background: linear-gradient(-35deg, #ffffff 0%, #c7c7c7 50%, #ffffff 100%);
 }
 

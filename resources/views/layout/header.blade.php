@@ -30,30 +30,33 @@
     </div>
     <div class="col-12 header">
         <ul class="ulNavigator">
-            <li><a class="level1" href="#home">خانه</a></li>
             <li class="dropdown"><a class="dropBtn level1">برندها</a>
                 <div class="dropdownContentLevel1">
-                    <a href="#">Link 22</a>
-                    <a href="#">Link 2</a>
-                    <a href="#">Link 3</a>
+                    <a class="level2" href="#">Karmatek <img style="padding-left: 5px;" src="/logo/kat.png" width="25"
+                                                             height="25"></a>
+                    <a class="level2" href="#">GMB</a>
+                    <a class="level2" href="#">GISP</a>
                 </div>
             </li>
             <li class="dropdown">
                 <a class="dropBtn level1">محصولات</a>
                 <div class="dropdownContentLevel1">
-                    <a class="level2" href="#">سایپا</a>
+                    <a class="level2" href="#">سایپا<img style="padding-left: 5px;" src="/logo/saypa.png" width="20"
+                                                                                    height="20"></a>
                     <div class="dropdownContentLevel2">
                         <a class="level3" href="#">ساینا</a>
-                        <a href="#">تیبا</a>
-                        <a href="#">کوییک</a>
+                        <a class="level3" href="#">تیبا</a>
+                        <a class="level3" href="#">کوییک</a>
                     </div>
-                    <a class="level2" href="#">ایران خودرو</a>
+                    <a class="level2" href="#">ایران خودرو<img style="padding-left: 5px;" src="/logo/irankhodro.png"
+                                                                                           width="20" height="25"></a>
                     <div class="dropdownContentLevel2">
-                        <a href="#">پژو</a>
-                        <a href="#">پیکان</a>
+                        <a class="level3" href="#">پژو</a>
+                        <a class="level3" href="#">پیکان</a>
                     </div>
                 </div>
             </li>
+            <li><a class="level1" href="#home">درباره ما</a></li>
         </ul>
     </div>
 </header>
