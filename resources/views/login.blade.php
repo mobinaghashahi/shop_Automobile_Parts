@@ -3,20 +3,20 @@
 @section('content')
     <div class="col-12" style="display: flex;justify-content: center">
         <div class="col-3 loginForm" style="padding: 50px 0px 50px 0px">
-            <div class="col-12" style="text-align: right">
+            <div class="col-12 divLabelInput">
                 <a>موبایل</a>
             </div>
             <div class="col-12" style="display: flex;justify-content: center">
-                <input type="text" style="width: 100%;border-radius: 10px;height: 30px;border-color: #ed6a12;box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
+                <input type="text" class="inputText">
             </div>
-            <div class="col-12" style="text-align: right;padding-top: 15px">
+            <div class="col-12 divLabelInput">
                 <a>رمز عبور</a>
             </div>
-            <div class="col-12" style="display: flex;justify-content: center">
+            <div class="col-12 divInputText" >
                 <input type="text" style="width: 100%;border-radius: 10px;height: 30px;border-color: #ed6a12;box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
             </div>
-            <div class="col-12" style="display: flex;justify-content: center;padding-top: 25px">
-                <input type="submit" style="width: 100%;background-color: #ed6a12;height:35px;color: white;" value="ورود">
+            <div class="col-12 divInputSubmit">
+                <input class="inputSubmit" type="submit" value="ثبت نام">
             </div>
             <div class="col-12" style="text-align: right;text-align: right;direction: rtl">
                 <div style="text-align: right;direction: rtl;display: inline">
