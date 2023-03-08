@@ -32,7 +32,7 @@
             </div>
             <div class="col-12" style="text-align: right;text-align: right;direction: rtl">
                 <div style="text-align: right;direction: rtl;display: inline">
-                    <a>از قبل حساب دارید؟</a>
+                    <a href="/login" style="color: black;text-decoration: none">از قبل حساب دارید؟</a>
                 </div>
             </div>
         </div>

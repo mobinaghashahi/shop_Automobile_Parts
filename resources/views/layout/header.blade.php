@@ -17,13 +17,13 @@
     </div>
     <div class="col-12">
         <div>
-            <a href="#">
+            <a href="/">
                 <img class="logo" src="/logo/logo.png">
             </a>
         </div>
         <div class="middleHeader">
             <div class="divUserName">
-                <a>محمد مبین آقاشاهی</a>
+                <a href="/login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
             </div>
             <div class="divSearch">
                 <input class="inputSearch" type="text" placeholder="جست و جو...">

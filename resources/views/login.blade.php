@@ -20,12 +20,11 @@
             </div>
             <div class="col-12" style="text-align: right;text-align: right;direction: rtl">
                 <div style="text-align: right;direction: rtl;display: inline">
-                    <a > حساب کاربری ندارید؟ ثبت نام کنید.</a>
+                    <a href="/signup" style="color: black;text-decoration: none"> حساب کاربری ندارید؟ ثبت نام کنید.</a>
                 </div>
                 <div style="text-align: left;direction: rtl;display: inline;float: left">
                     <a href="#">تغییر گذرواژه</a>
                 </div>
-
             </div>
         </div>
     </div>
