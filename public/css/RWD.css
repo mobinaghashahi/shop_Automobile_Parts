@@ -32,4 +32,8 @@
     .inputSearch{
         width: 210px
     }
+    li a, .dropBtn{
+        padding: 14px 0px;
+        font-size: 12px;
+    }
 }
