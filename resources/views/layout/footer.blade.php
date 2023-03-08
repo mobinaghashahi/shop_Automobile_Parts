@@ -34,5 +34,8 @@
         </div>
     </div>
 </div>
+
+<script src="/js/slideShow.js"></script>
+
 </body>
 </html>

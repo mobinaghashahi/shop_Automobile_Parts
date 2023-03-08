@@ -5,6 +5,7 @@
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/styleLogos.css" rel="stylesheet">
     <link href="/css/styleNavBar.css" rel="stylesheet">
+    <link href="/css/slideShow.css" rel="stylesheet">
     <link href="/css/RWD.css" rel="stylesheet">
 </head>
 <body>
