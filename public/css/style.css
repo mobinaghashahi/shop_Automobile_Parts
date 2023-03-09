@@ -103,5 +103,13 @@ body {
     justify-content: center;
     flex-wrap: wrap;
 }
-
+.titleBestSeller{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bolder;
+}
+.center{
+    text-align: center;
+    direction: ltr;
+}
 
