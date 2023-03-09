@@ -9,7 +9,7 @@
     </div>
     <div class="col-12 divAllProduct">
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -81,7 +81,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -107,7 +107,7 @@
     </div>
     <div class="col-12 divAllProduct">
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -116,7 +116,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -125,7 +125,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -134,7 +134,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -143,7 +143,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -152,7 +152,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -161,7 +161,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -170,7 +170,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -179,7 +179,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">
@@ -188,7 +188,7 @@
             </div>
         </div>
         <div class="col-2 products">
-            <div class="col-12">
+            <div class="col-12 productImage">
                 <img src="/prodoucts/1.png" width="100%" height="100%">
             </div>
             <div class="col-12 center">

@@ -113,3 +113,16 @@ body {
     direction: ltr;
 }
 
+
+@keyframes productImageZome {
+    0%{
+        scale: 1;
+    }
+    100%{
+        scale: 1.05;
+    }
+}
+.products:hover{
+    animation: productImageZome 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+}
