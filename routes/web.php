@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\Auth\authController;
+use App\Http\Controllers\Auth\loginController;
+use App\Http\Controllers\Auth\logoutController;
+use App\Http\Controllers\Auth\registerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,5 +24,12 @@ Route::get('/login', function () {
     return view('login');
 });
 Route::get('/signup', function () {
-    return view('signup');
+    return view('register');
 });
+
+Route::get('/login', [loginController::class, 'loginView']); //روت پست اطلاعات فرم ورود
+Route::get('/logout', [logoutController::class, 'logout']); //روت پست اطلاعات فرم ورود
+
+
+Route::post('/login', [loginController::class, 'login']); //روت پست اطلاعات فرم ورود
+Route::post('/register', [registerController::class, 'register']); //روت پست اطلاعات فرم ثبت نام
