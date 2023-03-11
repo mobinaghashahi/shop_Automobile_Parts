@@ -24,7 +24,11 @@
         </div>
         <div class="middleHeader">
             <div class="divUserName">
-                <a href="/login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
+                @if(!Auth::check())
+                    <a href="/login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
+                @else
+                    <a href="/login" style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
+                @endif
             </div>
             <div class="divSearch">
                 <input class="inputSearch" type="text" placeholder="جست و جو...">
