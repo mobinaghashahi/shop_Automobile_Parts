@@ -1,5 +1,5 @@
 .header{
-    background-color: #174799;
+    background-color: #023047;
 }
 .ulNavigator {
     text-align: center;
@@ -28,16 +28,16 @@ li a, .dropBtn {
 
 @keyframes navBarDropDownBtn {
     0% {
-        background-color: #174799;
+        background-color: #023047;
     }
     100% {
-        background-color: #ed6a12;
+        background-color: #FB8500;
     }
 }
 
 .dropdown:hover .dropBtn {
     animation: navBarDropDownBtn 0.5s ease-in-out;
-    background-color: #ed6a12;
+    background-color: #FB8500;
 }
 
 
