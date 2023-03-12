@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="/css/styleLogos.css" rel="stylesheet">
-    <link href="/css/styleNavBar.css" rel="stylesheet">
-    <link href="/css/slideShow.css" rel="stylesheet">
-    <link href="/css/RWD.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/styleLogos.css" rel="stylesheet">
+    <link href="css/styleNavBar.css" rel="stylesheet">
+    <link href="css/slideShow.css" rel="stylesheet">
+    <link href="css/RWD.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,14 +18,14 @@
     </div>
     <div class="col-12">
         <div>
-            <a href="/">
+            <a href="">
                 <img class="logo" src="logo/logo.png">
             </a>
         </div>
         <div class="middleHeader">
             <div class="divUserName">
                 @if(!Auth::check())
-                    <a href="/login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
+                    <a href="login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
                 @else
                     <a href="#" style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
                 @endif
