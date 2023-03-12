@@ -6,7 +6,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -15,7 +15,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -24,7 +24,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -33,7 +33,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -42,7 +42,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -51,7 +51,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -60,7 +60,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -69,7 +69,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 divImageProduct">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -78,7 +78,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
@@ -87,7 +87,7 @@
     </div>
     <div class="col-2 products">
         <div class="col-12 productImage">
-            <img src="/prodoucts/1.png" width="100%" height="100%">
+            <img src="prodoucts/1.png" width="100%" height="100%">
         </div>
         <div class="col-12 center">
             <p>لنت ترمز</p>
