@@ -3,6 +3,11 @@
 @section('content')
     <div class="col-12" style="display: flex;justify-content: center">
         <div class="col-3 loginForm" style="padding: 50px 0px 50px 0px">
+            @if (\Session::has('msg'))
+                <div class="successMessage">
+                    ثبت نام با موفقیت انجام شد
+                </div>
+            @endif
             @if ($errors->any())
                 @foreach($errors->all() as $error)
                     <div class="col-12" style="justify-content: center;display: flex">
