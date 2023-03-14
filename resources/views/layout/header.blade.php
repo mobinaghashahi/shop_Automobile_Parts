@@ -18,7 +18,7 @@
     </div>
     <div class="col-12">
         <div>
-            <a href="">
+            <a href="/">
                 <img class="logo" src="logo/logo.png">
             </a>
         </div>
