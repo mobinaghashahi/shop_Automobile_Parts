@@ -22,6 +22,6 @@ class registerController extends Controller
         $user->phoneNumber = $request->phoneNumber; //ایمیل ارسالی را دریافت می کنیم
         $user->nameAndFamily = $request->nameAndFamily; //ایمیل ارسالی را دریافت می کنیم
         $user->save(); //اطلاعات را پایگاه داده ثبت می کنیم
-        return redirect()->intended('home'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+        return redirect()->intended('/'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 }
