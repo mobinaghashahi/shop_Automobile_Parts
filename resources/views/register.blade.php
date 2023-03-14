@@ -37,11 +37,11 @@
                     <a>تکرار رمز عبور</a>
                 </div>
                 <div class="col-12 divInputText">
-                    <input name="password" type="password"
+                    <input name="password_confirmation" type="password"
                            style="width: 100%;border-radius: 10px;height: 30px;border-color: #ed6a12;box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                 </div>
                 <div class="col-12 divInputSubmit">
-                    <input name="enter" class="inputSubmit" type="submit" value="ورود">
+                    <input name="enter" class="inputSubmit" type="submit" value="ثبت نام">
                 </div>
                 <div class="col-12" style="text-align: right;text-align: right;direction: rtl">
                     <div style="text-align: right;direction: rtl;display: inline">
