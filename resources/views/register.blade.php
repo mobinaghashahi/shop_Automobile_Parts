@@ -30,14 +30,14 @@
                     <a>رمز عبور</a>
                 </div>
                 <div class="col-12 divInputText">
-                    <input name="password" type="text"
+                    <input name="password" type="password"
                            style="width: 100%;border-radius: 10px;height: 30px;border-color: #ed6a12;box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                 </div>
                 <div class="col-12 divLabelInput">
                     <a>تکرار رمز عبور</a>
                 </div>
                 <div class="col-12 divInputText">
-                    <input name="passwordRepeat" type="text"
+                    <input name="password" type="password"
                            style="width: 100%;border-radius: 10px;height: 30px;border-color: #ed6a12;box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                 </div>
                 <div class="col-12 divInputSubmit">
