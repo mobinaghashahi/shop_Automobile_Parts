@@ -7,6 +7,7 @@
     <link href="css/styleNavBar.css" rel="stylesheet">
     <link href="css/slideShow.css" rel="stylesheet">
     <link href="css/RWD.css" rel="stylesheet">
+    <link href="css/messages.css" rel="stylesheet">
 </head>
 <body>
 
