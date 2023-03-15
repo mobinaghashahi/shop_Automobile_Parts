@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\authController;
 use App\Http\Controllers\Auth\loginController;
 use App\Http\Controllers\Auth\logoutController;
 use App\Http\Controllers\Auth\registerController;
+use App\Http\Controllers\admin;
 use App\Http\Controllers\productDetails;
 use App\Http\Middleware\authMiddleware;
 /*
@@ -38,3 +39,6 @@ Route::post('/register', [registerController::class, 'register']); //روت پس
 
 
 Route::get('/productDetails', [productDetails::class, 'showDetails']);
+
+
+Route::get('/admin', [admin::class, 'showDashboard']);
