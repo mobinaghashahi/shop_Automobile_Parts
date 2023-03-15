@@ -14,14 +14,15 @@ return new class extends Migration
     {
         Schema::create('carType', function (Blueprint $table) {
             $table->id();
-            $table->string("name")->nullable();
-            $table->string("companyName")->nullable();
+            $table->string('name');
+            $table->string('companyName');
             $table->rememberToken();
             $table->timestamps();
         });
+
         CarType::firstOrCreate([
             'name' => 'نامعلوم',
-            'companyName'=>'نامعلوم'
+            'companyName' => 'نامعلوم',
         ]);
     }
 

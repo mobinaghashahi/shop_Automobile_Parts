@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Category;
 
 return new class extends Migration
 {
@@ -17,6 +18,9 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        Category::firstOrCreate([
+            'name' => 'ندارد'
+        ]);
     }
 
     /**
