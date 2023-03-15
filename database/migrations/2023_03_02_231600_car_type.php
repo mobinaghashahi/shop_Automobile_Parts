@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\CarType;
 
 return new class extends Migration
 {
@@ -14,9 +15,14 @@ return new class extends Migration
         Schema::create('carType', function (Blueprint $table) {
             $table->id();
             $table->string("name")->nullable();
+            $table->string("companyName")->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
+        CarType::firstOrCreate([
+            'name' => 'نامعلوم',
+            'companyName'=>'نامعلوم'
+        ]);
     }
 
     /**
