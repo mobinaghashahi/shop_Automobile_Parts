@@ -40,8 +40,8 @@
 
 /* Main content */
 .main {
-    font-size: 20px; /* Increased text to enable scrolling */
-    padding: 0px 10px;
+
+    padding: 0px 202px 10px 0px;
 }
 
 /* Add an active class to the active dropdown button */
@@ -64,4 +64,12 @@
 /* Optional: Style the caret down icon */
 .fa-caret-down {
     float: right;
+}
+
+.titleTextInput{
+    padding-top: 20px;
+}
+.blockOfInputs{
+    direction: rtl;
+
 }
