@@ -40,5 +40,8 @@ Route::post('/register', [registerController::class, 'register']); //روت پس
 
 Route::get('/productDetails', [productDetails::class, 'showDetails']);
 
+Route::prefix('/admin')->group(function () {
+    Route::get('/', [admin::class, 'showDashboard']);
+    Route::get('/addProduct', [admin::class, 'showAddProduct']);
+});
 
-Route::get('/admin', [admin::class, 'showDashboard']);
