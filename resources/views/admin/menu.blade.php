@@ -16,7 +16,7 @@
 
 <div class="sidenav">
     <div style="background-color: #363636;padding: 0px;margin:auto;height: 50px">
-        <p style="font-size: larger;margin: auto;padding-top: 10px;padding-right: 10px">منو</p>
+        <a href="/admin" style="font-size: 25px;margin: auto;padding-top: 10px;padding-right: 10px;color: white">منو</a>
     </div>
 
     <div class="col-12" style="background-color: #fed000;padding: 0px;margin:auto;height: 50px;width: 100%">
@@ -32,7 +32,7 @@
         <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-        <a href="#">افزودن محصول جدید</a>
+        <a href="/admin/addProduct">افزودن محصول جدید</a>
         <a href="#">Link 2</a>
         <a href="#">Link 3</a>
     </div>
@@ -45,3 +45,9 @@
         <a href="#">Link 3</a>
     </div>
 </div>
+
+@yield('content')
+
+<script src="/js/adminPanel.js"></script>
+</body>
+</html>
