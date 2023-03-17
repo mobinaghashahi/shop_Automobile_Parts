@@ -48,5 +48,9 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
 
     Route::get('/addProduct', [admin::class, 'showAddProduct']);
     Route::post('/addProduct', [admin::class, 'addProduct']);
+
+    Route::get('/addBrand', [admin::class, 'showAddBrand']);
+    Route::post('/addBrand', [admin::class, 'addBrand']);
+
 });
 
