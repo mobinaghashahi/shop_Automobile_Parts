@@ -52,6 +52,12 @@
     <div class="dropdown-container">
         <a href="/admin/addOff">افزودن تخفیف جدید</a>
     </div>
+    <button class="dropdown-btn">مدیریت دسته بندی ها
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="/admin/addCategory">افزودن دسته بندی جدید</a>
+    </div>
 </div>
 
 @yield('content')
