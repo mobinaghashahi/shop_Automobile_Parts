@@ -109,4 +109,18 @@ class admin extends Controller
         return redirect()->intended('/admin/addOff')->with('msg','تخفیف با موفقیت افزوده شد.');
     }
 
+
+    public function showAddCategory(){
+        return view('admin.addCategory');
+    }
+    public function addCategory(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+        $category = new Category();
+        $category->name=$request->name;
+        $category->save();
+
+        return redirect()->intended('/admin/addCategory')->with('msg','دسته بندی با موفقیت افزوده شد.');
+    }
 }
