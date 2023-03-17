@@ -40,6 +40,12 @@
     <div class="dropdown-container">
         <a href="/admin/addBrand">افزودن برند جدید</a>
     </div>
+    <button class="dropdown-btn">مدیریت ماشین ها
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="/admin/addCarType">افزودن ماشین جدید</a>
+    </div>
 </div>
 
 @yield('content')
