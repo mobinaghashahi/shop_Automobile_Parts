@@ -46,7 +46,7 @@ class admin extends Controller
             mkdir($destination,0777,true);
         $file=$request->file('file');
         $file->move($destination,'1.png');
-        return redirect()->intended('/admin/addProduct')->with('msg','محصول با موقیت افزوده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+        return redirect()->intended('/admin/addProduct')->with('msg','محصول با موفقیت افزوده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 
 
@@ -69,8 +69,22 @@ class admin extends Controller
         $file=$request->file('file');
         $file->move($destination,'1.png');
 
-        return redirect()->intended('/admin/addBrand')->with('msg','برند با موقیت افزوده شد.');
+        return redirect()->intended('/admin/addBrand')->with('msg','برند با موفقیت افزوده شد.');
     }
 
+    public function showAddCarType(){
+        return view('admin.addCarType');
+    }
+    public function addCarType(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'companyName' => 'required',
+        ]);
+        $carType = new CarType();
+        $carType->name=$request->name;
+        $carType->companyName=$request->companyName;
+        $carType->save();
 
+        return redirect()->intended('/admin/addCarType')->with('msg','ماشین با موفقیت افزوده شد.');
+    }
 }
