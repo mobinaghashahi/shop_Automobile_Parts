@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\registerController;
 use App\Http\Controllers\admin;
 use App\Http\Controllers\productDetails;
 use App\Http\Middleware\authMiddleware;
+use App\Http\Middleware\adminMiddleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +42,11 @@ Route::post('/register', [registerController::class, 'register']); //روت پس
 
 Route::get('/productDetails', [productDetails::class, 'showDetails']);
 
-Route::prefix('/admin')->group(function () {
+
+Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
     Route::get('/', [admin::class, 'showDashboard']);
+
     Route::get('/addProduct', [admin::class, 'showAddProduct']);
+    Route::post('/addProduct', [admin::class, 'addProduct']);
 });
 
