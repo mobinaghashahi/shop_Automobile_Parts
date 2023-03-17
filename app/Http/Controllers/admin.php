@@ -39,6 +39,7 @@ class admin extends Controller
         $product->category_id=$request->category_id;
         $product->carType_id=$request->carType_id;
         $product->off_id=$request->off_id;
+        $product->description=$request->description;
         $product->save();
 
         $destination='prodoucts/'.Product::all()->last()->id;
@@ -72,6 +73,8 @@ class admin extends Controller
         return redirect()->intended('/admin/addBrand')->with('msg','برند با موفقیت افزوده شد.');
     }
 
+
+
     public function showAddCarType(){
         return view('admin.addCarType');
     }
@@ -87,4 +90,23 @@ class admin extends Controller
 
         return redirect()->intended('/admin/addCarType')->with('msg','ماشین با موفقیت افزوده شد.');
     }
+
+
+
+    public function showAddOff(){
+        return view('admin.addOff');
+    }
+    public function addOff(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'percent'=>'required|integer'
+        ]);
+        $off = new Off();
+        $off->name=$request->name;
+        $off->percent=$request->percent;
+        $off->save();
+
+        return redirect()->intended('/admin/addOff')->with('msg','تخفیف با موفقیت افزوده شد.');
+    }
+
 }
