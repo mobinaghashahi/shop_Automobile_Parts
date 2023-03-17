@@ -16,6 +16,7 @@ class admin extends Controller
     }
 
 
+
     public function showAddProduct(){
         return view('admin.addProduct',['brand'=>Brand::get(),
             'carType'=>CarType::all(),
@@ -47,4 +48,29 @@ class admin extends Controller
         $file->move($destination,'1.png');
         return redirect()->intended('/admin/addProduct')->with('msg','محصول با موقیت افزوده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
+
+
+
+    public function showAddBrand(){
+        return view('admin.addBrand');
+    }
+    public function addBrand(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'file' => 'required',
+        ]);
+        $brand = new Brand();
+        $brand->name=$request->name;
+        $brand->save();
+
+        $destination='brand/'.Brand::all()->last()->id;
+        if(!is_dir($destination))
+            mkdir($destination,0777,true);
+        $file=$request->file('file');
+        $file->move($destination,'1.png');
+
+        return redirect()->intended('/admin/addBrand')->with('msg','برند با موقیت افزوده شد.');
+    }
+
+
 }
