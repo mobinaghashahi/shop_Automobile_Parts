@@ -33,16 +33,12 @@
     </button>
     <div class="dropdown-container">
         <a href="/admin/addProduct">افزودن محصول جدید</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
     </div>
-    <button class="dropdown-btn">مدیریت فروش
+    <button class="dropdown-btn">مدیریت برندها
         <i class="fa fa-caret-down"></i>
     </button>
     <div class="dropdown-container">
-        <a href="#">افزودن محصول جدید</a>
-        <a href="#">Link 2</a>
-        <a href="#">Link 3</a>
+        <a href="/admin/addBrand">افزودن برند جدید</a>
     </div>
 </div>
 
