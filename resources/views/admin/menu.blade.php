@@ -33,6 +33,7 @@
     </button>
     <div class="dropdown-container">
         <a href="/admin/addProduct">افزودن محصول جدید</a>
+        <a href="/admin/editProduct">ویرایش محصولات</a>
     </div>
     <button class="dropdown-btn">مدیریت برندها
         <i class="fa fa-caret-down"></i>
