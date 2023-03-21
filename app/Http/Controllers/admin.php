@@ -122,15 +122,16 @@ class admin extends Controller
             array_map("unlink", glob($mask));
             rmdir($imagePath);
         }
-        return redirect()->intended('/admin/editProduct')->with('msg', 'محصول با موفقیت حذف شد.');
+        return redirect()->intended('/admin/editProductPanel')->with('msg', 'محصول با موفقیت حذف شد.');
     }
+
+
 
 
     public function showAddBrand()
     {
         return view('admin.addBrand');
     }
-
     public function addBrand(Request $request)
     {
         $validated = $request->validate([
@@ -149,6 +150,44 @@ class admin extends Controller
 
         return redirect()->intended('/admin/addBrand')->with('msg', 'برند با موفقیت افزوده شد.');
     }
+    public function showEditBrandPanel(){
+        return view('admin.editBrandPanel',['brands' => Brand::all()]);
+    }
+    public function showEditBrand($id){
+        return view('admin.editBrand',['brand' => Brand::where('id','=',$id)->get()]);
+    }
+    public function editBrand(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'file' => 'mimes:png|required'
+        ]);
+        $brand = Brand::findOrFail($request->id);
+        $brand->name = $request->name;
+        $brand->save();
+
+        $destination = 'brand/' . $request->id;
+        if (!is_dir($destination))
+            mkdir($destination, 0777, true);
+
+        $file = $request->file('file');
+        $file->move($destination, '1.png');
+        return redirect()->intended('/admin/editBrand/'.$request->id)->with('msg', 'برند با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+    public function deleteBrand($id){
+        $brand = Brand::findOrFail($id);
+        $brand->delete();
+        $imagePath = 'brand/' . $id;
+        $mask = $imagePath . "/*";
+        if (is_dir($imagePath)){
+            //برای حذف یک دایرکتوری در php باید اول تمام فایل های موجود در آن دایرکتوری را حذف کرد و بعد آن دایرکتوری را حذف کرد
+            array_map("unlink", glob($mask));
+            rmdir($imagePath);
+        }
+        return redirect()->intended('/admin/editBrandPanel')->with('msg', 'برند با موفقیت حذف شد.');
+    }
+
+
+
 
 
     public function showAddCarType()
