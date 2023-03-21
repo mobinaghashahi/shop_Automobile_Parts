@@ -54,7 +54,7 @@ class admin extends Controller
         return redirect()->intended('/admin/addProduct')->with('msg', 'محصول با موفقیت افزوده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 
-    public function showEditProduct()
+    public function showEditProductPanel()
     {
         return view('admin.editProductPanel', ['products' => Product::join('brand', 'brand.id', '=', 'products.brand_id')
             ->join('cartype', 'cartype.id', '=', 'products.cartype_id')
