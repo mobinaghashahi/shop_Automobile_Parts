@@ -49,6 +49,8 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
     Route::get('/addProduct', [admin::class, 'showAddProduct']);
     Route::post('/addProduct', [admin::class, 'addProduct']);
     Route::get('/editProductPanel', [admin::class, 'showEditProductPanel']);
+    Route::get('/editProduct/{id}', [admin::class, 'showEditProduct']);
+    Route::post('/editProduct', [admin::class, 'editProduct']);
     Route::get('/deleteProduct/{id}', [admin::class, 'deleteProduct']);
 
     Route::get('/addBrand', [admin::class, 'showAddBrand']);
