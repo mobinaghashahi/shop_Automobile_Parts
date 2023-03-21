@@ -66,6 +66,50 @@ class admin extends Controller
             ->get()]);
     }
 
+    public function showEditProduct($id){
+        return view('admin.editProduct', ['currentlyProduct' => Product::join('brand', 'brand.id', '=', 'products.brand_id')
+            ->join('cartype', 'cartype.id', '=', 'products.cartype_id')
+            ->join('category', 'category.id', '=', 'products.category_id')
+            ->join('off', 'off.id', '=', 'products.off_id')->where('products.id','=',$id)
+            ->select('products.*', 'brand.name as brandName',
+                'cartype.name as carTypeName', 'category.name as categoryName'
+                , 'off.name as offName')
+            ->get(),
+            'brand' => Brand::all(),
+            'carType' => CarType::all(),
+            'off' => Off::all(),
+            'category' => Category::all()]);
+    }
+
+    public function editProduct(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'count' => 'required|integer',
+            'price' => 'required|integer',
+            'file' => 'mimes:png'
+        ]);
+        $product = Product::findOrFail($request->id);
+        $product->name = $request->name;
+        $product->count = $request->count;
+        $product->price = $request->price;
+        $product->brand_id = $request->brand_id;
+        $product->category_id = $request->category_id;
+        $product->carType_id = $request->carType_id;
+        $product->off_id = $request->off_id;
+        $product->description = $request->description;
+        $product->save();
+
+        $destination = 'products/' . $request->id;
+        if (!is_dir($destination))
+            mkdir($destination, 0777, true);
+        if(!empty($request->file('file')))
+        {
+            $file = $request->file('file');
+            $file->move($destination, '1.png');
+        }
+        return redirect()->intended('/admin/editProduct/'.$request->id)->with('msg', 'محصول با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+
     public function deleteProduct($id)
     {
         $product = Product::findOrFail($id);
