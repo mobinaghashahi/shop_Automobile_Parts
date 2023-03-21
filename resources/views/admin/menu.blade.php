@@ -40,6 +40,7 @@
     </button>
     <div class="dropdown-container">
         <a href="/admin/addBrand">افزودن برند جدید</a>
+        <a href="/admin/editBrandPanel">ویرایش برندها</a>
     </div>
     <button class="dropdown-btn">مدیریت ماشین ها
         <i class="fa fa-caret-down"></i>
