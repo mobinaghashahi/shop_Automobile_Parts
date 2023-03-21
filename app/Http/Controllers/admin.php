@@ -48,9 +48,10 @@ class admin extends Controller
         $destination = 'products/' . Product::all()->last()->id;
         if (!is_dir($destination))
             mkdir($destination, 0777, true);
-        $file = $request->file('file');
-        //Storage::disk('public')->put($destination, $file);
-        $file->move($destination, '1.png');
+        if(!empty($request->file('file'))) {
+            $file = $request->file('file');
+            $file->move($destination, '1.png');
+        }
         return redirect()->intended('/admin/addProduct')->with('msg', 'محصول با موفقیت افزوده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 
