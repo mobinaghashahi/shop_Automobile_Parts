@@ -54,6 +54,7 @@
     </button>
     <div class="dropdown-container">
         <a href="/admin/addOff">افزودن تخفیف جدید</a>
+        <a href="/admin/editOffPanel">ویرایش تخفیف</a>
     </div>
     <button class="dropdown-btn">مدیریت دسته بندی ها
         <i class="fa fa-caret-down"></i>
