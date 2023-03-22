@@ -254,7 +254,7 @@ class admin extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'percent' => 'required|integer'
+            'percent' => 'required|integer|min:0|max:100'
         ]);
         $off = new Off();
         $off->name = $request->name;
@@ -262,6 +262,31 @@ class admin extends Controller
         $off->save();
 
         return redirect()->intended('/admin/addOff')->with('msg', 'تخفیف با موفقیت افزوده شد.');
+    }
+    public function showEditOffPanel(){
+        return view('admin.editOffPanel',['offs'=>Off::all()]);
+    }
+    public function deleteOff($id)
+    {
+        $off = Off::findOrFail($id);
+        $off->delete();
+        return redirect()->intended('/admin/editOffPanel')->with('msg', 'تخفیف با موفقیت حذف شد.');
+    }
+    public function showEditOff($id)
+    {
+        return view('admin.editOff',['off'=>Off::where('id','=',$id)->get()]);
+    }
+    public function editOff(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+            'percent' => 'required|integer|min:0|max:100'
+        ]);
+        $off = Off::findOrFail($request->id);
+        $off->name = $off->name;
+        $off->percent = $request->percent;
+        $off->save();
+        return redirect()->intended('/admin/editOff/' . $request->id)->with('msg', 'تخفیف با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 
 
