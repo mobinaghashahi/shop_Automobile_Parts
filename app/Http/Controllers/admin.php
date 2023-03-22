@@ -208,6 +208,30 @@ class admin extends Controller
 
         return redirect()->intended('/admin/addCarType')->with('msg', 'ماشین با موفقیت افزوده شد.');
     }
+    public function showEditCarTypePanel(){
+        return view('admin.editCarTypePanel',['carTypes' => CarType::all()]);
+    }
+    public function deleteCarType($id){
+        $carType = CarType::findOrFail($id);
+        $carType->delete();
+        return redirect()->intended('/admin/editCarTypePanel')->with('msg', 'ماشین با موفقیت حذف شد.');
+    }
+    public function showEditCarType($id){
+        return view('admin.editCarType',['carType'=>CarType::where('id','=',$id)->get()]);
+    }
+    public function editCarType(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'companyName' => 'required'
+        ]);
+        $carType = CarType::findOrFail($request->id);
+        $carType->name = $request->name;
+        $carType->companyName = $request->companyName;
+        $carType->save();
+
+        return redirect()->intended('/admin/editCarType/'.$request->id)->with('msg', 'نوع ماشین با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+
 
 
     public function showAddOff()
