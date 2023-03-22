@@ -47,6 +47,7 @@
     </button>
     <div class="dropdown-container">
         <a href="/admin/addCarType">افزودن ماشین جدید</a>
+        <a href="/admin/editCarTypePanel">ویراش ماشین ها</a>
     </div>
     <button class="dropdown-btn">مدیریت تخفیف ها
         <i class="fa fa-caret-down"></i>
