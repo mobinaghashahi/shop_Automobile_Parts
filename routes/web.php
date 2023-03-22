@@ -76,6 +76,10 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
 
     Route::get('/addCategory', [admin::class, 'showAddCategory']);
     Route::post('/addCategory', [admin::class, 'addCategory']);
+    Route::get('/editCategoryPanel', [admin::class, 'showEditCategoryPanel']);
+    Route::get('/deleteCategory/{id}', [admin::class, 'deleteCategory']);
+    Route::get('/editCategory/{id}', [admin::class, 'showEditCategory']);
+    Route::post('/editCategory', [admin::class, 'editCategory']);
 
 });
 
