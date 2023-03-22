@@ -62,6 +62,10 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
 
     Route::get('/addCarType', [admin::class, 'showAddCarType']);
     Route::post('/addCarType', [admin::class, 'addCarType']);
+    Route::get('/editCarTypePanel', [admin::class, 'showEditCarTypePanel']);
+    Route::get('/deleteCarType/{id}', [admin::class, 'deleteCarType']);
+    Route::get('/editCarType/{id}', [admin::class, 'showEditCarType']);
+    Route::post('/editCarType', [admin::class, 'editCarType']);
 
     Route::get('/addOff', [admin::class, 'showAddOff']);
     Route::post('/addOff', [admin::class, 'addOff']);
