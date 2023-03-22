@@ -48,7 +48,7 @@ class admin extends Controller
         $destination = 'products/' . Product::all()->last()->id;
         if (!is_dir($destination))
             mkdir($destination, 0777, true);
-        if(!empty($request->file('file'))) {
+        if (!empty($request->file('file'))) {
             $file = $request->file('file');
             $file->move($destination, '1.png');
         }
@@ -67,11 +67,12 @@ class admin extends Controller
             ->get()]);
     }
 
-    public function showEditProduct($id){
+    public function showEditProduct($id)
+    {
         return view('admin.editProduct', ['currentlyProduct' => Product::join('brand', 'brand.id', '=', 'products.brand_id')
             ->join('cartype', 'cartype.id', '=', 'products.cartype_id')
             ->join('category', 'category.id', '=', 'products.category_id')
-            ->join('off', 'off.id', '=', 'products.off_id')->where('products.id','=',$id)
+            ->join('off', 'off.id', '=', 'products.off_id')->where('products.id', '=', $id)
             ->select('products.*', 'brand.name as brandName',
                 'cartype.name as carTypeName', 'category.name as categoryName'
                 , 'off.name as offName')
@@ -82,7 +83,8 @@ class admin extends Controller
             'category' => Category::all()]);
     }
 
-    public function editProduct(Request $request){
+    public function editProduct(Request $request)
+    {
         $validated = $request->validate([
             'name' => 'required',
             'count' => 'required|integer',
@@ -103,12 +105,11 @@ class admin extends Controller
         $destination = 'products/' . $request->id;
         if (!is_dir($destination))
             mkdir($destination, 0777, true);
-        if(!empty($request->file('file')))
-        {
+        if (!empty($request->file('file'))) {
             $file = $request->file('file');
             $file->move($destination, '1.png');
         }
-        return redirect()->intended('/admin/editProduct/'.$request->id)->with('msg', 'محصول با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+        return redirect()->intended('/admin/editProduct/' . $request->id)->with('msg', 'محصول با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 
     public function deleteProduct($id)
@@ -117,7 +118,7 @@ class admin extends Controller
         $product->delete();
         $imagePath = 'products/' . $id;
         $mask = $imagePath . "/*";
-        if (is_dir($imagePath)){
+        if (is_dir($imagePath)) {
             //برای حذف یک دایرکتوری در php باید اول تمام فایل های موجود در آن دایرکتوری را حذف کرد و بعد آن دایرکتوری را حذف کرد
             array_map("unlink", glob($mask));
             rmdir($imagePath);
@@ -126,12 +127,11 @@ class admin extends Controller
     }
 
 
-
-
     public function showAddBrand()
     {
         return view('admin.addBrand');
     }
+
     public function addBrand(Request $request)
     {
         $validated = $request->validate([
@@ -150,13 +150,19 @@ class admin extends Controller
 
         return redirect()->intended('/admin/addBrand')->with('msg', 'برند با موفقیت افزوده شد.');
     }
-    public function showEditBrandPanel(){
-        return view('admin.editBrandPanel',['brands' => Brand::all()]);
+
+    public function showEditBrandPanel()
+    {
+        return view('admin.editBrandPanel', ['brands' => Brand::all()]);
     }
-    public function showEditBrand($id){
-        return view('admin.editBrand',['brand' => Brand::where('id','=',$id)->get()]);
+
+    public function showEditBrand($id)
+    {
+        return view('admin.editBrand', ['brand' => Brand::where('id', '=', $id)->get()]);
     }
-    public function editBrand(Request $request){
+
+    public function editBrand(Request $request)
+    {
         $validated = $request->validate([
             'name' => 'required',
             'file' => 'mimes:png|required'
@@ -171,23 +177,22 @@ class admin extends Controller
 
         $file = $request->file('file');
         $file->move($destination, '1.png');
-        return redirect()->intended('/admin/editBrand/'.$request->id)->with('msg', 'برند با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+        return redirect()->intended('/admin/editBrand/' . $request->id)->with('msg', 'برند با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
-    public function deleteBrand($id){
+
+    public function deleteBrand($id)
+    {
         $brand = Brand::findOrFail($id);
         $brand->delete();
         $imagePath = 'brand/' . $id;
         $mask = $imagePath . "/*";
-        if (is_dir($imagePath)){
+        if (is_dir($imagePath)) {
             //برای حذف یک دایرکتوری در php باید اول تمام فایل های موجود در آن دایرکتوری را حذف کرد و بعد آن دایرکتوری را حذف کرد
             array_map("unlink", glob($mask));
             rmdir($imagePath);
         }
         return redirect()->intended('/admin/editBrandPanel')->with('msg', 'برند با موفقیت حذف شد.');
     }
-
-
-
 
 
     public function showAddCarType()
@@ -208,18 +213,26 @@ class admin extends Controller
 
         return redirect()->intended('/admin/addCarType')->with('msg', 'ماشین با موفقیت افزوده شد.');
     }
-    public function showEditCarTypePanel(){
-        return view('admin.editCarTypePanel',['carTypes' => CarType::all()]);
+
+    public function showEditCarTypePanel()
+    {
+        return view('admin.editCarTypePanel', ['carTypes' => CarType::all()]);
     }
-    public function deleteCarType($id){
+
+    public function deleteCarType($id)
+    {
         $carType = CarType::findOrFail($id);
         $carType->delete();
         return redirect()->intended('/admin/editCarTypePanel')->with('msg', 'ماشین با موفقیت حذف شد.');
     }
-    public function showEditCarType($id){
-        return view('admin.editCarType',['carType'=>CarType::where('id','=',$id)->get()]);
+
+    public function showEditCarType($id)
+    {
+        return view('admin.editCarType', ['carType' => CarType::where('id', '=', $id)->get()]);
     }
-    public function editCarType(Request $request){
+
+    public function editCarType(Request $request)
+    {
         $validated = $request->validate([
             'name' => 'required',
             'companyName' => 'required'
@@ -228,10 +241,8 @@ class admin extends Controller
         $carType->name = $request->name;
         $carType->companyName = $request->companyName;
         $carType->save();
-
-        return redirect()->intended('/admin/editCarType/'.$request->id)->with('msg', 'نوع ماشین با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+        return redirect()->intended('/admin/editCarType/' . $request->id)->with('msg', 'نوع ماشین با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
-
 
 
     public function showAddOff()

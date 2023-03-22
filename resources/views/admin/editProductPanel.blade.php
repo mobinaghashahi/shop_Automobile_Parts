@@ -44,10 +44,13 @@
                                 <td>
 
                                     <div class="col-6">
-                                        <a href="/admin/deleteProduct/{{$product->id}}"> <img src="/logo/delete.png" width="15" height="15"></a>
+                                        <a href="/admin/deleteProduct/{{$product->id}}"> <img src="/logo/delete.png"
+                                                                                              width="15"
+                                                                                              height="15"></a>
                                     </div>
                                     <div class="col-6">
-                                        <a href="/admin/editProduct/{{$product->id}}"> <img src="/logo/pen.png" width="15" height="15"></a>
+                                        <a href="/admin/editProduct/{{$product->id}}"> <img src="/logo/pen.png"
+                                                                                            width="15" height="15"></a>
                                     </div>
                                 </td>
                             </tr>

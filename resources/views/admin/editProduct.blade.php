@@ -1,4 +1,3 @@
-
 @extends('admin.menu')
 @section('content')
     <div class="main">
@@ -28,20 +27,24 @@
 
             <form method="post" name="enter" enctype="multipart/form-data" action="/admin/editProduct">
                 @csrf
-                <input name="id" value="{{$currentlyProduct[0]->id}}" style="text-align: center;display: none" class="inputText" placeholder="نام محصول">
+                <input name="id" value="{{$currentlyProduct[0]->id}}" style="text-align: center;display: none"
+                       class="inputText" placeholder="نام محصول">
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-4">
-                        <input name="name" value="{{$currentlyProduct[0]->name}}" style="text-align: center" class="inputText" placeholder="نام محصول">
+                        <input name="name" value="{{$currentlyProduct[0]->name}}" style="text-align: center"
+                               class="inputText" placeholder="نام محصول">
                     </div>
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-4">
-                        <input name="price" value="{{$currentlyProduct[0]->price}}" style="text-align: center" class="inputText" placeholder="قیمت">
+                        <input name="price" value="{{$currentlyProduct[0]->price}}" style="text-align: center"
+                               class="inputText" placeholder="قیمت">
                     </div>
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-4">
-                        <input name="count" value="{{$currentlyProduct[0]->count}}" style="text-align: center" class="inputText" placeholder="تعداد">
+                        <input name="count" value="{{$currentlyProduct[0]->count}}" style="text-align: center"
+                               class="inputText" placeholder="تعداد">
                     </div>
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
@@ -54,10 +57,11 @@
                     <div class="col-4" style="text-align: center">
                         <label>برند</label>
                         <select class="inputText" style="background-color: white" name="brand_id" id="cars">
-                            <option value="{{$currentlyProduct[0]->brand_id}}">{{$currentlyProduct[0]->brandName}}</option>
+                            <option
+                                value="{{$currentlyProduct[0]->brand_id}}">{{$currentlyProduct[0]->brandName}}</option>
                             @foreach ($brand as $index => $brandRows)
                                 @if($currentlyProduct[0]->brand_id!=$brandRows->id)
-                                <option value="{{$brandRows->id}}">{{$brandRows->name}}</option>
+                                    <option value="{{$brandRows->id}}">{{$brandRows->name}}</option>
                                 @endif
                             @endforeach
                         </select>
@@ -67,7 +71,8 @@
                     <div class="col-4" style="text-align: center">
                         <label>نوع ماشین</label>
                         <select class="inputText" style="background-color: white" name="carType_id" id="cars">
-                            <option value="{{$currentlyProduct[0]->carType_id}}">{{$currentlyProduct[0]->carTypeName}}</option>
+                            <option
+                                value="{{$currentlyProduct[0]->carType_id}}">{{$currentlyProduct[0]->carTypeName}}</option>
                             @foreach ($carType as $index => $carTypeRows)
                                 @if($currentlyProduct[0]->carType_id!=$carTypeRows->id)
                                     <option value="{{$carTypeRows->id}}">{{$carTypeRows->name}}</option>
@@ -93,7 +98,8 @@
                     <div class="col-4" style="text-align: center">
                         <label>دسته بندی</label>
                         <select class="inputText" style="background-color: white" name="category_id" id="cars">
-                            <option value="{{$currentlyProduct[0]->category_id}}">{{$currentlyProduct[0]->categoryName}}</option>
+                            <option
+                                value="{{$currentlyProduct[0]->category_id}}">{{$currentlyProduct[0]->categoryName}}</option>
                             @foreach ($category as $index => $categoryRows)
                                 @if($currentlyProduct[0]->category_id!=$categoryRows->id)
                                     <option value="{{$categoryRows->id}}">{{$categoryRows->name}}</option>

@@ -28,7 +28,8 @@
             <form method="post" name="enter" enctype="multipart/form-data" action="/admin/editCarType">
                 @csrf
                 <div class="col-12 titleTextInput" style="display: flex;justify-content: center">
-                    <input value="{{$carType[0]->id}}" name="id" style="display:none;text-align: center" class="inputText"
+                    <input value="{{$carType[0]->id}}" name="id" style="display:none;text-align: center"
+                           class="inputText"
                            placeholder="نام ماشین">
                     <div class="col-3">
                         <input value="{{$carType[0]->name}}" name="name" style="text-align: center" class="inputText"
