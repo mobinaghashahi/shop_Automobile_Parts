@@ -283,7 +283,7 @@ class admin extends Controller
             'percent' => 'required|integer|min:0|max:100'
         ]);
         $off = Off::findOrFail($request->id);
-        $off->name = $off->name;
+        $off->name = $request->name;
         $off->percent = $request->percent;
         $off->save();
         return redirect()->intended('/admin/editOff/' . $request->id)->with('msg', 'تخفیف با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
@@ -305,5 +305,27 @@ class admin extends Controller
         $category->save();
 
         return redirect()->intended('/admin/addCategory')->with('msg', 'دسته بندی با موفقیت افزوده شد.');
+    }
+    public function showEditCategoryPanel(){
+        return view('admin.editCategoryPanel',['categorys'=>Category::all()]);
+    }
+    public function deleteCategory($id){
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return redirect()->intended('/admin/editCategoryPanel')->with('msg', 'دسته بندی با موفقیت حذف شد.');
+    }
+    public function showEditCategory($id)
+    {
+        return view('admin.editCategory',['category'=>Category::where('id','=',$id)->get()]);
+    }
+    public function editCategory(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required',
+        ]);
+        $category = Category::findOrFail($request->id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->intended('/admin/editCategory/' . $request->id)->with('msg', 'دسته بندی با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 }
