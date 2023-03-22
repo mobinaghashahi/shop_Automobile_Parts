@@ -61,6 +61,7 @@
     </button>
     <div class="dropdown-container">
         <a href="/admin/addCategory">افزودن دسته بندی جدید</a>
+        <a href="/admin/editCategoryPanel">ویرایش دسته بندی ها</a>
     </div>
 </div>
 
