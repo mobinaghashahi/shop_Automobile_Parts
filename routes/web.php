@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\loginController;
 use App\Http\Controllers\Auth\logoutController;
 use App\Http\Controllers\Auth\registerController;
 use App\Http\Controllers\admin;
+use App\Http\Controllers\home;
 use App\Http\Controllers\productDetails;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
@@ -22,9 +23,8 @@ use App\Http\Middleware\adminMiddleware;
 |
 */
 
-Route::get('/', function () {
-    return view('home/home');
-});
+Route::get('/', [home::class, 'showHome']);
+
 Route::get('/login', function () {
     return view('login');
 });
