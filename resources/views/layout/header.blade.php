@@ -2,25 +2,25 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/styleLogos.css" rel="stylesheet">
-    <link href="css/styleNavBar.css" rel="stylesheet">
-    <link href="css/slideShow.css" rel="stylesheet">
-    <link href="css/RWD.css" rel="stylesheet">
-    <link href="css/messages.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/styleLogos.css" rel="stylesheet">
+    <link href="/css/styleNavBar.css" rel="stylesheet">
+    <link href="/css/slideShow.css" rel="stylesheet">
+    <link href="/css/RWD.css" rel="stylesheet">
+    <link href="/css/messages.css" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <div class="col-12 header">
         <a href="#">
-            <img class="logoInstagram" src="logo/instagram.png" width="25" height="25">
+            <img class="logoInstagram" src="/logo/instagram.png" width="25" height="25">
         </a>
     </div>
     <div class="col-12">
         <div>
             <a href="/">
-                <img class="logo" src="logo/logo.png">
+                <img class="logo" src="/logo/logo.png">
             </a>
         </div>
         <div class="middleHeader">
