@@ -12,20 +12,24 @@
             @foreach($products as $product)
                 @if($product->category_id==$category->id)
                     @php
-                    $count++
+                        $count++
                     @endphp
                     @if($count==6)
                         @break
                     @endif
+
                     <div class="col-2 products">
-                        <div class="col-12">
-                            <img class="imageProduct" src="products/{{$product->id}}/1.png">
-                        </div>
-                        <div class="col-12 center">
-                            <p>{{$product->name}}</p>
-                            <p style="direction: rtl"> {{number_format($product->price)}} تومان</p>
-                        </div>
+                        <a href="/productDetails/{{$product->id}}" style="color: black">
+                            <div class="col-12">
+                                <img class="imageProduct" src="products/{{$product->id}}/1.png">
+                            </div>
+                            <div class="col-12 center">
+                                <p>{{$product->name}}</p>
+                                <p style="direction: rtl"> {{number_format($product->price)}} تومان</p>
+                            </div>
+                        </a>
                     </div>
+
                 @endif
             @endforeach
         </div>

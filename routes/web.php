@@ -40,7 +40,7 @@ Route::post('/login', [loginController::class, 'login']); //روت پست اطل
 Route::post('/register', [registerController::class, 'register']); //روت پست اطلاعات فرم ثبت نام
 
 
-Route::get('/productDetails', [productDetails::class, 'showDetails']);
+Route::get('/productDetails/{id}', [productDetails::class, 'showDetails']);
 
 
 Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
