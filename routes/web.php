@@ -8,9 +8,11 @@ use App\Http\Controllers\Auth\logoutController;
 use App\Http\Controllers\Auth\registerController;
 use App\Http\Controllers\admin;
 use App\Http\Controllers\home;
+use App\Http\Controllers\user;
 use App\Http\Controllers\productDetails;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
+use App\Http\Middleware\UserMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,3 +85,6 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
 
 });
 
+Route::prefix('/profile')->middleware(UserMiddleware::class)->group(function () {
+    Route::get('/', [user::class, 'showProfile']);
+});

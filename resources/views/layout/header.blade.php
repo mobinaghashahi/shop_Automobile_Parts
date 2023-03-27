@@ -26,9 +26,9 @@
         <div class="middleHeader">
             <div class="divUserName">
                 @if(!Auth::check())
-                    <a href="login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
+                    <a href="/login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
                 @else
-                    <a href="#" style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
+                    <a href="/profile" style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
                 @endif
             </div>
             <div class="divSearch">
