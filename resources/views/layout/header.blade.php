@@ -2,14 +2,16 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/userPanel.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/styleLogos.css" rel="stylesheet">
     <link href="/css/styleNavBar.css" rel="stylesheet">
     <link href="/css/slideShow.css" rel="stylesheet">
     <link href="/css/RWD.css" rel="stylesheet">
     <link href="/css/messages.css" rel="stylesheet">
+
 </head>
-<body>
+<body onload="activeBtn()">
 
 <header>
     <div class="col-12 header">
@@ -28,7 +30,7 @@
                 @if(!Auth::check())
                     <a href="/login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
                 @else
-                    <a href="/profile" style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
+                    <a href="/user/dashboard" style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
                 @endif
             </div>
             <div class="divSearch">

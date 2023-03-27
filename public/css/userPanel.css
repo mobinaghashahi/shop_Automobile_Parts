@@ -1,0 +1,12 @@
+.active {
+    background-color: #313131;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.exit:hover{
+    background-color: #b90000;
+}

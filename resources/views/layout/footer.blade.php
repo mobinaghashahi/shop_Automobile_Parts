@@ -36,6 +36,7 @@
 </div>
 
 <script src="/js/slideShow.js"></script>
+<script src="/js/userPanel.js"></script>
 
 </body>
 </html>
