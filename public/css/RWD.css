@@ -43,4 +43,10 @@
     .products{
         margin: 25px;
     }
+    .inputText{
+        width: 90%;
+    }
+    .fieldsetPassword{
+        width: 85%;
+    }
 }

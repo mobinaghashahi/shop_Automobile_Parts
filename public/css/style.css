@@ -139,3 +139,25 @@ body {
     border-radius: 5px;
     text-decoration: none;
 }
+.fieldsetPassword{
+    border-color: #e18b4e;
+    width: 93%;
+}
+table {
+    overflow: scroll;
+    overflow-x: hidden;
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    overflow: scroll;
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}

@@ -86,7 +86,7 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
 });
 
 Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
-    Route::get('/dashboard', [user::class, 'showProfile']);
+    Route::get('/dashboard', [user::class, 'showDashboard']);
     Route::get('/profile', [user::class, 'showProfile']);
-    Route::get('/orders', [user::class, 'showProfile']);
+    Route::get('/orders', [user::class, 'showOrders']);
 });
