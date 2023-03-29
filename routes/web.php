@@ -13,6 +13,7 @@ use App\Http\Controllers\productDetails;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
 use App\Http\Middleware\UserMiddleware;
+use App\Http\Middleware\cartValidForUserMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,4 +90,5 @@ Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
     Route::get('/dashboard', [user::class, 'showDashboard']);
     Route::get('/profile', [user::class, 'showProfile']);
     Route::get('/orders', [user::class, 'showOrders']);
+    Route::get('/orderDetails/{id}', [user::class, 'showOrderDetails'])->middleware(cartValidForUserMiddleware::class);
 });
