@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create("buy", function (Blueprint $table) {
             $table->id();
-            $table->integer("state")->default(0);
-
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer("count");
+            $table->integer("price");
 
             $table->unsignedBigInteger('products_id');
             $table->foreign('products_id')->references('id')->on('products');
+
+            $table->unsignedBigInteger('cart_id');
+            $table->foreign('cart_id')->references('id')->on('cart');
 
             $table->rememberToken();
             $table->timestamps();
