@@ -25,7 +25,7 @@
                 </div>
                 <div class="col-6" style="margin-top: 10px">
                     <div class="col-11">
-                        <label>آدرس<span style="color: red">*</span></label>
+                        <label>کد پستی<span style="color: red">*</span></label>
                         <input value="{{Auth::user()->address}}" type="text" class="inputText">
                     </div>
                 </div>
