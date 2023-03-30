@@ -21,7 +21,7 @@
                         <tr>
                             <th>کد</th>
                             <th>نام محصول</th>
-                            <th>قیمت</th>
+                            <th>قیمت (تومان)</th>
                             <th>تعداد</th>
                             <th>توضیحات</th>
                             <th>برند</th>
@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->name}}</td>
-                                <td>{{$product->price}}</td>
+                                <td>{{number_format($product->price)}}</td>
                                 <td>{{$product->count}}</td>
                                 <td>{{$product->description}}</td>
                                 <td>{{$product->brandName}}</td>
