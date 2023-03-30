@@ -30,7 +30,8 @@
                 @if(!Auth::check())
                     <a href="/login" style="text-decoration: none;color: black">ورود | ثبت نام</a>
                 @else
-                    <a href="/user/dashboard" style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
+                    <a href="/user/dashboard"
+                       style="text-decoration: none;color: black">{{Auth::user()->nameAndFamily}}</a>
                 @endif
             </div>
             <div class="divSearch">
@@ -42,29 +43,29 @@
         <ul class="ulNavigator">
             <li class="dropdown"><a class="dropBtn level1">برندها</a>
                 <div class="dropdownContentLevel1">
-                    <a class="level2" href="#">Karmatek <img style="padding-left: 5px;" src="logo/kat.png" width="25"
-                                                             height="25"></a>
-                    <a class="level2" href="#">GMB<img style="padding-left: 5px;" src="logo/gmb.png" width="25"
-                                                       height="25"></a>
-                    <a class="level2" href="#">GISP<img style="padding-left: 5px;" src="logo/gisp.png" width="25"
-                                                        height="25"></a>
+                    @foreach($brands as $brand)
+                        <a class="level2" href="#">{{$brand->name}} <img style="padding-left: 5px;" src="/brand/{{$brand->id}}/1.png"
+                                                                 width="25"
+                                                                 height="25"/></a>
+                    @endforeach
                 </div>
             </li>
             <li class="dropdown">
                 <a class="dropBtn level1">محصولات</a>
                 <div class="dropdownContentLevel1">
                     <a class="level2" href="#">سایپا<img style="padding-left: 5px;" src="logo/saypa.png" width="20"
-                                                                                    height="20"></a>
+                                                         height="20"></a>
                     <div class="dropdownContentLevel2">
-                        <a class="level3" href="#">ساینا</a>
-                        <a class="level3" href="#">تیبا</a>
-                        <a class="level3" href="#">کوییک</a>
+                        @foreach($carsSaypa as $car)
+                        <a class="level3" href="#">{{$car->name}}</a>
+                        @endforeach
                     </div>
                     <a class="level2" href="#">ایران خودرو<img style="padding-left: 5px;" src="logo/irankhodro.png"
-                                                                                           width="20" height="25"></a>
+                                                               width="20" height="25"></a>
                     <div class="dropdownContentLevel2">
-                        <a class="level3" href="#">پژو</a>
-                        <a class="level3" href="#">پیکان</a>
+                        @foreach($carsIranKhodro as $car)
+                            <a class="level3" href="#">{{$car->name}}</a>
+                        @endforeach
                     </div>
                 </div>
             </li>
