@@ -8,7 +8,7 @@ use App\Http\Controllers\Auth\logoutController;
 use App\Http\Controllers\Auth\registerController;
 use App\Http\Controllers\admin;
 use App\Http\Controllers\home;
-use App\Http\Controllers\user;
+use App\Http\Controllers\users;
 use App\Http\Controllers\productDetails;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
@@ -87,8 +87,9 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
 });
 
 Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
-    Route::get('/dashboard', [user::class, 'showDashboard']);
-    Route::get('/profile', [user::class, 'showProfile']);
-    Route::get('/orders', [user::class, 'showOrders']);
-    Route::get('/orderDetails/{id}', [user::class, 'showOrderDetails'])->middleware(cartValidForUserMiddleware::class);
+    Route::get('/dashboard', [users::class, 'showDashboard']);
+    Route::get('/profile', [users::class, 'showProfile']);
+    Route::post('/profile', [users::class, 'editProfile']);
+    Route::get('/orders', [users::class, 'showOrders']);
+    Route::get('/orderDetails/{id}', [users::class, 'showOrderDetails'])->middleware(cartValidForUserMiddleware::class);
 });
