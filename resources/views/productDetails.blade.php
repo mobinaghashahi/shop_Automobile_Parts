@@ -12,13 +12,17 @@
             </div>
             <div class="col-12" style="margin: 0px 40px 0px 20px">
                 <p style="text-align: right">برند: {{$product[0]->brandName}}</p>
-                <p style="text-align: right">موجودی: 15 عدد</p>
+                <p style="text-align: right">موجودی: {{stock($product[0]->id)}} عدد</p>
                 <p style="text-align: right">قیمت تکی: {{number_format($product[0]->price)}} تومان</p>
                 <p style="text-align: right">قیمت عمده: 1000 تومان</p>
                 <p style="text-align: right;direction: rtl">{{$product[0]->description}}</p>
             </div>
             <div class="col-10" style="margin-right: 40px">
-                <input class="inputSubmit" type="submit" value="خرید">
+                @if(stock($product[0]->id)>0)
+                    <input class="inputSubmit" type="submit" value="خرید">
+                @else
+                    <input disabled class="inputAlert" type="submit" value="ناموجود">
+                @endif
             </div>
         </div>
     </div>

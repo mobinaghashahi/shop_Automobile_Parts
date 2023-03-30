@@ -161,3 +161,10 @@ td, th {
 tr:nth-child(even) {
     background-color: #dddddd;
 }
+
+.inputAlert{
+    width: 100%;
+    background-color: #c70000;
+    height:35px;
+    color: white;
+}
