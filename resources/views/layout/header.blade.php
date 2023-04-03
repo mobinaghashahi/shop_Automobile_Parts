@@ -57,14 +57,14 @@
                                                          height="20"></a>
                     <div class="dropdownContentLevel2">
                         @foreach($carsSaypa as $car)
-                        <a class="level3" href="/carType/{{$car->id}}">{{$car->name}}</a>
+                        <a class="level3" href="/carTypeCategorys/{{$car->id}}">{{$car->name}}</a>
                         @endforeach
                     </div>
                     <a class="level2" href="#">ایران خودرو<img style="padding-left: 5px;" src="/logo/irankhodro.png"
                                                                width="20" height="25"></a>
                     <div class="dropdownContentLevel2">
                         @foreach($carsIranKhodro as $car)
-                            <a class="level3" href="/carType/{{$car->id}}">{{$car->name}}</a>
+                            <a class="level3" href="/carTypeCategorys/{{$car->id}}">{{$car->name}}</a>
                         @endforeach
                     </div>
                 </div>

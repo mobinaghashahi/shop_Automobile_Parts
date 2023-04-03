@@ -1,16 +1,20 @@
 @extends('layout.master')
 @section('content')
 
+    <div class="col-12" style="text-align: center;padding-top: 10px;font-weight: bolder">
+        <h>
+            محصولات {{$car[0]->name}}
+        </h>
+    </div>
     <div class="col-12 divAllProduct">
         @forelse($products as $product)
             <div class="col-2 products">
-                <a href="/productDetails/{{$product->id}}" style="color: black">
+                <a href="/carTypeProducts/{{$product->carType_id}}/{{$product->category_id}}" style="color: black">
                     <div class="col-12 center">
-                        <img class="imageProduct " src="/products/{{$product->id}}/1.png">
+                        <img class="imageProduct " src="/category/{{$product->category_id}}/1.png">
                     </div>
                     <div class="col-12" style="text-align: center">
                         <p>{{$product->name}}</p>
-                        <p style="direction: rtl"> {{number_format($product->price)}} تومان</p>
                     </div>
                 </a>
             </div>
