@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\CarType;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -22,4 +23,18 @@ class products extends Controller
     public function showProductsByBrand($id){
         return view('showBrandProducts',['products'=>Product::where('brand_id','=',$id)->get()]);
     }
+
+    public function showProductsByCarType($id){
+
+        //this is for fix groupBy error!!!!!
+        \DB::statement("SET SQL_MODE=''");
+
+        return view('showCarTypeProducts',['products'=>Product::join('cartype','cartype.id','=','products.carType_id')
+            ->join('category','category.id','=','products.category_id')
+            ->where('carType_id','=',$id)
+            ->select('category.id','category.name')
+            ->groupBy('id')
+            ->get(),'car'=>CarType::where('id','=',$id)->get()]);
+    }
+
 }

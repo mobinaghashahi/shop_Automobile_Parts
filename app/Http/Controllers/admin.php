@@ -299,10 +299,19 @@ class admin extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
+            'file' => 'mimes:png|required',
         ]);
         $category = new Category();
         $category->name = $request->name;
         $category->save();
+
+        $destination = 'category/' . Category::all()->last()->id;
+        if (!is_dir($destination))
+            mkdir($destination, 0777, true);
+        if (!empty($request->file('file'))) {
+            $file = $request->file('file');
+            $file->move($destination, '1.png');
+        }
 
         return redirect()->intended('/admin/addCategory')->with('msg', 'دسته بندی با موفقیت افزوده شد.');
     }
@@ -312,6 +321,14 @@ class admin extends Controller
     public function deleteCategory($id){
         $category = Category::findOrFail($id);
         $category->delete();
+
+        $imagePath = 'category/' . $id;
+        $mask = $imagePath . "/*";
+        if (is_dir($imagePath)) {
+            //برای حذف یک دایرکتوری در php باید اول تمام فایل های موجود در آن دایرکتوری را حذف کرد و بعد آن دایرکتوری را حذف کرد
+            array_map("unlink", glob($mask));
+            rmdir($imagePath);
+        }
         return redirect()->intended('/admin/editCategoryPanel')->with('msg', 'دسته بندی با موفقیت حذف شد.');
     }
     public function showEditCategory($id)
@@ -322,10 +339,19 @@ class admin extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
+            'file' => 'mimes:png',
         ]);
         $category = Category::findOrFail($request->id);
         $category->name = $request->name;
         $category->save();
+
+        $destination = 'category/' . $request->id;
+        if (!is_dir($destination))
+            mkdir($destination, 0777, true);
+        if (!empty($request->file('file'))) {
+            $file = $request->file('file');
+            $file->move($destination, '1.png');
+        }
         return redirect()->intended('/admin/editCategory/' . $request->id)->with('msg', 'دسته بندی با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 }

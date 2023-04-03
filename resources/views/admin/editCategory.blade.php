@@ -33,6 +33,17 @@
                         <input name="name" value="{{$category[0]->name}}" style="text-align: center" class="inputText" placeholder="نام دسته بندی">
                     </div>
                 </div>
+                <div class="col-12 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-4" style="text-align: center">
+                        <input id="file" type="file" class="form-control @error('file') is-invalid @enderror"
+                               name="file">
+                        @error('file')
+                        <span class="invalid-feedback" role="alert">
+						<strong>{{ $message }}</strong>
+					</span>
+                        @enderror
+                    </div>
+                </div>
                 <div class="col-12" style="padding-top: 10px;display: flex;justify-content: center">
                     <div class="col-3">
                         <input class="inputSubmit" type="submit" value="ویراش">

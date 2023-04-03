@@ -30,6 +30,7 @@ use App\Http\Middleware\cartValidForUserMiddleware;
 
 Route::get('/', [home::class, 'showHome']);
 Route::get('/brands/{id}', [products::class, 'showProductsByBrand']);
+Route::get('/carType/{id}', [products::class, 'showProductsByCarType']);
 
 Route::get('/login', function () {
     return view('login');
