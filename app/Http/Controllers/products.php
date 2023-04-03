@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Buy;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class productDetails extends Controller
+class products extends Controller
 {
     public function showDetails($id)
     {
@@ -19,5 +18,8 @@ class productDetails extends Controller
                 'cartype.name as carTypeName', 'category.name as categoryName'
                 , 'off.name as offName')
             ->get()]);
+    }
+    public function showProductsByBrand($id){
+        return view('showBrandProducts',['products'=>Product::where('brand_id','=',$id)->get()]);
     }
 }

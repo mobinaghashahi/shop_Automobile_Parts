@@ -6,7 +6,7 @@
         </p>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -42,7 +42,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -69,7 +69,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -78,7 +78,7 @@
         </div>
     </div>
     <div class="col-2 products">
-         <div class="col-12">
+         <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">
@@ -87,7 +87,7 @@
         </div>
     </div>
     <div class="col-2 products">
-        <div class="col-12">
+        <div class="col-12 center">
             <img class="imageProduct" src="products/1.png">
         </div>
         <div class="col-12 center">

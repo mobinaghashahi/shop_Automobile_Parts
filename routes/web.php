@@ -9,6 +9,8 @@ use App\Http\Controllers\Auth\registerController;
 use App\Http\Controllers\admin;
 use App\Http\Controllers\home;
 use App\Http\Controllers\users;
+use App\Http\Controllers\productBrand;
+use App\Http\Controllers\products;
 use App\Http\Controllers\productDetails;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
@@ -27,6 +29,7 @@ use App\Http\Middleware\cartValidForUserMiddleware;
 */
 
 Route::get('/', [home::class, 'showHome']);
+Route::get('/brands/{id}', [products::class, 'showProductsByBrand']);
 
 Route::get('/login', function () {
     return view('login');
@@ -43,7 +46,7 @@ Route::post('/login', [loginController::class, 'login']); //روت پست اطل
 Route::post('/register', [registerController::class, 'register']); //روت پست اطلاعات فرم ثبت نام
 
 
-Route::get('/productDetails/{id}', [productDetails::class, 'showDetails']);
+Route::get('/productDetails/{id}', [products::class, 'showDetails']);
 
 
 Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
