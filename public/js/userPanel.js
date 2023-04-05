@@ -3,5 +3,5 @@ function activeBtn(){
     let substrings = message.split("/");
     let element = document.getElementById(substrings[substrings.length-1]);
     element.classList.remove("button");
-    element.classList.add("active");
+    element.classList.add("activeBtn");
 }

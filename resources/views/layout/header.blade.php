@@ -10,6 +10,10 @@
     <link href="/css/RWD.css" rel="stylesheet">
     <link href="/css/messages.css" rel="stylesheet">
 
+    <!--owl -->
+    <link href="/css/owl.carousel.css" rel="stylesheet">
+    <link href="/css/owl.theme.default.css" rel="stylesheet">
+
 </head>
 <body onload="activeBtn()">
 
