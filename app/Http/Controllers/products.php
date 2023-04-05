@@ -35,7 +35,7 @@ class products extends Controller
         return view('showCarTypeCategorys', ['products' => Product::join('cartype', 'cartype.id', '=', 'products.carType_id')
             ->join('category', 'category.id', '=', 'products.category_id')
             ->where('carType_id', '=', $id)
-            ->select('category.id as category_id','carType.id as carType_id', 'category.name')
+            ->select('category.id as category_id','cartype.id as carType_id', 'category.name')
             ->groupBy('category_id')
             ->get(), 'car' => CarType::where('id', '=', $id)->get()]);
     }

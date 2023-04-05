@@ -10,5 +10,5 @@ class CarType extends Model
     use HasFactory;
     protected $primaryKey='id';
     protected $fillable=['name','companyName'];
-    protected $table='carType';
+    protected $table='cartype';
 }
