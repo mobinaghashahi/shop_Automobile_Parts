@@ -1,5 +1,9 @@
+@font-face {
+    font-family: myFirstFont;
+    src: url('/font/vazir.ttf');
+}
 *{
-    font-family: 'Vazir';
+    font-family: myFirstFont;
 }
 body {
     margin: 0px;
@@ -100,7 +104,6 @@ body {
     margin: 15px;
 }
 .divAllProduct{
-    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
