@@ -22,9 +22,10 @@
                 <div class="col-12 divLabelInput">
                     <a>موبایل</a>
                 </div>
-                <div class="col-12" style="display: flex;justify-content: center">
-                    <input name="phoneNumber" type="text" class="inputText">
+                <div class="col-12 divInputText">
+                    <input name="phoneNumber" type="text" class="inputText" style="width: 100%;">
                 </div>
+
                 <div class="col-12 divLabelInput">
                     <a>رمز عبور</a>
                 </div>

@@ -84,9 +84,11 @@ body {
 }
 .inputSubmit{
     width: 100%;
+    margin: 0px;
     background-color: #FB8500;
     height:35px;
     color: white;
+    border-radius: 10px;
 }
 .divLabelInput{
     text-align: right;
@@ -175,4 +177,12 @@ tr:nth-child(even) {
 .center{
     display: flex;
     justify-content: center;
+}
+.profileForm{
+    margin-top: 30px;
+    margin-right: 20px;
+}
+.submitAddToCart{
+    margin-right: 40px;
+
 }

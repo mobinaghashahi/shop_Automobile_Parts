@@ -3,7 +3,7 @@
 @section('content')
     <div class="col-12" style="margin-bottom: 25px;margin-top: 25px">
         @include('user.menu')
-        <div class="col-8" style="margin-top: 30px;margin-right: 20px">
+        <div class="col-8 profileForm">
             <div class="col-12" style="direction: rtl">
                 <form method="post" action="profile">
                     <div class="col-12" style="display: flex;justify-content: center">
@@ -55,27 +55,27 @@
                                 <label>
                                     گذرواژه پیشین (در صورتی که قصد تغییر ندارید خالی بگذارید)
                                 </label>
-                                <input name="oldPassword" type="text"
+                                <input name="oldPassword" type="password"
                                        class="inputText">
                             </div>
                             <div class="col-11" style="padding-top: 20px">
                                 <label>
                                     گذرواژه جدید (در صورتی که قصد تغییر ندارید خالی بگذارید)
                                 </label>
-                                <input name="newPassword" type="text"
+                                <input name="newPassword" type="password"
                                        class="inputText">
                             </div>
                             <div class="col-11" style="padding-top: 20px;padding-bottom: 20px">
                                 <label>
                                     تکرار گذرواژه جدید
                                 </label>
-                                <input name="passwordConfirmation" type="text"
+                                <input name="passwordConfirmation" type="password"
                                        class="inputText">
                             </div>
                         </fieldset>
                     </div>
-                    <div class="col-3" style="padding-top: 20px">
-                        <input type="submit" class="inputSubmit" value="ثبت تغییرات">
+                    <div class="col-3" >
+                        <input type="submit" class="inputSubmit submitProfileChange" value="ثبت تغییرات">
                     </div>
                 </form>
             </div>

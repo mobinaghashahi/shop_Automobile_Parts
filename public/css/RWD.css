@@ -61,4 +61,12 @@
         width: 50%;
         height: 50%;
     }
+    .submitProfileChange{
+        width: 95%;
+        margin-top: 10px;
+    }
+    .submitAddToCart{
+        margin: 0px;
+        width: 90%;
+    }
 }
