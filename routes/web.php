@@ -12,6 +12,7 @@ use App\Http\Controllers\users;
 use App\Http\Controllers\productBrand;
 use App\Http\Controllers\products;
 use App\Http\Controllers\productDetails;
+use App\Http\Controllers\cart;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
 use App\Http\Middleware\UserMiddleware;
@@ -97,4 +98,10 @@ Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
     Route::post('/profile', [users::class, 'editProfile']);
     Route::get('/orders', [users::class, 'showOrders']);
     Route::get('/orderDetails/{id}', [users::class, 'showOrderDetails'])->middleware(cartValidForUserMiddleware::class);
+});
+
+Route::prefix('/cart')->middleware(UserMiddleware::class)->group(function () {
+    Route::post('/addToCart',[cart::class,'addToCart']);
+    Route::get('/showCart',[cart::class,'showCart']);
+    Route::get('/deleteOfCart/{id}',[cart::class,'deleteOfCart']);
 });

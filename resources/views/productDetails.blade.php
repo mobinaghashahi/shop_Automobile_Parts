@@ -3,6 +3,26 @@
     <form method="post" name="enter" action="/cart/addToCart">
         @csrf
         <div class="col-12" style="padding: 10px 0px 10px 0px">
+            <div style="text-align: right;direction: rtl">
+                @if (\Session::has('msg'))
+                    <div class="col-12" style="justify-content: center;display: flex">
+                        <div class="col-3">
+                            <div class="successMessage" style="margin-top: 25px">
+                                {!! \Session::get('msg') !!}
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                @if ($errors->any())
+                    @foreach($errors->all() as $error)
+                        <div class="col-12" style="justify-content: center;display: flex">
+                            <div class="col-3">
+                                <p style="color: #ffffff;text-align: center;background-color: #ff2e2e;direction:rtl;line-height: 15px;padding: 10px;border-radius: 10px">{{$error}}</p>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
+            </div>
             <div class="col-7">
                 <div class="col-12" style="display: flex;justify-content: center">
                     <img src="/products/{{$product[0]->id}}/1.png" width="60%" height="60%">
@@ -20,9 +40,12 @@
                     <p style="text-align: right;direction: rtl">{{$product[0]->description}}</p>
                     <input type="text" name="id" value="{{$product[0]->id}}" hidden>
                 </div>
-                <div class="col-10 submitAddToCart" style="float: right">
+                <div class="col-3" style="float: right; display: flex;justify-content: center">
+                    <input type="number" value="1" min="1" name="count" style="width: 35%;text-align: center">
+                </div>
+                <div class="col-6 " style="float: right; display: flex;justify-content: center">
                     @if(stock($product[0]->id)>0)
-                        <input class="inputSubmit"  type="submit" value="خرید" style="width: 50%">
+                        <input class="inputSubmit" type="submit" value="خرید" style="width: 50%">
                     @else
                         <input disabled class="inputAlert" type="submit" value="ناموجود" style="width: 50%">
                     @endif

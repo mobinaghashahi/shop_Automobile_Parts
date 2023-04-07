@@ -32,3 +32,7 @@ function stock($id){
     $product=Product::where('id','=',$id)->get()[0];
     return $product->count-callCountSellProducts($id);
 }
+
+function countCart(){
+    return count(session('products'));
+}
