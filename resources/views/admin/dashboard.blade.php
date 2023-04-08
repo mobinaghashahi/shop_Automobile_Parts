@@ -1,10 +1,43 @@
 @extends('admin.menu')
 @section('content')
+    <script>
+        window.onload = function () {
+
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                theme: "light2", // "light1", "light2", "dark1", "dark2"
+                data: [{
+                    type: "column",
+
+                    legendMarkerColor: "grey",
+                    legendText: "MMbbl = one million barrels",
+                    dataPoints: [
+                        { y: 25, label: "1401/02/06" },
+                        { y: 30,  label: "1401/02/07" },
+                        { y: 10,  label: "1401/02/08" },
+                        { y: 15,  label: "1401/02/09" },
+                        { y: 40,  label: "1401/02/10" },
+                        { y: 20, label: "1401/02/11" },
+                        { y: 14,  label: "1401/02/12" },
+                        { y: 50,  label: "1401/02/13" }
+                    ]
+                }]
+            });
+            chart.render();
+
+        }
+    </script>
     <div class="main col-10" style="float: left">
         <h2 style="text-align: center">به پنل مدیریتی خوش آمدید</h2>
-        <div class="col-12" style="background-color: #4a5568;display: flex;justify-content: center;padding: 10px;border-radius: 10px">
+        <div class="col-12" style="background-color: #4a5568;display: flex;justify-content: center;padding-top: 10px;padding-bottom:30px;border-radius: 10px">
             <div class="col-11">
-                <p style="text-align: center;color: white">سفارشات جدید</p>
+                <div class="col-12" style="display: flex;justify-content: center">
+                    <div class="col-3" style="font-size: 25px">
+                        <p style="text-align: center;color: white;font-size: larger;text-shadow: 2px 0 black">سفارشات جدید</p>
+                    </div>
+                </div>
+
+                @if($orders->count()!=0)
                 <table style="direction: rtl;background-color: #ffffff;">
                     <tr>
                         <th>ردیف</th>
@@ -28,8 +61,23 @@
                         </tr>
                     @endforeach
                 </table>
+                @else
+                    <p style="text-align: center;font-weight: bolder;color: #e2e8f0;font-size: 15px;direction: rtl">سفارش جدیدی وجود ندارد.</p>
+                @endif
             </div>
 
+        </div>
+        <div class="col-12" style="margin-top:20px;background-color: #373f4d;display: flex;justify-content: center;padding-top: 10px;padding-bottom:30px;border-radius: 10px">
+            <div class="col-11">
+                <div class="col-12" style="display: flex;justify-content: center">
+                    <div class="col-3" style="font-size: 25px">
+                        <p style="text-align: center;color: white;font-size: larger;text-shadow: 2px 0 black">گزارش بازدید</p>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
