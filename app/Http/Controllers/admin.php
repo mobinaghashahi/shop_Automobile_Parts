@@ -3,18 +3,36 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brand;
+use App\Models\Buy;
 use App\Models\CarType;
 use App\Models\Category;
+use App\Models\Cart;
 use App\Models\Off;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class admin extends Controller
 {
     public function showDashboard()
     {
-        return view('admin.dashboard');
+        return view('admin.dashboard',['orders'=>Cart::join('users','users.id','=','cart.user_id')
+            ->where('cart.state','=',0)
+            ->select('cart.*','users.nameAndFamily as name')
+            ->get()]);
     }
+
+    public function sendProduct($id){
+        $buy=Cart::findOrFail($id);
+        $buy->state=1;
+        $buy->save();
+        return redirect()->intended('/admin')->with('msg', 'محصول با موفقیت تایید شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+    public function printForSendProduct($id){
+        return view('admin.printForSendProduct',['cart'=>Cart::join('users','users.id','=','cart.user_id')
+            ->where('cart.id','=',$id)->get()]);
+    }
+
 
 
     public function showAddProduct()

@@ -40,8 +40,7 @@
 
 /* Main content */
 .main {
-
-    padding: 0px 202px 10px 0px;
+    padding: 0px 202px 10px 20px;
 }
 
 /* Add an active class to the active dropdown button */
@@ -77,7 +76,6 @@
 }
 
 table {
-    overflow: scroll;
     overflow-x: hidden;
     text-align: center;
     border-collapse: collapse;
@@ -85,7 +83,6 @@ table {
 }
 
 td, th {
-    overflow: scroll;
     border: 1px solid #dddddd;
     text-align: center;
     padding: 5px;

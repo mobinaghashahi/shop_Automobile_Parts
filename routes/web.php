@@ -55,6 +55,10 @@ Route::get('/productDetails/{id}', [products::class, 'showDetails']);
 Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
     Route::get('/', [admin::class, 'showDashboard']);
 
+    Route::get('/sendProduct/{id}', [admin::class, 'sendProduct']);
+    Route::get('/printForSendProduct/{id}', [admin::class, 'printForSendProduct']);
+
+
     Route::get('/addProduct', [admin::class, 'showAddProduct']);
     Route::post('/addProduct', [admin::class, 'addProduct']);
     Route::get('/editProductPanel', [admin::class, 'showEditProductPanel']);

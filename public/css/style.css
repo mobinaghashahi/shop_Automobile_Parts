@@ -153,7 +153,6 @@ body {
     width: 93%;
 }
 table {
-    overflow: scroll;
     overflow-x: hidden;
     text-align: center;
     border-collapse: collapse;
@@ -161,7 +160,6 @@ table {
 }
 
 td, th {
-    overflow: scroll;
     border: 1px solid #dddddd;
     text-align: center;
     padding: 5px;
