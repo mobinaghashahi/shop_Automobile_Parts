@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <title>فروشگاه یدکی اصلی</title>
+    <link rel="icon" type="image/x-icon" href="/logo/logo.png">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/userPanel.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
