@@ -10,29 +10,35 @@ use App\Models\Cart;
 use App\Models\Off;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Visit;
+use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 
 class admin extends Controller
 {
     public function showDashboard()
     {
-        return view('admin.dashboard',['orders'=>Cart::join('users','users.id','=','cart.user_id')
-            ->where('cart.state','=',0)
-            ->select('cart.*','users.nameAndFamily as name')
-            ->get()]);
+
+        return view('admin.dashboard', ['orders' => Cart::join('users', 'users.id', '=', 'cart.user_id')
+            ->where('cart.state', '=', 0)
+            ->select('cart.*', 'users.nameAndFamily as name')
+            ->get(),
+            'visitedMonthAgo'=>visitedMonthAgo()]);
     }
 
-    public function sendProduct($id){
-        $buy=Cart::findOrFail($id);
-        $buy->state=1;
+    public function sendProduct($id)
+    {
+        $buy = Cart::findOrFail($id);
+        $buy->state = 1;
         $buy->save();
         return redirect()->intended('/admin')->with('msg', 'محصول با موفقیت تایید شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
-    public function printForSendProduct($id){
-        return view('admin.printForSendProduct',['cart'=>Cart::join('users','users.id','=','cart.user_id')
-            ->where('cart.id','=',$id)->get()]);
-    }
 
+    public function printForSendProduct($id)
+    {
+        return view('admin.printForSendProduct', ['cart' => Cart::join('users', 'users.id', '=', 'cart.user_id')
+            ->where('cart.id', '=', $id)->get()]);
+    }
 
 
     public function showAddProduct()
@@ -281,19 +287,24 @@ class admin extends Controller
 
         return redirect()->intended('/admin/addOff')->with('msg', 'تخفیف با موفقیت افزوده شد.');
     }
-    public function showEditOffPanel(){
-        return view('admin.editOffPanel',['offs'=>Off::all()]);
+
+    public function showEditOffPanel()
+    {
+        return view('admin.editOffPanel', ['offs' => Off::all()]);
     }
+
     public function deleteOff($id)
     {
         $off = Off::findOrFail($id);
         $off->delete();
         return redirect()->intended('/admin/editOffPanel')->with('msg', 'تخفیف با موفقیت حذف شد.');
     }
+
     public function showEditOff($id)
     {
-        return view('admin.editOff',['off'=>Off::where('id','=',$id)->get()]);
+        return view('admin.editOff', ['off' => Off::where('id', '=', $id)->get()]);
     }
+
     public function editOff(Request $request)
     {
         $validated = $request->validate([
@@ -333,10 +344,14 @@ class admin extends Controller
 
         return redirect()->intended('/admin/addCategory')->with('msg', 'دسته بندی با موفقیت افزوده شد.');
     }
-    public function showEditCategoryPanel(){
-        return view('admin.editCategoryPanel',['categorys'=>Category::all()]);
+
+    public function showEditCategoryPanel()
+    {
+        return view('admin.editCategoryPanel', ['categorys' => Category::all()]);
     }
-    public function deleteCategory($id){
+
+    public function deleteCategory($id)
+    {
         $category = Category::findOrFail($id);
         $category->delete();
 
@@ -349,10 +364,12 @@ class admin extends Controller
         }
         return redirect()->intended('/admin/editCategoryPanel')->with('msg', 'دسته بندی با موفقیت حذف شد.');
     }
+
     public function showEditCategory($id)
     {
-        return view('admin.editCategory',['category'=>Category::where('id','=',$id)->get()]);
+        return view('admin.editCategory', ['category' => Category::where('id', '=', $id)->get()]);
     }
+
     public function editCategory(Request $request)
     {
         $validated = $request->validate([

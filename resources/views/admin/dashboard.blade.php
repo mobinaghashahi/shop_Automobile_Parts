@@ -1,5 +1,7 @@
 @extends('admin.menu')
 @section('content')
+
+
     <script>
         window.onload = function () {
 
@@ -12,14 +14,9 @@
                     legendMarkerColor: "grey",
                     legendText: "MMbbl = one million barrels",
                     dataPoints: [
-                        { y: 25, label: "1401/02/06" },
-                        { y: 30,  label: "1401/02/07" },
-                        { y: 10,  label: "1401/02/08" },
-                        { y: 15,  label: "1401/02/09" },
-                        { y: 40,  label: "1401/02/10" },
-                        { y: 20, label: "1401/02/11" },
-                        { y: 14,  label: "1401/02/12" },
-                        { y: 50,  label: "1401/02/13" }
+                        @for($i=30;$i>=0;$i--)
+                        { y: {{$visitedMonthAgo[$i][1]}}, label: '{{$visitedMonthAgo[$i][0]}}' },
+                        @endfor
                     ]
                 }]
             });
