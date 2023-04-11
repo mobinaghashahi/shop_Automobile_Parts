@@ -68,3 +68,25 @@ function visitedMonthAgo(){
     }
     return $countVisit;
 }
+
+function webBrowsersVisit(){
+    //this is for fix groupBy error!!!!!
+    \DB::statement("SET SQL_MODE=''");
+    $webbrowsers=Visit::select('webbrowser')->where('webbrowser','!=',null)->groupBy('webbrowser')->get();
+    $chartValues=array();
+    $countAllWebBrowsersVisit=0;
+    foreach ($webbrowsers as $webbrowser) {
+        if ($webbrowser->webbrowser==null)
+            continue;
+        $count= Visit::where('webbrowser','=',$webbrowser->webbrowser)->groupBy('ip')->get()->count().' ';
+        $countAllWebBrowsersVisit+=$count;
+        array_push($chartValues,array($webbrowser->webbrowser,$count));
+    }
+
+    $countAllWebBrowsers=$webbrowsers->count();
+    //به دست آوردن کل بازدید های انجام شده با مرورگر های مختلف برای درصد گیری.
+    foreach ($chartValues as $key => $val){
+        $chartValues[$key][1]=($chartValues[$key][1]/$countAllWebBrowsersVisit)*100;
+    }
+    return $chartValues;
+}

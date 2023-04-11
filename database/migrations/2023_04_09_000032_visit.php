@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->ipAddress('ip');
             $table->text('date');
+            $table->text('url')->nullable();
+            $table->text('webBrowser')->nullable();
             $table->timestamps();
         });
     }

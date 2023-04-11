@@ -7,6 +7,8 @@ use Closure;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Jenssegers\Agent\Facades\Agent;
+
 
 class VisitCounter
 {
@@ -20,6 +22,8 @@ class VisitCounter
         $visit = new Visit();
         $visit->ip = $_SERVER['REMOTE_ADDR'];
         $visit->date = Verta::now();
+        $visit->url = url()->full();
+        $visit->webbrowser = Agent::browser();
         $visit->save();
         return $next($request);
     }

@@ -23,7 +23,8 @@ class admin extends Controller
             ->where('cart.state', '=', 0)
             ->select('cart.*', 'users.nameAndFamily as name')
             ->get(),
-            'visitedMonthAgo'=>visitedMonthAgo()]);
+            'visitedMonthAgo'=>visitedMonthAgo(),
+            'webBrowsersVisit'=>webBrowsersVisit()]);
     }
 
     public function sendProduct($id)
