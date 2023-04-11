@@ -189,18 +189,20 @@ class admin extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'file' => 'mimes:png|required'
+            'file' => 'mimes:png'
         ]);
         $brand = Brand::findOrFail($request->id);
         $brand->name = $request->name;
         $brand->save();
 
-        $destination = 'brand/' . $request->id;
-        if (!is_dir($destination))
-            mkdir($destination, 0777, true);
+        if(!empty($request->file)){
+            $destination = 'brand/' . $request->id;
+            if (!is_dir($destination))
+                mkdir($destination, 0777, true);
 
-        $file = $request->file('file');
-        $file->move($destination, '1.png');
+            $file = $request->file('file');
+            $file->move($destination, '1.png');
+        }
         return redirect()->intended('/admin/editBrand/' . $request->id)->with('msg', 'برند با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 
