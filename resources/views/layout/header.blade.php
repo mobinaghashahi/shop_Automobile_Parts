@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </li>
-                <li><a class="level1" href="#home">درباره ما</a></li>
+                <li><a class="level1" href="/aboutUs">درباره ما</a></li>
             </ul>
         </div>
         @if(session()->has('products'))

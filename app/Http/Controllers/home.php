@@ -14,4 +14,8 @@ class home extends Controller
             'categorys'=>Category::all(),
             'categoryExist'=>Product::select('category_id')->groupBy('category_id')->get()->toArray()]);
     }
+
+    public function aboutUs(){
+        return view('home.aboutUs');
+    }
 }
