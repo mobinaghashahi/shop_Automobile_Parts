@@ -26,7 +26,7 @@
                                     <p style="text-align: center">{{$product->name}}</p>
                                 </div>
                                 <div>
-                                    <p style="text-align: center"> {{number_format($product->price)}} تومان</p>
+                                    <p style="text-align: center;direction: rtl"> {{number_format($product->price)}} تومان</p>
                                 </div>
                             </div></a>
                 @endif

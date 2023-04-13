@@ -23,8 +23,8 @@ class admin extends Controller
             ->where('cart.state', '=', 0)
             ->select('cart.*', 'users.nameAndFamily as name')
             ->get(),
-            'visitedMonthAgo'=>visitedMonthAgo(),
-            'webBrowsersVisit'=>webBrowsersVisit()]);
+            'visitedMonthAgo' => visitedMonthAgo(),
+            'webBrowsersVisit' => webBrowsersVisit()]);
     }
 
     public function sendProduct($id)
@@ -127,12 +127,14 @@ class admin extends Controller
         $product->description = $request->description;
         $product->save();
 
-        $destination = 'products/' . $request->id;
-        if (!is_dir($destination))
-            mkdir($destination, 0777, true);
-        if (!empty($request->file('file'))) {
-            $file = $request->file('file');
-            $file->move($destination, '1.png');
+        if (!empty($request->file)) {
+            $destination = 'products/' . $request->id;
+            if (!is_dir($destination))
+                mkdir($destination, 0777, true);
+            if (!empty($request->file('file'))) {
+                $file = $request->file('file');
+                $file->move($destination, '1.png');
+            }
         }
         return redirect()->intended('/admin/editProduct/' . $request->id)->with('msg', 'محصول با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
@@ -196,7 +198,7 @@ class admin extends Controller
         $brand->name = $request->name;
         $brand->save();
 
-        if(!empty($request->file)){
+        if (!empty($request->file)) {
             $destination = 'brand/' . $request->id;
             if (!is_dir($destination))
                 mkdir($destination, 0777, true);
