@@ -16,6 +16,7 @@ class registerController extends Controller
             'phoneNumber' => 'required|unique:users|regex:/[0]{1}[0-9]{10}/|min:11|max:11',
             'nameAndFamily' => 'required|max:255',
             'password' => 'required|max:255|min:6|required_with:password_confirmation|same:password_confirmation',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         $user = new User(); //یک شی جدید از روی مدل یوزر میسازیم
         $user->password = Hash::make($request->password); //پسورد را ابتدا با روش بی کریپت هش میکنیم
