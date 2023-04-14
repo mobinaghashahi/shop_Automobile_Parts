@@ -183,6 +183,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Hekmatinasser\Verta\Laravel\VertaServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+
 
         /*
          * Package Service Providers...
@@ -214,6 +216,7 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Verta' => Hekmatinasser\Verta\Verta::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
+        'NoCaptcha' => Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
     ])->toArray(),
 
 ];

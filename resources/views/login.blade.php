@@ -33,6 +33,12 @@
                     <input name="password" type="password"
                            style="width: 100%;border-radius: 10px;height: 30px;border-color: #ed6a12;box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                 </div>
+                <div class="col-12" style="display: flex;justify-content: center">
+                    <div style="padding-top: 20px">
+                        {!! Anhskohbo\NoCaptcha\Facades\NoCaptcha::renderJs() !!}
+                        {!! Anhskohbo\NoCaptcha\Facades\NoCaptcha::display() !!}
+                    </div>
+                </div>
                 <div class="col-12 divInputSubmit">
                     <input name="enter" class="inputSubmit" type="submit" value="ورود">
                 </div>

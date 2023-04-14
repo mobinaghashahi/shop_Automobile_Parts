@@ -15,6 +15,7 @@ class loginController extends Controller
         $validated = $request->validate([ //داده ها رو اعتبار سنجی میکنیم
             'phoneNumber' => 'required',
             'password' => 'required',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         $credentials = $request->only('phoneNumber', 'password'); //فیلد های مورد نظر رو داخل متغیر میریزیم
         if (Auth::attempt($credentials)) { //اگر کاربری با مشخصات داده شده موجود باشد نتیجه صحیح باز میگردد
