@@ -1,97 +1,31 @@
 <div class="col-12 divAllProduct">
     <div class="col-12 divTitleBestSeller">
         <p class="titleBestSeller">
-            محصولات جدید
+            جدید ترین محصولات
         </p>
     </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 divImageProduct">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
-    </div>
-    <div class="col-2 products">
-        <div class="col-12 productImage">
-            <img class="imageProduct" src="products/1.png">
-        </div>
-        <div class="col-12 center">
-            <p>لنت ترمز</p>
-            <p>قیمت 200 هزار تومان</p>
-        </div>
+    @php
+        $count=0;
+    @endphp
+    <div class="owl-carousel owl-theme">
+        @foreach($products as $product)
+                <a href="/productDetails/{{$product->id}}" style="color:black"><div class="col-12">
+                        <div class="col-12 center">
+                            <img class="imageProduct " src="products/{{$product->id}}/1.png">
+                        </div>
+                        <div>
+                            <p style="text-align: center">{{$product->name}}</p>
+                        </div>
+                        <div>
+                            <p style="text-align: center;direction: rtl"> {{number_format($product->price)}} تومان</p>
+                        </div>
+                    </div></a>
+            @if($count==20)
+                @break
+            @endif
+            @php
+                $count++;
+            @endphp
+        @endforeach
     </div>
 </div>
