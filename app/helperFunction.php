@@ -97,10 +97,9 @@ function sendSmsForgetPassword($phoneNumber,$code){
     $pass = "faraz1180076915";
     $fromNum = "+3000505";
     $toNum = array($phoneNumber);
-    $pattern_code = "de2bsqxz3oz1cuv";
+    $pattern_code = "a0j80azuywnn4vy";
     $input_data = array(
-        "name" => $code,
-        "price" => $code,
+        "code" => $code,
     );
     echo $client->sendPatternSms($fromNum, $toNum, $user, $pass, $pattern_code, $input_data);
 }
