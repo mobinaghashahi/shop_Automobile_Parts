@@ -15,13 +15,12 @@
 <body style="background-color: #eeeeee">
 
 <div class="sidenav">
-    <div style="background-color: #363636;padding: 0px;margin:auto;height: 50px">
-        <a href="/admin" style="font-size: 25px;margin: auto;padding-top: 10px;padding-right: 10px;color: white">منو</a>
+    <div style="background-color: #363636;padding: 0px;text-align: center">
+        <a href="/" style="font-size: 25px;margin: auto;color: white;text-align: center">مشاهده وبسایت</a>
     </div>
-
     <div class="col-12" style="background-color: #fed000;padding: 0px;margin:auto;height: 50px;width: 100%">
         <div class="col-9" >
-            <p style="font-size: larger;margin: auto;padding-top: 10px;padding-right: 10px">مدیریت سایت</p>
+            <a href="/admin" style="font-size: 25px;margin: auto;padding-top: 10px;padding-right: 10px;color: #ffffff">مدیریت سایت</a>
         </div>
         <div class="col-3" style="padding-top: 15px">
             <img src="/logo/adminPanel.png" width="30" height="20">
