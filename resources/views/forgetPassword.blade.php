@@ -4,8 +4,8 @@
     <div class="col-12" style="display: flex;justify-content: center">
         <div class="col-3 loginForm" style="padding: 50px 0px 50px 0px">
             @if (\Session::has('msg'))
-                <div class="successMessage" style="direction: rtl">
-                    {!! \Session::get('msg') !!}
+                <div class="successMessage">
+                    ثبت نام با موفقیت انجام شد
                 </div>
             @endif
             @if ($errors->any())
@@ -17,21 +17,18 @@
                     </div>
                 @endforeach
             @endif
-            <form method="post" name="enter" action="/login">
+            <form method="post" name="enter" action="/forgetPasswordSendSms">
                 @csrf
-                <div class="col-12 divLabelInput">
+                <div class="col-12" style="direction: rtl;text-align: justify;text-justify: inter-word;">
+                    <p>
+                        گذرواژه خود را فراموش کرده اید؟ شماره موبایل خود را وارد کنید. کد بازیابی به شماره شما ارسال خواهد شد.
+                    </p>
+                </div>
+                <div class="col-12 divLabelInput" style="padding: 0px">
                     <a>موبایل</a>
                 </div>
                 <div class="col-12 divInputText">
                     <input name="phoneNumber" type="text" class="inputText" style="width: 100%;">
-                </div>
-
-                <div class="col-12 divLabelInput">
-                    <a>رمز عبور</a>
-                </div>
-                <div class="col-12 divInputText">
-                    <input name="password" type="password"
-                           style="width: 100%;border-radius: 10px;height: 30px;border-color: #ed6a12;box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);">
                 </div>
                 <div class="col-12" style="display: flex;justify-content: center">
                     <div style="padding-top: 20px">
@@ -40,15 +37,12 @@
                     </div>
                 </div>
                 <div class="col-12 divInputSubmit">
-                    <input name="enter" class="inputSubmit" type="submit" value="ورود">
+                    <input name="enter" class="inputSubmit" type="submit" value="ارسال کد">
                 </div>
                 <div class="col-12" style="text-align: right;text-align: right;direction: rtl">
                     <div style="text-align: right;direction: rtl;display: inline">
                         <a href="/register" style="color: black;text-decoration: none"> حساب کاربری ندارید؟ ثبت نام
                             کنید.</a>
-                    </div>
-                    <div style="text-align: left;direction: rtl;display: inline;float: left">
-                        <a href="/forgetPassword">تغییر گذرواژه</a>
                     </div>
                 </div>
             </form>

@@ -13,6 +13,7 @@ use App\Http\Controllers\productBrand;
 use App\Http\Controllers\products;
 use App\Http\Controllers\productDetails;
 use App\Http\Controllers\cart;
+use App\Http\Controllers\Auth\forgetPassword;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
 use App\Http\Middleware\UserMiddleware;
@@ -45,10 +46,15 @@ Route::get('/register', function () {
 
 Route::get('/login', [loginController::class, 'loginView'])->middleware(authMiddleware::class); //روت پست اطلاعات فرم ورود
 Route::get('/logout', [logoutController::class, 'logout']); //روت پست اطلاعات فرم ورود
-
-
 Route::post('/login', [loginController::class, 'login']); //روت پست اطلاعات فرم ورود
 Route::post('/register', [registerController::class, 'register']); //روت پست اطلاعات فرم ثبت نام
+Route::get('/forgetPassword', [forgetPassword::class, 'forgetPasswordShow'])->middleware(authMiddleware::class);
+Route::post('/forgetPasswordSendSms', [forgetPassword::class, 'forgetPasswordSendSms'])->middleware(authMiddleware::class);
+Route::get('/enterForgetPasswordCode/{id}', [forgetPassword::class, 'showEnterForgetPasswordCode'])->middleware(authMiddleware::class);
+Route::post('/enterForgetPasswordCode', [forgetPassword::class, 'enterForgetPasswordCode'])->middleware(authMiddleware::class);
+
+Route::get('/changeForgetPassword', [forgetPassword::class, 'changeForgetPassword'])->middleware(authMiddleware::class);
+Route::post('/changeForgetPassword', [forgetPassword::class, 'validateChangeForgetPassword'])->middleware(authMiddleware::class);
 
 
 Route::get('/productDetails/{id}', [products::class, 'showDetails']);

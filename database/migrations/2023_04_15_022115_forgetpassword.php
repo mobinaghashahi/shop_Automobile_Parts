@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('visit', function (Blueprint $table) {
+        Schema::create('forgetpassword', function (Blueprint $table) {
             $table->id();
-            $table->ipAddress('ip');
+            $table->text('code');
             $table->text('date');
-            $table->text('url')->nullable();
-            $table->text('webBrowser')->nullable();
+            $table->integer('countTry')->default(0);
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('visit');
+        Schema::dropIfExists('forgetpassword');
     }
 };

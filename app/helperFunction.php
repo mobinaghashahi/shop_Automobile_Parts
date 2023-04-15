@@ -90,3 +90,29 @@ function webBrowsersVisit(){
     }
     return $chartValues;
 }
+function sendSmsForgetPassword($phoneNumber,$code){
+
+    $client = new SoapClient("http://188.0.240.110/class/sms/wsdlservice/server.php?wsdl");
+    $user = "09139638917";
+    $pass = "faraz1180076915";
+    $fromNum = "+3000505";
+    $toNum = array($phoneNumber);
+    $pattern_code = "de2bsqxz3oz1cuv";
+    $input_data = array(
+        "name" => $code,
+        "price" => $code,
+    );
+    echo $client->sendPatternSms($fromNum, $toNum, $user, $pass, $pattern_code, $input_data);
+}
+
+function generateCode(){
+    return rand(1000,9999);
+}
+
+function diffrentMin($date){
+
+//جدا کردن ساخت و تاریخ
+    $time =explode(' ', $date)[1];
+    $dateNow = Verta::now();
+    return $dateNow->diffMinutes($time);
+}
