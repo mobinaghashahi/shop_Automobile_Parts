@@ -243,3 +243,6 @@ tr:nth-child(even) {
     border: 1px solid #000000;
     color: white;
 }
+.productsDetailsText{
+    margin: 0px 0px 0px 20px
+}

@@ -69,4 +69,7 @@
         margin: 0px;
         width: 90%;
     }
+    .productsDetailsText{
+        margin: 0px 8px 0px 20px;
+    }
 }
