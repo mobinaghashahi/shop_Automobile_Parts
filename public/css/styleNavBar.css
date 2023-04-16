@@ -67,8 +67,22 @@ li.dropdown {
     background-color: #f1f1f1
 }
 
+@keyframes dropDown {
+    0%{
+        opacity: 0%;
+    }
+    70%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 100%;
+    }
+
+}
 .dropdown:hover .dropdownContentLevel1 {
+    opacity: 0%;
     display: block;
+    animation: dropDown 0.5s ease-in-out forwards;
 }
 
 .dropdownContentLevel2 {
