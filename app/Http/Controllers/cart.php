@@ -11,20 +11,20 @@ use Illuminate\Support\Arr;
 class cart extends Controller
 {
     public function  addToCart(Request $request){
+        $lastCount=session('products.'.$request->id);
         $validated = $request->validate([
-            'count' => 'integer|required|min:1',
+            'count' => 'integer|required|min:1|max:'.stock($request->id)-$lastCount,
             'id' => 'required|integer',
         ]);
 
         if(stock($request->id)<$request->count)
         {
-            return back()->withErrors([ //کاربر پیدا نشد و هنگام بازگشت به صفحه ورود خطا را نشان میدهیم
+            return back()->withErrors([
                 'outOfRange' => 'موجودی کافی نیست.',
             ]);
         }
 
         if(session()->has('products.'.$request->id)) {
-            $lastCount=session('products.'.$request->id);
             session(['products.'.$request->id=>$request->count+$lastCount]);
         }
         else{

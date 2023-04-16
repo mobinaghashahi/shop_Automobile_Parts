@@ -13,9 +13,9 @@
                 @foreach($products as  $value)
                     <tr>
                         <td>{{$loop->index+1}}</td>
-                        <td>{{$value[0]['name']}}</td>
+                        <td><a style="text-decoration: none;color: black" href="/productDetails/{{$value[0]['id']}}">{{$value[0]['name']}}</a></td>
                         <td>{{number_format($value[0]['price'])}} </td>
-                        <td>{{session('products.'.$value[0]['id'])}} </td>
+                        <td>{{session('products.'.$value[0]['id'])}}</td>
                         <td>
                             <div class="col-12">
                                 <a href="/cart/deleteOfCart/{{$value[0]['id']}}"> <img width="15" height="15" src="/logo/delete.png" title="حذف کردن" alt="ضربدر"></a>

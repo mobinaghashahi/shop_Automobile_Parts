@@ -33,6 +33,7 @@ function callCountSellProducts($id)
 
 function stock($id){
     $product=Product::where('id','=',$id)->get()[0];
+    //موجودی را از تعداد کالاهای فروش رفته کم میکنیم
     return $product->count-callCountSellProducts($id);
 }
 
