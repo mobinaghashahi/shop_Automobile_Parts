@@ -41,7 +41,7 @@
                     <input type="text" name="id" value="{{$product[0]->id}}" hidden>
                 </div>
                 <div class="col-3" style="float: right; display: flex;justify-content: center">
-                    <input type="number" value="1" min="1" name="count" style="width: 35%;text-align: center">
+                    <input type="number" value="1" min="1" max="{{stock($product[0]->id)}}" name="count" style="width: 35%;text-align: center">
                 </div>
                 <div class="col-9" style="float: right; display: flex;justify-content: center">
                     @if(stock($product[0]->id)>0)

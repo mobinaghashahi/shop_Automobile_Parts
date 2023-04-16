@@ -16,6 +16,13 @@ class cart extends Controller
             'id' => 'required|integer',
         ]);
 
+        if(stock($request->id)<$request->count)
+        {
+            return back()->withErrors([ //کاربر پیدا نشد و هنگام بازگشت به صفحه ورود خطا را نشان میدهیم
+                'outOfRange' => 'موجودی کافی نیست.',
+            ]);
+        }
+
         if(session()->has('products.'.$request->id)) {
             $lastCount=session('products.'.$request->id);
             session(['products.'.$request->id=>$request->count+$lastCount]);
