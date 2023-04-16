@@ -117,6 +117,10 @@ Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
 
 Route::prefix('/cart')->middleware(UserMiddleware::class)->group(function () {
     Route::post('/addToCart',[cart::class,'addToCart']);
+
+    Route::post('/decreaseCount',[cart::class,'decreaseCount']);
+    Route::post('/increaseCount',[cart::class,'increaseCount']);
+
     Route::get('/showCart',[cart::class,'showCart']);
     Route::get('/deleteOfCart/{id}',[cart::class,'deleteOfCart']);
 });

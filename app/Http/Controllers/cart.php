@@ -10,6 +10,23 @@ use Illuminate\Support\Arr;
 
 class cart extends Controller
 {
+    public function decreaseCount(Request $request){
+        $validated = $request->validate([
+            'count' => 'integer|required|min:1|max:'.stock($request->id),
+            'id' => 'required|integer',
+        ]);
+        session(['products.'.$request->id=>$request->count]);
+        return redirect()->intended('/cart/showCart'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+    public function increaseCount(Request $request){
+        $validated = $request->validate([
+            'count' => 'integer|required|min:1|max:'.stock($request->id),
+            'id' => 'required|integer',
+        ]);
+        session(['products.'.$request->id=>$request->count]);
+        return redirect()->intended('/cart/showCart'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+
     public function  addToCart(Request $request){
         $lastCount=session('products.'.$request->id);
         $validated = $request->validate([
