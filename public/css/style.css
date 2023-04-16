@@ -232,6 +232,9 @@ tr:nth-child(even) {
     margin-right: 40px;
 
 }
+.submitProfileChange{
+    margin-top: 10px;
+}
 
 .circle {
     width: 20px;
