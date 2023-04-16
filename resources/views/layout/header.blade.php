@@ -1,10 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="fa">
 
     <title>فروشگاه یدکی اصلی</title>
     <link rel="icon" type="image/x-icon" href="/logo/logo.png">
 
+    <meta name="title" content="فروشگاه لوازم یدکی باقری">
+    <meta name="description" content="بورس انواع قطعات بدنه، جلوبندی، موتوری و برقی خودروهای ایرانی و خارجی بصورت عمده و تکی با برندهای معتبر.">
+    <meta name="keywords" content="لوازم یدکی،ماشین،فروشگاه">
+    <meta name="robots" content="index, follow">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="language" content="fa">
+    <meta name="author" content="محمد مبین آقاشاهی اردستانی">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/userPanel.css" rel="stylesheet">
@@ -25,13 +32,13 @@
 <header>
     <div class="col-12 header">
         <a href="https://instagram.com/yadak.asli3113?igshid=YmMyMTA2M2Y=">
-            <img class="logoInstagram" src="/logo/instagram.png" width="25" height="25">
+            <img class="logoInstagram" src="/logo/instagram.png" title="instagram" alt="instagram" width="25" height="25">
         </a>
     </div>
     <div class="col-12">
         <div>
             <a href="/">
-                <img class="logo" src="/logo/logo.png">
+                <img class="logo" title="فروشگاه لوازم یدکی باقری" alt="فروشگاه لوازم یدکی باقری" src="/logo/logo.png">
             </a>
         </div>
         <div class="middleHeader">
@@ -57,7 +64,7 @@
                             <a class="level2" href="/brands/{{$brand->id}}">{{$brand->name}} <img
                                     style="padding-left: 5px;" src="/brand/{{$brand->id}}/1.png"
                                     width="25"
-                                    height="25"/></a>
+                                    height="25" alt="برند {{$brand->name}}"/></a>
                         @endforeach
                     </div>
                 </li>
@@ -65,14 +72,14 @@
                     <a class="dropBtn level1">محصولات</a>
                     <div class="dropdownContentLevel1">
                         <a class="level2" href="#">سایپا<img style="padding-left: 5px;" src="/logo/saypa.png" width="20"
-                                                             height="20"></a>
+                                                             height="20" alt="دسته بندی سایپا"></a>
                         <div class="dropdownContentLevel2">
                             @foreach($carsSaypa as $car)
                                 <a class="level3" href="/carTypeCategorys/{{$car->id}}">{{$car->name}}</a>
                             @endforeach
                         </div>
                         <a class="level2" href="#">ایران خودرو<img style="padding-left: 5px;" src="/logo/irankhodro.png"
-                                                                   width="20" height="25"></a>
+                                                                   width="20" height="25" alt="دسته بندی ایران خودرو"></a>
                         <div class="dropdownContentLevel2">
                             @foreach($carsIranKhodro as $car)
                                 <a class="level3" href="/carTypeCategorys/{{$car->id}}">{{$car->name}}</a>
@@ -88,7 +95,7 @@
                 <div>
                     <a href="/cart/showCart">
                         <div class="circle" style="text-align: center;position: absolute;left:40px;">{{countCart()}}</div>
-                        <img src="/logo/cart.png" width="40" height="40">
+                        <img src="/logo/cart.png" width="40" height="40" alt="سبد خرید">
 
                     </a>
 

@@ -18,7 +18,7 @@
                         <td>{{session('products.'.$value[0]['id'])}} </td>
                         <td>
                             <div class="col-12">
-                                <a href="/cart/deleteOfCart/{{$value[0]['id']}}"> <img width="15" height="15" src="/logo/delete.png"></a>
+                                <a href="/cart/deleteOfCart/{{$value[0]['id']}}"> <img width="15" height="15" src="/logo/delete.png" title="حذف کردن" alt="ضربدر"></a>
                             </div>
                         </td>
                     </tr>

@@ -11,7 +11,7 @@
             <div class="col-2 products">
                 <a href="/carTypeProducts/{{$product->carType_id}}/{{$product->category_id}}" style="color: black">
                     <div class="col-12 center">
-                        <img class="imageProduct " src="/category/{{$product->category_id}}/1.png">
+                        <img class="imageProduct " src="/category/{{$product->category_id}}/1.png" alt="{{$product->name}}برند ">
                     </div>
                     <div class="col-12" style="text-align: center">
                         <p>{{$product->name}}</p>

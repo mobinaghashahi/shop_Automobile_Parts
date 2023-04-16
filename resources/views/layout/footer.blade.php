@@ -5,7 +5,7 @@
                 <a>ارسال به سرار ایران</a>
             </div>
             <div>
-                <img src="/logo/truck.png" width="90" height="60" >
+                <img src="/logo/truck.png" width="90" height="60" title="ارسال به سراسر ایران" alt="کامیون">
             </div>
         </div>
         <div class="col-3 divItemFooter">
@@ -13,7 +13,7 @@
                 <a>تضمین کیفیت کالاها</a>
             </div>
             <div>
-                <img src="/logo/star.png" width="60" height="60" >
+                <img src="/logo/star.png" width="60" height="60" title="تضمین کیفیت کالا" alt="ستاره">
             </div>
         </div>
         <div class="col-3 divItemFooter">
@@ -21,7 +21,7 @@
                 <a>خرید امن</a>
             </div>
             <div>
-                <img src="/logo/shild.png" width="50" height="60" >
+                <img src="/logo/shild.png" width="50" height="60" title="خرید امن" alt="سپر">
             </div>
         </div>
         <div class="col-3 divItemFooter">
@@ -29,14 +29,14 @@
                 <a>خرید آسان</a>
             </div>
             <div>
-                <img src="/logo/easy.png" width="50" height="60" >
+                <img src="/logo/easy.png" width="50" height="60" title="خرید آسان" alt="دست">
             </div>
         </div>
     </div>
 </div>
 
-<script src="/js/slideShow.js"></script>
-<script src="/js/userPanel.js"></script>
+<script src="/js/slideShow.min.js"></script>
+<script src="/js/userPanel.min.js"></script>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

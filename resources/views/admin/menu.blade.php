@@ -66,7 +66,7 @@
 
 @yield('content')
 <script src="/js/canvasjs.min.js"></script>
-<script src="/js/adminPanel.js"></script>
+<script src="/js/adminPanel.min.js"></script>
 
 </body>
 </html>

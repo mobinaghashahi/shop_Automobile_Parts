@@ -32,6 +32,9 @@ use App\Http\Middleware\cartValidForUserMiddleware;
 
 Route::get('/', [home::class, 'showHome']);
 Route::get('/aboutUs', [home::class, 'aboutUs']);
+Route::get('/sitemap.xml', function (){
+    return "sitemap.xml";
+});
 
 Route::get('/brands/{id}', [products::class, 'showProductsByBrand']);
 Route::get('/carTypeCategorys/{id}', [products::class, 'showProductsByCarTypeCategorys']);

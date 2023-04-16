@@ -1,2 +1,2 @@
 User-agent: *
-Disallow:
+Sitemap: http://yadakasli.ir/sitemap.xml
