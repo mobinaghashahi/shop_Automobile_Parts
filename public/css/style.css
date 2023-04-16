@@ -2,14 +2,16 @@
     font-family: myFirstFont;
     src: url('/font/vazir.ttf');
 }
-*{
+
+* {
     font-family: myFirstFont;
 }
+
 body {
     margin: 0px;
 }
 
-.inputSearch{
+.inputSearch {
     border: 2px solid #FB8500;
     border-radius: 10px;
     height: 25px;
@@ -30,108 +32,145 @@ body {
 }
 
 
-.middleHeader{
+.middleHeader {
     padding-top: 40px;
     padding-left: 5px;
 }
 
-.divUserName{
+.divUserName {
     display: inline;
     font-size: 12px;
 }
 
-.divSearch{
+.divSearch {
     display: inline;
     text-align: right;
     direction: rtl;
 }
 
-.footer{
+.footer {
     background-color: #023047;
 }
 
-.divItemFooter{
+.divItemFooter {
     display: flex;
     justify-content: center;
 }
-.divItemsFooter{
+
+.divItemsFooter {
     float: right;
     padding: 20px 0px 20px 0px;
 }
 
-.divTextItemsFooter{
+.divTextItemsFooter {
     display: flex;
     justify-content: center;
     padding-right: 5px;
 }
-.divTextItemsFooter a{
+
+.divTextItemsFooter a {
     margin: auto;
     color: #e2e8f0;
 }
 
-.inputText{
+.inputText {
     width: 100%;
     border-radius: 10px;
     height: 30px;
     border-color: #FB8500;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }
-.divInputText{
+
+.divInputText {
     display: flex;
     justify-content: center;
 }
 
-.divInputSubmit{
+.divInputSubmit {
     display: flex;
     justify-content: center;
     padding-top: 25px;
 }
-.inputSubmit{
+
+
+/* CSS */
+.inputSubmit {
     width: 100%;
-    margin: 0px;
-    background-color: #FB8500;
-    height:35px;
+    margin-bottom: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
     color: white;
     border-radius: 10px;
+    display: block;
+    border: 0px;
+    font-weight: 700;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    background-image: linear-gradient(45deg, #FF512F 0%, #F09819 51%, #FF512F 100%);
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
 }
-.divLabelInput{
+
+.inputSubmit:hover {
+    background-position: right center;
+    /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.inputSubmit:active {
+    transform: scale(0.95);
+}
+
+
+.divLabelInput {
     text-align: right;
     padding-top: 15px
 }
-.products{
+
+.products {
     border: 2px solid #888888;
     border-radius: 10px;
     margin: 15px;
 }
-.divAllProduct{
+
+.divAllProduct {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.titleBestSeller{
+
+.titleBestSeller {
     text-align: center;
     font-size: 25px;
     font-weight: bolder;
 }
-.center{
+
+.center {
     text-align: center;
     direction: ltr;
 }
 
 
 @keyframes productImageZome {
-    0%{
+    0% {
         scale: 1;
     }
-    100%{
+    100% {
         scale: 1.05;
     }
 }
-.products:hover{
+
+.products:hover {
     animation: productImageZome 0.5s ease-in-out;
     animation-fill-mode: forwards;
 }
-.imageProduct{
+
+.imageProduct {
     max-width: 100%;
     min-width: 100%;
     max-height: 100%;
@@ -139,7 +178,8 @@ body {
     width: 800px;
     height: 200px;
 }
-.button{
+
+.button {
     background-color: #FB8500;
     padding: 10px;
     color: white;
@@ -148,10 +188,12 @@ body {
     border-radius: 5px;
     text-decoration: none;
 }
-.fieldsetPassword{
+
+.fieldsetPassword {
     border-color: #e18b4e;
     width: 93%;
 }
+
 table {
     overflow-x: hidden;
     text-align: center;
@@ -169,25 +211,29 @@ tr:nth-child(even) {
     background-color: #dddddd;
 }
 
-.inputAlert{
+.inputAlert {
     width: 100%;
     background-color: #c70000;
-    height:35px;
+    height: 35px;
     color: white;
 }
-.center{
+
+.center {
     display: flex;
     justify-content: center;
 }
-.profileForm{
+
+.profileForm {
     margin-top: 30px;
     margin-right: 20px;
 }
-.submitAddToCart{
+
+.submitAddToCart {
     margin-right: 40px;
 
 }
-.circle{
+
+.circle {
     width: 20px;
     height: 20px;
     -webkit-border-radius: 25px;
