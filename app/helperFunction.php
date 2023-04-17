@@ -43,8 +43,8 @@ function countCart(){
 function sendSmsToAdmin($name,$price){
 
     $client = new SoapClient("http://188.0.240.110/class/sms/wsdlservice/server.php?wsdl");
-    $user = "09139638917";
-    $pass = "faraz1180076915";
+    $user = env();
+    $pass = env("SMS_PASSWORD");
     $fromNum = "+3000505";
     $toNum = array("09139638917");
     $pattern_code = "de2bsqxz3oz1cuv";
