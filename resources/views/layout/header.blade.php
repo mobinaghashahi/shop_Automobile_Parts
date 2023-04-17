@@ -95,7 +95,7 @@
                 <div>
                     <a href="/cart/showCart">
                         <div class="circle" style="text-align: center;position: absolute;left:40px;">{{countCart()}}</div>
-                        <img src="/logo/cart.png" width="40" height="40" alt="سبد خرید">
+                        <img src="/logo/cart.png" width="30" height="30" alt="سبد خرید">
 
                     </a>
 
