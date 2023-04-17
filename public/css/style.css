@@ -166,8 +166,7 @@ body {
 }
 
 .products:hover {
-    animation: productImageZome 0.5s ease-in-out;
-    animation-fill-mode: forwards;
+
 }
 
 .imageProduct {
