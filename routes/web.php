@@ -115,7 +115,7 @@ Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
     Route::get('/orderDetails/{id}', [users::class, 'showOrderDetails'])->middleware(cartValidForUserMiddleware::class);
 });
 
-Route::prefix('/cart')->middleware(UserMiddleware::class)->group(function () {
+Route::prefix('/cart')->group(function () {
     Route::post('/addToCart',[cart::class,'addToCart']);
 
     Route::post('/decreaseCount',[cart::class,'decreaseCount']);
