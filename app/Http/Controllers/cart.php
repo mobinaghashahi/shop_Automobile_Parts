@@ -52,13 +52,16 @@ class cart extends Controller
     }
 
     public function showCart(){
+        $totalPrice=0;
+        $sendPrice=30000;
         $products=array();
         foreach (session('products') as $key => $value){
             $result=Product::where('id','=',$key)->get();
+            $totalPrice+=$result[0]->price*$value;
             $m=$result->toArray();
             $products=Arr::add($products,$key,$m);
         }
-        return view('showCart',['products'=>$products]);
+        return view('showCart',['products'=>$products,'totalPrice'=>$totalPrice,'sendPrice'=>$sendPrice]);
     }
     public function deleteOfCart($id){
         session()->forget('products.'.$id);

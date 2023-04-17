@@ -249,3 +249,56 @@ tr:nth-child(even) {
 .productsDetailsText{
     margin: 0px 0px 0px 20px
 }
+
+.recyclebin{
+    padding-top: 10px;
+}
+.imageTop{
+    display: none;
+}
+.recyclebin:hover .imageTop{
+    display: inline;
+}
+.recyclebin:hover .imageBring{
+    display: none;
+}
+.blockCart{
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+}
+.blockCartRight{
+    box-shadow: 1px 1px 20px #888888;
+    margin: 20px 0px 20px 0px;
+    border-radius: 10px;
+}
+.blockProductsCart{
+    border-radius: 10px;
+}
+.textPriceDetailsCart{
+    text-align: left;
+    direction: rtl;
+    padding-left: 30px;
+    color: #000000;
+}
+.blockCartLeft{
+    margin: 20px 10px 20px 0px;
+    border: 1px solid #d5d5d5;
+    border-radius: 10px;
+    height: 30%;
+    background-image: linear-gradient(45deg, rgba(192,192,192,0.75) 51%, rgba(192,192,192,0.54) 100%);
+}
+.increaseCountDiv{
+    float: right;
+    width: 5%;
+}
+.countDiv{
+    float: right;
+    width: 10%;
+    display: flex;
+    justify-content: center;
+}
+.decreaseCount{
+    float: right;
+    width: 5%;
+}
