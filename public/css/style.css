@@ -12,23 +12,19 @@ body {
 }
 
 .inputSearch {
-    border: 2px solid #FB8500;
-    border-radius: 10px;
+    border: 2px transparent;
     height: 25px;
-    width: 260px;
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
+    width: 200px;
     outline: none;
     padding: 3px 0px 3px 3px;
     margin: 5px 1px 3px 0px;
 }
-
-.inputSearch:focus {
-    box-shadow: 0 0 10px #FB8500;
-    padding: 3px 0px 3px 3px;
-    margin: 5px 1px 3px 0px;
+.divInputSearch{
+    padding: 5px 5px 5px 0px;
+    border-radius:5px 0px 0px 15px;
+    border: 1px solid #525252;
+    display: inline;
+    text-align: right;direction: rtl;
 }
 
 
@@ -38,15 +34,33 @@ body {
 }
 
 .divUserName {
+    padding-top: 10px;
+    float: left;
     display: inline;
     font-size: 12px;
 }
 
 .divSearch {
-    display: inline;
+    float: left;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 2px;
     text-align: right;
     direction: rtl;
 }
+. divSearch:focus .divSearchIcon{
+     background-color: #110d0c;
+ }
+
+.submitSearch{
+    cursor:pointer;
+    background-color: transparent;
+    border: transparent;
+    color: white;
+}
+
+
+
 
 .footer {
     background-color: #023047;

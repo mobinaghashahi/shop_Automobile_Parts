@@ -15,11 +15,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/userPanel.css" rel="stylesheet">
-    <link href="/css/style.css?v=2.3" rel="stylesheet">
+    <link href="/css/style.css?v=2.6" rel="stylesheet">
     <link href="/css/styleLogos.css" rel="stylesheet">
-    <link href="/css/styleNavBar.css?v=1.4" rel="stylesheet">
+    <link href="/css/styleNavBar.css?v=1.6" rel="stylesheet">
     <link href="/css/slideShow.css" rel="stylesheet">
-    <link href="/css/RWD.css?v=2.4" rel="stylesheet">
+    <link href="/css/RWD.css?v=2.7" rel="stylesheet">
     <link href="/css/messages.css" rel="stylesheet">
 
     <!--owl -->
@@ -51,7 +51,14 @@
                 @endif
             </div>
             <div class="divSearch">
-                <input class="inputSearch" type="text" placeholder="جست و جو...">
+                <form method="get" action="/resultSearch" >
+                    <div style="padding: 6px;display: inline;border-radius:0px 5px 10px 0px;background-color: #595959FF;">
+                        <input class="submitSearch" type="submit" value='جست و جو'>
+                    </div>
+                    <div class="divInputSearch">
+                        <input style="background-color: transparent;color: white;" class="inputSearch" type="text" placeholder="دنبال چی میگردی؟!">
+                    </div>
+                </form>
             </div>
         </div>
     </div>
