@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>pin-location-direction.5</title>
+    <g id="Profile" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="contact" transform="translate(-832.000000, -778.000000)">
+            <g id="Group-17" transform="translate(260.000000, 527.000000)">
+                <g id="Group-12" transform="translate(0.000000, 246.000000)">
+                    <g id="pin-location-direction.5" transform="translate(572.000000, 5.000000)">
+                        <polygon id="a" points="0 0 48 0 48 48 0 48"></polygon>
+                        <polygon id="a" points="0 0 48 0 48 48 0 48"></polygon>
+                        <path d="M26.3702,14.81578 C27.679238,16.124818 27.679238,18.24718 26.3702,19.55622 C25.061162,20.865258 22.9388,20.865258 21.62976,19.55622 C20.320722,18.247182 20.320722,16.12482 21.62976,14.81578 C22.938798,13.506742 25.06116,13.506742 26.3702,14.81578" id="Path" stroke="#131B1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M34.97,16.76 L34.97,16.76 C34.97,19.74 33.646,22.564 31.358,24.472 L27.76,27.47 C26.326,28.666 25.254,30.236 24.664,32.008 L24,34 L23.336,32.008 C22.746,30.238 21.674,28.666 20.24,27.47 L16.642,24.472 C14.352,22.564 13.03,19.74 13.03,16.76 L13.03,16.76 L13.03,16.816 C13.03,9.972 18.698,6 24,6 C29.302,6 34.97,9.972 34.97,16.816" id="Path" stroke="#131B1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M14,29.196 C9.182,30.45 6,32.576 6,35 C6,38.866 14.058,42 24,42 C33.942,42 42,38.866 42,35 C42,32.576 38.818,30.448 34,29.196" id="Path" stroke="#131B1F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

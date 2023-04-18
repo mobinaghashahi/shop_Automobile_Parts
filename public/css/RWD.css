@@ -112,5 +112,23 @@
     .contentFooter{
         margin-right: 45px;
     }
+    .inputTextArea{
+        width: 90%;
+        border-radius: 10px;
+        border-color: #FB8500;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        direction: rtl;
+        text-align: right;
+        max-width: 90%;
+        min-width: 90%;
+        height: 200px;
+    }
+    .inputSubmitContact{
+        width: 92%;
+        float: right;
+    }
+    .textContact{
+        padding: 20px;
+    }
 
 }

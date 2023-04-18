@@ -10,7 +10,7 @@
     <div class="col-4">
         <div class="contentFooter" >
             <p><a href="/aboutUs" style="text-decoration: none;color: white">درباره ما</a></p>
-            <p><a href="#" style="text-decoration: none;color: white">تماس با ما</a></p>
+            <p><a href="/contact" style="text-decoration: none;color: white">تماس با ما</a></p>
         </div>
     </div>
     <div class="col-4">
