@@ -109,4 +109,8 @@
         width: 100%;
         display: inline;
     }
+    .contentFooter{
+        margin-right: 45px;
+    }
+
 }

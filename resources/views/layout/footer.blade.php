@@ -1,36 +1,24 @@
-<div class="col-12 footer">
-    <div class="col-12 divItemsFooter">
-        <div class="col-3 divItemFooter">
-            <div class="divTextItemsFooter">
-                <a>ارسال به سرار ایران</a>
-            </div>
-            <div>
-                <img src="/logo/truck.png" width="90" height="60" title="ارسال به سراسر ایران" alt="کامیون">
-            </div>
+<div class="col-12 footer" style="color: white;direction: rtl;text-align: right;">
+    <div class="col-4">
+        <div class="contentFooter">
+            <p>اطلاعات تماس</p>
+            <p><a style="text-decoration: none;color: white" href="tel:09129231997">تماس: 09129231997</a></p>
+            <p>ایمیل: Danyel.bagheri3113@gmail.com</p>
+            <p>آدرس:<br>قزوین، بلوار نوروزیان، روبروی بانک ملت، بین البرز ۳۹  </p>
         </div>
-        <div class="col-3 divItemFooter">
-            <div class="divTextItemsFooter">
-                <a>تضمین کیفیت کالاها</a>
-            </div>
-            <div>
-                <img src="/logo/star.png" width="60" height="60" title="تضمین کیفیت کالا" alt="ستاره">
-            </div>
+    </div>
+    <div class="col-4">
+        <div class="contentFooter" >
+            <p><a href="/aboutUs" style="text-decoration: none;color: white">درباره ما</a></p>
+            <p><a href="#" style="text-decoration: none;color: white">تماس با ما</a></p>
         </div>
-        <div class="col-3 divItemFooter">
-            <div class="divTextItemsFooter">
-                <a>خرید امن</a>
-            </div>
-            <div>
-                <img src="/logo/shild.png" width="50" height="60" title="خرید امن" alt="سپر">
-            </div>
-        </div>
-        <div class="col-3 divItemFooter">
-            <div class="divTextItemsFooter">
-                <a>خرید آسان</a>
-            </div>
-            <div>
-                <img src="/logo/easy.png" width="50" height="60" title="خرید آسان" alt="دست">
-            </div>
+    </div>
+    <div class="col-4">
+        <div class="contentFooter" style="margin-top: 20px">
+            <p>فروشگاه یدکی اصلی</p>
+            <a href="https://goo.gl/maps/dzMrSDWcweQtduYi6">
+                <img src="/logo/map.png" width="250" height="200">
+            </a>
         </div>
     </div>
 </div>
