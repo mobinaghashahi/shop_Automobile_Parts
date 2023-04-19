@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('phoneNumber');
             $table->text('description');
             $table->text('date');
+            $table->integer('state')->default(0);
 
             $table->timestamps();
         });

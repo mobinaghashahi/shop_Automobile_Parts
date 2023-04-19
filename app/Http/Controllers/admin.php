@@ -7,6 +7,7 @@ use App\Models\Buy;
 use App\Models\CarType;
 use App\Models\Category;
 use App\Models\Cart;
+use App\Models\Contact;
 use App\Models\Off;
 use App\Models\Product;
 use App\Models\User;
@@ -24,7 +25,8 @@ class admin extends Controller
             ->select('cart.*', 'users.nameAndFamily as name')
             ->get(),
             'visitedMonthAgo' => visitedMonthAgo(),
-            'webBrowsersVisit' => webBrowsersVisit()]);
+            'webBrowsersVisit' => webBrowsersVisit(),
+        ]);
     }
 
     public function sendProduct($id)
@@ -393,5 +395,18 @@ class admin extends Controller
             $file->move($destination, '1.png');
         }
         return redirect()->intended('/admin/editCategory/' . $request->id)->with('msg', 'دسته بندی با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+
+    public function showMessages()
+    {
+        return view('admin.showMessages', ['messages' => Contact::orderBy('id', 'DESC')->get()]);
+    }
+
+    public function seenMessage($id)
+    {
+        $message = Contact::findOrFail($id);
+        $message->state=1;
+        $message->save();
+        return redirect()->intended('/admin/showMessages')->with('msg', 'پیام مشاهده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 }

@@ -19,8 +19,9 @@
         <a href="/" style="font-size: 25px;margin: auto;color: white;text-align: center">مشاهده وبسایت</a>
     </div>
     <div class="col-12" style="background-color: #fed000;padding: 0px;margin:auto;height: 50px;width: 100%">
-        <div class="col-9" >
-            <a href="/admin" style="font-size: 25px;margin: auto;padding-top: 10px;padding-right: 10px;color: #ffffff">مدیریت سایت</a>
+        <div class="col-9">
+            <a href="/admin" style="font-size: 25px;margin: auto;padding-top: 10px;padding-right: 10px;color: #ffffff">مدیریت
+                سایت</a>
         </div>
         <div class="col-3" style="padding-top: 15px">
             <img src="/logo/adminPanel.png" width="30" height="20">
@@ -62,6 +63,21 @@
         <a href="/admin/addCategory">افزودن دسته بندی جدید</a>
         <a href="/admin/editCategoryPanel">ویرایش دسته بندی ها</a>
     </div>
+    <hr>
+    <a href="/admin/showMessages">
+        <div>
+            <div class="circle" style="width: 10px;height: 10px;-webkit-border-radius: 25px;-moz-border-radius: 25px;
+    border-radius: 25px;background: #ef6a11;border: 1px solid #000000;color: white;text-align: center;position: absolute;font-size: 8px">{{countNewMessages()}}</div>
+            @if(countNewMessages()==0)
+                <img width="25" height="25" style="position: absolute;z-index: -1" src="/logo/messageEmpty.png" alt="location"
+                     data-v-b13dc018="">
+            @else
+                <img width="25" height="25" style="position: absolute;z-index: -1" src="/logo/messageExist.png" alt="location"
+                     data-v-b13dc018="">
+            @endif
+            <a href="/admin/showMessages" style="position: relative;right: 28px;top: 0px">پیام ها</a>
+        </div>
+    </a>
 </div>
 
 @yield('content')

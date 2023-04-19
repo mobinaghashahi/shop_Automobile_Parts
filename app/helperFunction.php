@@ -3,6 +3,7 @@
 use App\Models\Buy;
 use App\Models\Product;
 use App\Models\Visit;
+use App\Models\Contact;
 use Hekmatinasser\Verta\Verta;
 
 
@@ -43,7 +44,7 @@ function countCart(){
 function sendSmsToAdmin($name,$price){
 
     $client = new SoapClient("http://188.0.240.110/class/sms/wsdlservice/server.php?wsdl");
-    $user = env();
+    $user = env("SMS_PASSWORD");
     $pass = env("SMS_PASSWORD");
     $fromNum = "+3000505";
     $toNum = array("09139638917");
@@ -94,8 +95,8 @@ function webBrowsersVisit(){
 function sendSmsForgetPassword($phoneNumber,$code){
 
     $client = new SoapClient("http://188.0.240.110/class/sms/wsdlservice/server.php?wsdl");
-    $user = "09139638917";
-    $pass = "faraz1180076915";
+    $user = env("SMS_PASSWORD");
+    $pass = env("SMS_PASSWORD");
     $fromNum = "+3000505";
     $toNum = array($phoneNumber);
     $pattern_code = "a0j80azuywnn4vy";
@@ -115,4 +116,8 @@ function diffrentMin($date){
     $time =explode(' ', $date)[1];
     $dateNow = Verta::now();
     return $dateNow->diffMinutes($time);
+}
+
+function countNewMessages(){
+    return Contact::where('state','=','0')->get()->count();
 }

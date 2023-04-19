@@ -109,6 +109,9 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
     Route::get('/editCategory/{id}', [admin::class, 'showEditCategory']);
     Route::post('/editCategory', [admin::class, 'editCategory']);
 
+    Route::get('/showMessages', [admin::class, 'showMessages']);
+    Route::get('/seenMessage/{id}', [admin::class, 'seenMessage']);
+
 });
 
 Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
