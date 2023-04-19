@@ -36,6 +36,9 @@ Route::get('/aboutUs', [home::class, 'aboutUs']);
 Route::get('/contact', [home::class, 'showContact']);
 Route::post('/contact', [home::class, 'sendMessage']);
 
+Route::get('/resultSearch',[home::class, 'showResults']);
+
+//نقشه وبسایت
 Route::get('/sitemap.xml', function (){
     return "sitemap.xml";
 });

@@ -56,7 +56,7 @@
                         <input class="submitSearch" type="submit" value='جست و جو'>
                     </div>
                     <div class="divInputSearch">
-                        <input style="background-color: transparent;color: white;" class="inputSearch" type="text" placeholder="دنبال چی میگردی؟!">
+                        <input name="text" style="background-color: transparent;color: white;" class="inputSearch" type="text" placeholder="دنبال چی میگردی؟!">
                     </div>
                 </form>
             </div>
