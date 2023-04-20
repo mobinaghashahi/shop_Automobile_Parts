@@ -3,7 +3,7 @@
 <head lang="fa">
 
     <title>فروشگاه یدکی اصلی</title>
-    <link rel="icon" type="image/x-icon" href="/logo/logo.png">
+    <link rel="shortcut icon" href="/logo/logo.ico">
 
     <meta name="title" content="فروشگاه لوازم یدکی باقری">
     <meta name="description" content="بورس انواع قطعات بدنه، جلوبندی، موتوری و برقی خودروهای ایرانی و خارجی بصورت عمده و تکی با برندهای معتبر.">
@@ -56,7 +56,7 @@
                         <input class="submitSearch" type="submit" value='جست و جو'>
                     </div>
                     <div class="divInputSearch">
-                        <input name="text" style="background-color: transparent;color: white;" class="inputSearch" type="text" placeholder="دنبال چی میگردی؟!">
+                        <input name="text" style="background-color: transparent;color: black;" class="inputSearch" type="text" placeholder="دنبال چی میگردی؟!">
                     </div>
                 </form>
             </div>
