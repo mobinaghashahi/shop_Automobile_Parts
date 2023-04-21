@@ -54,16 +54,25 @@ class home extends Controller
         $validated = $request->validate([
             'text' => 'string',
         ]);
+        $whereNameItems=array();
+        $whereDescriptionItems=array();
+        $allResult=array();
+
         $texts = explode(' ', $request->get('text'));
-        $products = array();
-        foreach ($texts as $text) {
-            $results = Product::where('name', 'like', '%' . $text . '%')
-                ->orWhere('description', 'like', '%' . $text . '%')
-                ->get();
-            foreach ($results as $result){
-                $products[] = $result;
+
+        foreach ($texts as $text){
+            $whereNameItems[] = ['name', 'like', '%' . $text . '%'];
+            $whereDescriptionItems[] = ['description', 'like', '%' . $text . '%'];
+        }
+
+        $resultsNameProduct=Product::where($whereNameItems)->get();
+        $resultsDescriptionProduct=Product::where($whereDescriptionItems)->get();
+        foreach ($resultsNameProduct as $item) {
+            if(!$resultsDescriptionProduct->contains('id',$item->id)){
+                $resultsDescriptionProduct->push($item);
             }
         }
-        return view('home.showSearchResults',['products'=>$products]);
+
+        return view('home.showSearchResults',['products'=>$resultsDescriptionProduct]);
     }
 }
