@@ -8,13 +8,18 @@
             <div class="col-12" style="padding-top: 50px;display: flex;justify-content: center">
                 <div class="col-11">
                     @if (\Session::has('msg'))
-                        <div class="col-12" style="justify-content: center;display: flex">
-                            <div class="col-3">
-                                <div class="successMessage" style="margin-top: 25px;margin-bottom: 20px">
-                                    {!! \Session::get('msg') !!}
-                                </div>
-                            </div>
+                        <div class="notification notificationSuccess">
+                            <p>{!! \Session::get('msg') !!}</p>
+                            <span class="notification_progress"></span>
                         </div>
+                    @endif
+                    @if ($errors->any())
+                        @foreach($errors->all() as $error)
+                            <div class="notification notificationError">
+                                <p>{{$error}}</p>
+                                <span class="notification_progress"></span>
+                            </div>
+                        @endforeach
                     @endif
                     <table>
                         <tr>

@@ -1,22 +1,29 @@
 @extends('layout.master')
 
 @section('content')
+    @if (\Session::has('msg'))
+        <div class="notification">
+            <p>{!! \Session::get('msg') !!}</p>
+            <span class="notification_progress"></span>
+        </div>
+    @endif
+    @if ($errors->any())
+        @foreach($errors->all() as $error)
+            <div class="notification" style="background-image: linear-gradient(45deg, rgba(255,36,36,0.75) 51%, rgba(252,0,0,0.54) 100%);">
+                <p>{{$error}}</p>
+                <span style="background-image: linear-gradient(to right,#ffffff,#7c7c7c);" class="notification_progress"></span>
+            </div>
+        @endforeach
+    @endif
     <div class="col-12" style="margin-bottom: 25px;margin-top: 25px">
+
         @include('user.menu')
         <div class="col-8 profileForm">
             <div class="col-12" style="direction: rtl">
                 <form method="post" action="profile">
                     <div class="col-12" style="display: flex;justify-content: center">
                         <div class="col-4">
-                            @if ($errors->any())
-                                @foreach($errors->all() as $error)
-                                    <div class="col-12" style="justify-content: center;display: flex">
-                                        <div class="col-12">
-                                            <p style="color: #ffffff;text-align: center;background-color: #ff2e2e;direction:rtl;line-height: 15px;padding: 10px;border-radius: 10px">{{$error}}</p>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @endif
+
                         </div>
                     </div>
                     @csrf

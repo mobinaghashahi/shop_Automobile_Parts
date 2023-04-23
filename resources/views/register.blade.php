@@ -5,12 +5,17 @@
         <div class="col-3 loginForm" style="padding: 40px 0px 40px 0px">
             <form method="post" name="enter" action="/register">
                 @csrf
+                @if (\Session::has('msg'))
+                    <div class="notification notificationSuccess">
+                        <p>{!! \Session::get('msg') !!}</p>
+                        <span class="notification_progress"></span>
+                    </div>
+                @endif
                 @if ($errors->any())
                     @foreach($errors->all() as $error)
-                        <div class="col-12" style="justify-content: center;display: flex">
-                            <div class="col-12">
-                                <p style="color: #ffffff;text-align: center;background-color: #ff2e2e;direction:rtl;line-height: 15px;padding: 10px;border-radius: 10px">{{$error}}</p>
-                            </div>
+                        <div class="notification notificationError">
+                            <p>{{$error}}</p>
+                            <span class="notification_progress"></span>
                         </div>
                     @endforeach
                 @endif

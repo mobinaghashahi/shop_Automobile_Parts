@@ -5,20 +5,16 @@
         <div class="col-12" style="padding: 10px 0px 10px 0px">
             <div style="text-align: right;direction: rtl">
                 @if (\Session::has('msg'))
-                    <div class="col-12" style="justify-content: center;display: flex">
-                        <div class="col-3">
-                            <div class="successMessage" style="margin-top: 25px">
-                                {!! \Session::get('msg') !!}
-                            </div>
-                        </div>
+                    <div class="notification notificationSuccess">
+                        <p>{!! \Session::get('msg') !!}</p>
+                        <span class="notification_progress"></span>
                     </div>
                 @endif
                 @if ($errors->any())
                     @foreach($errors->all() as $error)
-                        <div class="col-12" style="justify-content: center;display: flex">
-                            <div class="col-3">
-                                <p style="color: #ffffff;text-align: center;background-color: #ff2e2e;direction:rtl;line-height: 15px;padding: 10px;border-radius: 10px">{{$error}}</p>
-                            </div>
+                        <div class="notification notificationError">
+                            <p>{{$error}}</p>
+                            <span class="notification_progress"></span>
                         </div>
                     @endforeach
                 @endif
