@@ -2,7 +2,7 @@
     <div class="col-3">
         <div class="contentFooter">
             <p>اطلاعات تماس</p>
-            <p><a style="text-decoration: none;color: white" href="tel:09129231997">تماس: 09129231997</a></p>
+            <p><a style="text-decoration: none;color: white" href="tel:09129231997">تماس:<br> 09129231997</a></p>
             <p>ایمیل: Danyel.bagheri3113@gmail.com</p>
             <p>آدرس:<br>قزوین، بلوار نوروزیان، روبروی بانک ملت، بین البرز ۳۹  </p>
         </div>
