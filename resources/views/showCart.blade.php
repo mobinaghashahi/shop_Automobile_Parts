@@ -1,6 +1,12 @@
 @extends("layout.master")
 @section('content')
     <div class="col-12 blockCart">
+        @if (\Session::has('error'))
+            <div class="notification notificationError">
+                <p>{!! \Session::get('error') !!}</p>
+                <span class="notification_progress"></span>
+            </div>
+        @endif
         <div class="col-6 blockCartRight">
             @foreach($products as  $value)
                 <div class="col-12 blockProductsCart">
@@ -82,9 +88,12 @@
             <div class="col-6">
                 <p style="padding-right: 20px"><b>{{number_format($sendPrice+$totalPrice)}} تومان</b></p>
             </div>
-            <div class="col-12" style="display: flex;justify-content: center">
-                <input style="color:black;width: 90%;" name="enter" class="inputSubmit" type="submit" value="پرداخت">
-            </div>
+            <form action="/payment/pay" method="post">
+                @csrf
+                <div class="col-12" style="display: flex;justify-content: center">
+                    <input style="color:black;width: 90%;" name="enter" class="inputSubmit" type="submit" value="پرداخت">
+                </div>
+            </form>
         </div>
     </div>
 @endsection
