@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Visit;
 use App\Models\Contact;
 use Hekmatinasser\Verta\Verta;
+use Illuminate\Support\Arr;
 
 
 function calSumPrice($id)
@@ -24,100 +25,97 @@ function calSumPrice($id)
 
 function callCountSellProducts($id)
 {
-    $count=0;
+    $count = 0;
     $sells = Buy::where('products_id', '=', $id)->get();
-    foreach ($sells as $sell){
-        $count+=$sell->count;
+    foreach ($sells as $sell) {
+        $count += $sell->count;
     }
     return $count;
 }
 
-function stock($id){
-    $product=Product::where('id','=',$id)->get()[0];
+function stock($id)
+{
+    $product = Product::where('id', '=', $id)->get()[0];
     //موجودی را از تعداد کالاهای فروش رفته کم میکنیم
-    return $product->count-callCountSellProducts($id);
+    return $product->count - callCountSellProducts($id);
 }
 
-function countCart(){
+function countCart()
+{
     return count(session('products'));
 }
-function sendSmsToAdmin($name,$price){
 
-    $client = new SoapClient("http://188.0.240.110/class/sms/wsdlservice/server.php?wsdl");
-    $user = env("SMS_PASSWORD");
-    $pass = env("SMS_PASSWORD");
-    $fromNum = "+3000505";
-    $toNum = array("09139638917");
-    $pattern_code = "de2bsqxz3oz1cuv";
-    $input_data = array(
-        "name" => $name,
-        "price" => $price
-    );
-    echo $client->sendPatternSms($fromNum, $toNum, $user, $pass, $pattern_code, $input_data);
-}
 
-function visitedMonthAgo(){
+function visitedMonthAgo()
+{
     //this is for fix groupBy error!!!!!
     \DB::statement("SET SQL_MODE=''");
+
     $countVisit = array();
     $v = Verta::now();
     $visitQuary = Visit::where('date', 'like', '%' . $v->format('Y-m-d') . '%')->groupBy('ip')->get()->count();
-    array_push($countVisit,array($v->format('Y-m-d'),$visitQuary));
+    array_push($countVisit, array($v->format('Y-m-d'), $visitQuary));
     for ($i = 1; $i <= 30; $i++) {
-        $date=$v->subDay(1)->format('Y-m-d');
+        $date = $v->subDay(1)->format('Y-m-d');
         $visitQuary = Visit::where('date', 'like', '%' . $date . '%')->groupBy('ip')->get()->count();
-        array_push($countVisit,array($date,$visitQuary));
+        array_push($countVisit, array($date, $visitQuary));
     }
     return $countVisit;
 }
 
-function webBrowsersVisit(){
+function webBrowsersVisit()
+{
     //this is for fix groupBy error!!!!!
     \DB::statement("SET SQL_MODE=''");
-    $webbrowsers=Visit::select('webbrowser')->where('webbrowser','!=',null)->groupBy('webbrowser')->get();
-    $chartValues=array();
-    $countAllWebBrowsersVisit=0;
+    $webbrowsers = Visit::select('webbrowser')->where('webbrowser', '!=', null)->groupBy('webbrowser')->get();
+    $chartValues = array();
+    $countAllWebBrowsersVisit = 0;
     foreach ($webbrowsers as $webbrowser) {
-        if ($webbrowser->webbrowser==null)
+        if ($webbrowser->webbrowser == null)
             continue;
-        $count= Visit::where('webbrowser','=',$webbrowser->webbrowser)->groupBy('ip')->get()->count().' ';
-        $countAllWebBrowsersVisit+=$count;
-        array_push($chartValues,array($webbrowser->webbrowser,$count));
+        $count = Visit::where('webbrowser', '=', $webbrowser->webbrowser)->groupBy('ip')->get()->count() . ' ';
+        $countAllWebBrowsersVisit += $count;
+        array_push($chartValues, array($webbrowser->webbrowser, $count));
     }
 
-    $countAllWebBrowsers=$webbrowsers->count();
+    $countAllWebBrowsers = $webbrowsers->count();
     //به دست آوردن کل بازدید های انجام شده با مرورگر های مختلف برای درصد گیری.
-    foreach ($chartValues as $key => $val){
-        $chartValues[$key][1]=($chartValues[$key][1]/$countAllWebBrowsersVisit)*100;
+    foreach ($chartValues as $key => $val) {
+        $chartValues[$key][1] = ($chartValues[$key][1] / $countAllWebBrowsersVisit) * 100;
     }
     return $chartValues;
 }
-function sendSmsForgetPassword($phoneNumber,$code){
 
-    $client = new SoapClient("http://188.0.240.110/class/sms/wsdlservice/server.php?wsdl");
-    $user = env("SMS_PASSWORD");
-    $pass = env("SMS_PASSWORD");
-    $fromNum = "+3000505";
-    $toNum = array($phoneNumber);
-    $pattern_code = "a0j80azuywnn4vy";
-    $input_data = array(
-        "code" => $code,
-    );
-    echo $client->sendPatternSms($fromNum, $toNum, $user, $pass, $pattern_code, $input_data);
+function generateCode()
+{
+    return rand(1000, 9999);
 }
 
-function generateCode(){
-    return rand(1000,9999);
-}
-
-function diffrentMin($date){
+function diffrentMin($date)
+{
 
 //جدا کردن ساخت و تاریخ
-    $time =explode(' ', $date)[1];
+    $time = explode(' ', $date)[1];
     $dateNow = Verta::now();
     return $dateNow->diffMinutes($time);
 }
 
-function countNewMessages(){
-    return Contact::where('state','=','0')->get()->count();
+function countNewMessages()
+{
+    return Contact::where('state', '=', '0')->get()->count();
+}
+
+function totalPriceCart()
+{
+    $totalPrice = 0;
+    $sendPrice = postPrice();
+    foreach (session('products') as $key => $value) {
+        $result = Product::where('id', '=', $key)->get();
+        $totalPrice += $result[0]->price * $value;
+    }
+    return $totalPrice + $sendPrice;
+}
+
+function postPrice(){
+    return 0;
 }
