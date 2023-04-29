@@ -53,7 +53,7 @@ class cart extends Controller
 
     public function showCart(){
         $totalPrice=0;
-        $sendPrice=30000;
+        $postPrice=postPrice();
         $products=array();
         foreach (session('products') as $key => $value){
             $result=Product::where('id','=',$key)->get();
@@ -61,7 +61,7 @@ class cart extends Controller
             $m=$result->toArray();
             $products=Arr::add($products,$key,$m);
         }
-        return view('showCart',['products'=>$products,'totalPrice'=>$totalPrice,'sendPrice'=>$sendPrice]);
+        return view('showCart',['products'=>$products,'totalPrice'=>$totalPrice,'sendPrice'=>$postPrice]);
     }
     public function deleteOfCart($id){
         session()->forget('products.'.$id);
