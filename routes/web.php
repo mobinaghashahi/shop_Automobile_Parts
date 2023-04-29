@@ -13,6 +13,7 @@ use App\Http\Controllers\productBrand;
 use App\Http\Controllers\products;
 use App\Http\Controllers\productDetails;
 use App\Http\Controllers\cart;
+use App\Http\Controllers\payment;
 use App\Http\Controllers\Auth\forgetPassword;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
@@ -133,4 +134,9 @@ Route::prefix('/cart')->group(function () {
 
     Route::get('/showCart',[cart::class,'showCart']);
     Route::get('/deleteOfCart/{id}',[cart::class,'deleteOfCart']);
+});
+
+Route::prefix('/payment')->group(function () {
+   Route::post('/pay',[payment::class,'pay']);
+   Route::get('/verify',[payment::class,'verify']);
 });
