@@ -46,7 +46,7 @@ class payment extends Controller
         $response = curl_exec($curl);
 
         curl_close($curl);
-
+        
         $authority = json_decode($response)->data->authority;
         session(['amount' => $totalPrice]);
         session(['authority' => $authority]);
