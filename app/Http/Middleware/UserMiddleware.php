@@ -17,7 +17,7 @@ class UserMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         if(!Auth::check())
-            return redirect()->intended('/');
+            return redirect()->intended('/login')->with('msg', 'برای تکمیل فرایند ابتدا وارد شو!');
         return $next($request);
     }
 }

@@ -136,7 +136,7 @@ Route::prefix('/cart')->group(function () {
     Route::get('/deleteOfCart/{id}',[cart::class,'deleteOfCart']);
 });
 
-Route::prefix('/payment')->group(function () {
+Route::prefix('/payment')->middleware(UserMiddleware::class)->group(function () {
    Route::post('/pay',[payment::class,'pay']);
    Route::get('/verify',[payment::class,'verify']);
 });
