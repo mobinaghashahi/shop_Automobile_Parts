@@ -14,7 +14,9 @@ class home extends Controller
 {
     public function showHome()
     {
-        return view('home.home', ['products' => Product::orderBy('id', 'DESC')->get(),
+        //this is for fix groupBy error!!!!!
+        \DB::statement("SET SQL_MODE=''");
+        return view('home.home', ['products' => Product::orderBy('id', 'DESC')->groupBy('name')->get(),
             'categorys' => Category::all(),
             'categoryExist' => Product::select('category_id')->groupBy('category_id')->get()->toArray()]);
     }

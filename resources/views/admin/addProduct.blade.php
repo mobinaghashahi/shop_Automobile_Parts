@@ -56,11 +56,24 @@
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-4" style="text-align: center">
                         <label>نوع ماشین</label>
-                        <select class="inputText" style="background-color: white" name="carType_id" id="cars">
-                            @foreach ($carType as $index => $carTypeRows)
-                                <option value="{{$carTypeRows->id}}">{{$carTypeRows->name}}</option>
-                            @endforeach
-                        </select>
+                        <div class="col-12">
+                            <div class="col-11" id="carType">
+                                <input id="countCarTypeFild" type="text" name="countCarTypeFild" value="1" hidden>
+                                <select class="inputText" style="background-color: white;margin-bottom: 10px"
+                                        name="carType_id_1" id="cars">
+                                    @foreach ($carType as $index => $carTypeRows)
+                                        <option value="{{$carTypeRows->id}}">{{$carTypeRows->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="col-1">
+                                <button type="button" name="1" id="addCarTypeBtn"
+                                        style="width: 30px;height: 30px;background-color: green;border: transparent;border-radius: 10px;cursor: cell;margin-right: 5px;color: white ">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
@@ -102,4 +115,21 @@
             </form>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        let count=2;
+        $(document).ready(function(){
+            $("#addCarTypeBtn").click(function(){
+                    $.get("/admin/listCarTypeForJquary/"+count, function(data, status){
+                        $("#carType").append(data);
+                        $('#countCarTypeFild').val(count);
+                        count++;
+                });
+            });
+        });
+        $( window ).on( "load", function() {
+            $('#countCarTypeFild').val(1);
+        });
+
+    </script>
 @endsection

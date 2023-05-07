@@ -61,23 +61,30 @@ class admin extends Controller
             'file' => 'mimes:png'
         ]);
 
-        $product = new Product();
-        $product->name = $request->name;
-        $product->count = $request->count;
-        $product->price = $request->price;
-        $product->brand_id = $request->brand_id;
-        $product->category_id = $request->category_id;
-        $product->carType_id = $request->carType_id;
-        $product->off_id = $request->off_id;
-        $product->description = $request->description;
-        $product->save();
+        //این مکان نیاز به توجه جدی دارد و افتضاح ترین بخش کد من است، این صرفا بخاطر اضافه کردن یک ویژگی جدید است که بسیار احمقانه نوشته شده است.
+        for ($i = 1; $i <= $request->countCarTypeFild; $i++) {
+            $carType_id="carType_id_".$i;
+            $product = new Product();
+            $product->name = $request->name;
+            $product->count = $request->count;
+            $product->price = $request->price;
+            $product->brand_id = $request->brand_id;
+            $product->category_id = $request->category_id;
+            $product->carType_id = $request->$carType_id;
+            $product->off_id = $request->off_id;
+            $product->description = $request->description;
+            $product->save();
 
-        $destination = 'products/' . Product::all()->last()->id;
-        if (!is_dir($destination))
-            mkdir($destination, 0777, true);
-        if (!empty($request->file('file'))) {
-            $file = $request->file('file');
-            $file->move($destination, '1.png');
+            $destination = 'products/' . Product::all()->last()->id;
+            if (!is_dir($destination))
+                mkdir($destination, 0777, true);
+            if (!empty($request->file('file'))&&$i==1) {
+                $file = $request->file('file');
+                $file->move($destination, '1.png');
+                $firstProductSaveId=Product::all()->last()->id;
+            }else{
+                copy('products/'.$firstProductSaveId.'/1.png',$destination.'/1.png');
+            }
         }
         return redirect()->intended('/admin/addProduct')->with('msg', 'محصول با موفقیت افزوده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
@@ -405,8 +412,13 @@ class admin extends Controller
     public function seenMessage($id)
     {
         $message = Contact::findOrFail($id);
-        $message->state=1;
+        $message->state = 1;
         $message->save();
         return redirect()->intended('/admin/showMessages')->with('msg', 'پیام مشاهده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+
+    public function listCarTypeForJquary($id)
+    {
+        return view('admin/listCarTypeForJquary', ['id' => $id, 'carType' => CarType::all()]);
     }
 }

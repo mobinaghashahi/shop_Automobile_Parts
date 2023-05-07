@@ -140,3 +140,5 @@ Route::prefix('/payment')->middleware(UserMiddleware::class)->group(function () 
    Route::post('/pay',[payment::class,'pay']);
    Route::get('/verify',[payment::class,'verify']);
 });
+
+Route::get('/admin/listCarTypeForJquary/{id}',[admin::class,'listCarTypeForJquary']);
