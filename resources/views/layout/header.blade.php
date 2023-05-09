@@ -2,12 +2,12 @@
 <html>
 <head lang="fa">
 
-    <title>فروشگاه یدکی اصلی</title>
+    <title>یدک اصلی: بزرگترین فروشگاه تخصصی لوازم یدکی خودرو در کشور </title>
     <link rel="shortcut icon" href="/logo/logo.ico">
 
     <meta name="title" content="فروشگاه لوازم یدکی باقری">
-    <meta name="description" content="بورس انواع قطعات بدنه، جلوبندی، موتوری و برقی خودروهای ایرانی و خارجی بصورت عمده و تکی با برندهای معتبر.">
-    <meta name="keywords" content="لوازم یدکی،ماشین،فروشگاه">
+    <meta name="description" content=" فروشگاه آنلاین لوازم یدکی اصلی. لوازم یدکی خودرو, انتخاب برند, ایران خودرو, بهمن, پارس خودرو, جیلی, چری, رنو, سایپا, کرمان خودرو, کیا, نیسان, هیوندای. انتخاب مدل. انتخاب تیپ. ">
+    <meta name="keywords" content="لوازم یدکی،ماشین،فروشگا">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="fa">
@@ -31,9 +31,14 @@
 
 <header>
     <div class="col-12 header">
-        <a href="https://instagram.com/yadak.asli3113?igshid=YmMyMTA2M2Y=">
-            <img class="logoInstagram" src="/logo/instagram.png" title="instagram" alt="instagram" width="25" height="25">
-        </a>
+        <div class="col-6" style="color: white;">
+            <h1>لوازم یدکی اصلی</h1>
+        </div>
+        <div class="col-6">
+            <a href="https://instagram.com/yadak.asli3113?igshid=YmMyMTA2M2Y=">
+                <img class="logoInstagram" src="/logo/instagram.png" title="instagram" alt="instagram" width="25" height="25">
+            </a>
+        </div>
     </div>
     <div class="col-12">
         <div>
