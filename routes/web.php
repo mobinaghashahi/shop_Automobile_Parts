@@ -74,7 +74,9 @@ Route::get('/productDetails/{id}', [products::class, 'showDetails']);
 Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
     Route::get('/', [admin::class, 'showDashboard']);
 
-    Route::get('/sendProduct/{id}', [admin::class, 'sendProduct']);
+    Route::post('/sendProduct', [admin::class, 'sendProduct']);
+    Route::get('/undoSendProduct/{id}', [admin::class, 'undoSendProduct']);
+    Route::get('/listOrders/{id}', [admin::class, 'listOrders']);
     Route::get('/printForSendProduct/{id}', [admin::class, 'printForSendProduct']);
 
 

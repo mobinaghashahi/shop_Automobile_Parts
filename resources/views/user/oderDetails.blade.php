@@ -4,6 +4,7 @@
         @include('user.menu')
         <div class="col-8" style="margin-top: 40px;margin-right: 20px">
                 <div class="col-12" style="direction: rtl;">
+                    @if($buys->count()!=0)
                     <table>
                         <tr>
                             <th>محصول</th>
@@ -24,7 +25,12 @@
                             <td  colspan="3">{{number_format(calSumPrice($buy->cartId))}}</td>
                         </tr>
                     </table>
+                    @else
+                        <p style="text-align: center">محصولی در لیست وجود ندارد.</p>
+                    @endif
                 </div>
         </div>
+
+        @
     </div>
 @endsection

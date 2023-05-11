@@ -24,17 +24,41 @@ class admin extends Controller
             ->where('cart.state', '=', 0)
             ->select('cart.*', 'users.nameAndFamily as name')
             ->get(),
+            'registeredOrders'=>Cart::join('users', 'users.id', '=', 'cart.user_id')
+                ->where('cart.state', '=', 1)
+                ->select('cart.*', 'users.nameAndFamily as name')
+                ->limit(10)
+                ->get(),
             'visitedMonthAgo' => visitedMonthAgo(),
             'webBrowsersVisit' => webBrowsersVisit(),
         ]);
     }
 
-    public function sendProduct($id)
+    public function sendProduct(Request $request)
     {
-        $buy = Cart::findOrFail($id);
+        $validated = $request->validate([
+            'postCode' => 'required|integer|digits:16',
+            'idProduct' => 'required|integer',
+        ]);
+        $buy = Cart::findOrFail($request->idProduct);
         $buy->state = 1;
+        $buy->sendPostCode = $request->postCode;
         $buy->save();
         return redirect()->intended('/admin')->with('msg', 'محصول با موفقیت تایید شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+    public function undoSendProduct($id)
+    {
+        $buy = Cart::findOrFail($id);
+        $buy->state = 0;
+        $buy->sendPostCode = '';
+        $buy->save();
+        return redirect()->intended('/admin')->with('msg', 'محصول با موفقیت از ارسال شده ها حذف شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+    public function listOrders($id)
+    {
+        return view('admin.listOrders',['listOrders'=>Buy::join('cart', 'buy.cart_id', '=', 'cart.id')
+            ->join('products', 'products.id', '=', 'buy.products_id')
+            ->where('cart.id', '=', $id)->select('buy.count','buy.price','products.name')->get()]);
     }
 
     public function printForSendProduct($id)

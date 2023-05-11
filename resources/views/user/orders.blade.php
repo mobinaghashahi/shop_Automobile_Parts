@@ -16,6 +16,7 @@
                             <th>کد</th>
                             <th>وضعیت</th>
                             <th>مجموع</th>
+                            <th>کد پیگیری</th>
                             <th>عملیات</th>
                         </tr>
                         @foreach($orders as $order)
@@ -27,6 +28,7 @@
                                     <td style="background-color: #4DC7A0">ارسال شده</td>
                                 @endif
                                 <td>{{number_format($order->totalPrice)}} </td>
+                                <td>{{$order->sendPostCode}} </td>
                                 <td>
                                     <div class="col-12" style="display:flex;justify-content: center">
                                         <a href="/user/orderDetails/{{$order->id}}" class="inputSubmit"

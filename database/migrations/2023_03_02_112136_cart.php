@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer("state");
             $table->integer("totalPrice");
             $table->string("paymentCode");
+            $table->string("sendPostCode");
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
