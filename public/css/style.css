@@ -365,6 +365,7 @@ tr:nth-child(even) {
 }
 
 .notification{
+    z-index: 1;
     direction: rtl;
     text-align: right;
     position: fixed;
