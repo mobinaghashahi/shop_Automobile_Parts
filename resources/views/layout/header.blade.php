@@ -31,14 +31,9 @@
 
 <header>
     <div class="col-12 header">
-        <div class="col-6" style="color: white;">
-            <h1>لوازم یدکی اصلی</h1>
-        </div>
-        <div class="col-6">
             <a href="https://instagram.com/yadak.asli3113?igshid=YmMyMTA2M2Y=">
                 <img class="logoInstagram" src="/logo/instagram.png" title="instagram" alt="instagram" width="25" height="25">
             </a>
-        </div>
     </div>
     <div class="col-12">
         <div>
