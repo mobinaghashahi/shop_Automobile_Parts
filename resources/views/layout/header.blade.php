@@ -15,11 +15,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/userPanel.css" rel="stylesheet">
-    <link href="/css/style.css?v=3.4" rel="stylesheet">
+    <link href="/css/style.css?v=3.5" rel="stylesheet">
     <link href="/css/styleLogos.css" rel="stylesheet">
-    <link href="/css/styleNavBar.css?v=2.3" rel="stylesheet">
+    <link href="/css/styleNavBar.css?v=2.4" rel="stylesheet">
     <link href="/css/slideShow.css" rel="stylesheet">
-    <link href="/css/RWD.css?v=3.5" rel="stylesheet">
+    <link href="/css/RWD.css?v=3.6" rel="stylesheet">
     <link href="/css/messages.css" rel="stylesheet">
 
     <!--owl -->
@@ -68,25 +68,40 @@
                 <li class="dropdown"><a class="dropBtn level1">برندها</a>
                     <div class="dropdownContentLevel1">
                         @foreach($brands as $brand)
-                            <a class="level2" href="/brands/{{$brand->id}}">{{$brand->name}} <img
+                            <a class="level2" href="/brands/{{$brand->id}}">{{$brand->name}}<div style="float: right;padding-right: 10px">
+                                <img
                                     style="padding-left: 5px;" src="/brand/{{$brand->id}}/1.png"
                                     width="25"
-                                    height="25" alt="برند {{$brand->name}}"/></a>
+                                    height="25" alt="برند {{$brand->name}}"/>
+                            </div>
+                            </a>
+
                         @endforeach
                     </div>
                 </li>
                 <li class="dropdown">
                     <a class="dropBtn level1">محصولات</a>
                     <div class="dropdownContentLevel1">
-                        <a class="level2" href="#">سایپا<img style="padding-left: 5px;" src="/logo/saypa.png" width="20"
-                                                             height="20" alt="دسته بندی سایپا"></a>
+                        <a class="level2">سایپا<div style="float: right;padding-right: 10px">
+                                <img
+                                    style="padding-left: 5px;" src="/logo/saypa.png?v=1"
+                                    width="25"
+                                    height="25" alt="سایپا"/>
+                            </div>
+                        </a>
                         <div class="dropdownContentLevel2">
                             @foreach($carsSaypa as $car)
                                 <a class="level3" href="/carTypeCategorys/{{$car->id}}">{{$car->name}}</a>
                             @endforeach
                         </div>
-                        <a class="level2" href="#">ایران خودرو<img style="padding-left: 5px;" src="/logo/irankhodro.png"
-                                                                   width="20" height="25" alt="دسته بندی ایران خودرو"></a>
+
+                        <a class="level2">ایرانخودرو<div style="float: right;padding-right: 10px">
+                                <img
+                                    style="padding-left: 5px;" src="/logo/irankhodro.png?v=1"
+                                    width="25"
+                                    height="25" alt="ایرانخودرو"/>
+                            </div>
+                        </a>
                         <div class="dropdownContentLevel2">
                             @foreach($carsIranKhodro as $car)
                                 <a class="level3" href="/carTypeCategorys/{{$car->id}}">{{$car->name}}</a>
