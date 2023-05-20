@@ -48,7 +48,7 @@
                             کنید.</a>
                     </div>
                     <div style="text-align: left;direction: rtl;display: inline;float: left">
-                        <a href="/forgetPassword">تغییر گذرواژه</a>
+                        <a style="text-decoration: none;color: black" href="/forgetPassword">تغییر گذرواژه</a>
                     </div>
                 </div>
             </form>
