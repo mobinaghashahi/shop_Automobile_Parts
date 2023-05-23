@@ -131,11 +131,7 @@
 
             </div>
         @endif
-        <div class="cartTitle" style="float:left;padding-top: 15px;width: 20%;font-size: 12px">
-            <div>
-                <a href="#" style="text-decoration: none;color: white;">تماس با ما</a>
-            </div>
-        </div>
+
     </div>
 </header>
 

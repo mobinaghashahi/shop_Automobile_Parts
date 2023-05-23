@@ -118,6 +118,13 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
     Route::get('/showMessages', [admin::class, 'showMessages']);
     Route::get('/seenMessage/{id}', [admin::class, 'seenMessage']);
 
+    Route::get('/addSlideShow', [admin::class, 'showAddSlideShow']);
+    Route::post('/addSlideShow', [admin::class, 'addSlideShow']);
+    Route::get('/deleteSlideShow/{id}', [admin::class, 'deleteSlideShow']);
+    Route::get('/editSlideShowPanel', [admin::class, 'showEditSlideShowPanel']);
+    Route::get('/editSlideShow/{id}', [admin::class, 'showEditSlideShow']);
+    Route::post('/editSlideShow', [admin::class, 'editSlideShow']);
+
 });
 
 Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {

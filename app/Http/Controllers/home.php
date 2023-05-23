@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Contact;
 use App\Models\Product;
+use App\Models\SlideShow;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
 use Symfony\Component\Console\Input\Input;
@@ -18,7 +19,8 @@ class home extends Controller
         \DB::statement("SET SQL_MODE=''");
         return view('home.home', ['products' => Product::orderBy('id', 'DESC')->groupBy('name')->get(),
             'categorys' => Category::all(),
-            'categoryExist' => Product::select('category_id')->groupBy('category_id')->get()->toArray()]);
+            'categoryExist' => Product::select('category_id')->groupBy('category_id')->get()->toArray(),
+            'slideShows'=>SlideShow::all()]);
     }
 
     public function aboutUs()

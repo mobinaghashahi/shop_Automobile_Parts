@@ -10,10 +10,12 @@ use App\Models\Cart;
 use App\Models\Contact;
 use App\Models\Off;
 use App\Models\Product;
+use App\Models\SlideShow;
 use App\Models\User;
 use App\Models\Visit;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class admin extends Controller
 {
@@ -24,7 +26,7 @@ class admin extends Controller
             ->where('cart.state', '=', 0)
             ->select('cart.*', 'users.nameAndFamily as name')
             ->get(),
-            'registeredOrders'=>Cart::join('users', 'users.id', '=', 'cart.user_id')
+            'registeredOrders' => Cart::join('users', 'users.id', '=', 'cart.user_id')
                 ->where('cart.state', '=', 1)
                 ->select('cart.*', 'users.nameAndFamily as name')
                 ->limit(10)
@@ -46,6 +48,7 @@ class admin extends Controller
         $buy->save();
         return redirect()->intended('/admin')->with('msg', 'محصول با موفقیت تایید شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
+
     public function undoSendProduct($id)
     {
         $buy = Cart::findOrFail($id);
@@ -54,11 +57,12 @@ class admin extends Controller
         $buy->save();
         return redirect()->intended('/admin')->with('msg', 'محصول با موفقیت از ارسال شده ها حذف شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
+
     public function listOrders($id)
     {
-        return view('admin.listOrders',['listOrders'=>Buy::join('cart', 'buy.cart_id', '=', 'cart.id')
+        return view('admin.listOrders', ['listOrders' => Buy::join('cart', 'buy.cart_id', '=', 'cart.id')
             ->join('products', 'products.id', '=', 'buy.products_id')
-            ->where('cart.id', '=', $id)->select('buy.count','buy.price','products.name')->get()]);
+            ->where('cart.id', '=', $id)->select('buy.count', 'buy.price', 'products.name')->get()]);
     }
 
     public function printForSendProduct($id)
@@ -86,7 +90,7 @@ class admin extends Controller
             'file' => 'mimes:png'
         ]);
 
-        $all=$request->all();
+        $all = $request->all();
 
         //پیدا کردن تعداد ماشین هایی که این محصول را شامل میشوند
         $pattern = '/^carType_id_\d+$/';
@@ -94,10 +98,10 @@ class admin extends Controller
 
         foreach ($user_array as $key)
             $carTypes[$key] = $all[$key];
-        $carTypes=array_unique($carTypes);
+        $carTypes = array_unique($carTypes);
 
-        $index=1;
-        foreach ($carTypes as $carType){
+        $index = 1;
+        foreach ($carTypes as $carType) {
             $product = new Product();
             $product->name = $request->name;
             $product->count = $request->count;
@@ -112,42 +116,42 @@ class admin extends Controller
             $destination = 'products/' . Product::all()->last()->id;
             if (!is_dir($destination))
                 mkdir($destination, 0777, true);
-            if (!empty($request->file('file'))&&$index==1) {
+            if (!empty($request->file('file')) && $index == 1) {
                 $file = $request->file('file');
                 $file->move($destination, '1.png');
-                $firstProductSaveId=Product::all()->last()->id;
-            }else{
-                copy('products/'.$firstProductSaveId.'/1.png',$destination.'/1.png');
+                $firstProductSaveId = Product::all()->last()->id;
+            } else {
+                copy('products/' . $firstProductSaveId . '/1.png', $destination . '/1.png');
             }
             $index++;
         }
 
-/*
-        //این مکان نیاز به توجه جدی دارد و افتضاح ترین بخش کد من است، این صرفا بخاطر اضافه کردن یک ویژگی جدید است که بسیار احمقانه نوشته شده است.
-        for ($i = 1; $i <= $request->countCarTypeFild; $i++) {
-            $carType_id="carType_id_".$i;
-            $product = new Product();
-            $product->name = $request->name;
-            $product->count = $request->count;
-            $product->price = $request->price;
-            $product->brand_id = $request->brand_id;
-            $product->category_id = $request->category_id;
-            $product->carType_id = $request->$carType_id;
-            $product->off_id = $request->off_id;
-            $product->description = $request->description;
-            $product->save();
+        /*
+                //این مکان نیاز به توجه جدی دارد و افتضاح ترین بخش کد من است، این صرفا بخاطر اضافه کردن یک ویژگی جدید است که بسیار احمقانه نوشته شده است.
+                for ($i = 1; $i <= $request->countCarTypeFild; $i++) {
+                    $carType_id="carType_id_".$i;
+                    $product = new Product();
+                    $product->name = $request->name;
+                    $product->count = $request->count;
+                    $product->price = $request->price;
+                    $product->brand_id = $request->brand_id;
+                    $product->category_id = $request->category_id;
+                    $product->carType_id = $request->$carType_id;
+                    $product->off_id = $request->off_id;
+                    $product->description = $request->description;
+                    $product->save();
 
-            $destination = 'products/' . Product::all()->last()->id;
-            if (!is_dir($destination))
-                mkdir($destination, 0777, true);
-            if (!empty($request->file('file'))&&$i==1) {
-                $file = $request->file('file');
-                $file->move($destination, '1.png');
-                $firstProductSaveId=Product::all()->last()->id;
-            }else{
-                copy('products/'.$firstProductSaveId.'/1.png',$destination.'/1.png');
-            }
-        }*/
+                    $destination = 'products/' . Product::all()->last()->id;
+                    if (!is_dir($destination))
+                        mkdir($destination, 0777, true);
+                    if (!empty($request->file('file'))&&$i==1) {
+                        $file = $request->file('file');
+                        $file->move($destination, '1.png');
+                        $firstProductSaveId=Product::all()->last()->id;
+                    }else{
+                        copy('products/'.$firstProductSaveId.'/1.png',$destination.'/1.png');
+                    }
+                }*/
         return redirect()->intended('/admin/addProduct')->with('msg', 'محصول با موفقیت افزوده شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 
@@ -482,5 +486,80 @@ class admin extends Controller
     public function listCarTypeForJquary($id)
     {
         return view('admin/listCarTypeForJquary', ['id' => $id, 'carType' => CarType::all()]);
+    }
+
+    public function showAddSlideShow()
+    {
+        return view('admin/addSlideShow');
+    }
+
+    public function addSlideShow(Request $request)
+    {
+
+        $validated = $request->validate([
+            'file' => 'required',
+        ]);
+        $file = $request->file('file');
+        $format=explode('.', $request->file('file')->getClientOriginalName());
+        $imageName = substr(md5($request->file('file')->getClientOriginalName().rand(1,5000000000)), 0, 5).'.'.$format[1];
+        $slideShow = new SlideShow();
+        $slideShow->name = $imageName;
+        $slideShow->save();
+        $destination = 'slideshow';
+        if (!is_dir($destination))
+            mkdir($destination, 0777, true);
+        if (!empty($request->file('file'))) {
+            $file = $request->file('file');
+            $file->move($destination, $imageName);
+        }
+        return redirect()->intended('/admin/addSlideShow')->with('msg', 'اسلاید با موفقیت افزوده شد.');
+    }
+
+    public function showEditSlideShowPanel()
+    {
+        return view('admin/editSlideShowPanel', ['slideShows' => SlideShow::all()]);
+    }
+
+    public function showEditSlideShow($id)
+    {
+        return view('admin/editSlideShow', ['slideShow' => SlideShow::findOrFail($id)]);
+    }
+
+    public function deleteSlideShow($id)
+    {
+        $slideShow = SlideShow::findOrFail($id);
+        $sileShowName = $slideShow->name;
+        $slideShow->delete();
+        $imagePath = 'slideshow';
+        $mask = $imagePath . "/" . $sileShowName;
+        if (is_dir($imagePath)) {
+            //حذف یک فایل در php به این صورت انجام میشود.
+            array_map("unlink", glob($mask));
+        }
+        return redirect()->intended('/admin/editSlideShowPanel')->with('msg', 'اسلاید با موفقیت حذف شد.');
+    }
+
+    public function editSlideShow(Request $request)
+    {
+        $validated = $request->validate([
+            'file' => 'required',
+        ]);
+        $slideShow = SlideShow::findOrFail($request->id);
+        $slideShowOldName=$slideShow->name;
+        $format=explode('.', $request->file('file')->getClientOriginalName());
+        $sileShowName = $imageName = substr(md5($request->file('file')->getClientOriginalName().rand(1,5000000000)), 0, 5).'.'.$format[1];
+        $slideShow->name=$sileShowName;
+        $slideShow->save();
+        $imagePath = 'slideshow';
+        $mask = $imagePath . "/" . $slideShowOldName;
+        if (is_dir($imagePath)) {
+            //حذف یک فایل در php به این صورت انجام میشود.
+            array_map("unlink", glob($mask));
+        }
+        if (!empty($request->file('file'))) {
+            $file = $request->file('file');
+            $file->move($imagePath, $sileShowName);
+        }
+        return redirect()->intended('/admin/editSlideShow/'.$slideShow->id)->with('msg', 'اسلاید با موفقیت ویرایش شد.');
     }
 }

@@ -63,6 +63,13 @@
         <a href="/admin/addCategory">افزودن دسته بندی جدید</a>
         <a href="/admin/editCategoryPanel">ویرایش دسته بندی ها</a>
     </div>
+    <button class="dropdown-btn">مدیریت اسلاید ها
+        <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        <a href="/admin/addSlideShow">افزودن اسلاید جدید</a>
+        <a href="/admin/editSlideShowPanel">ویرایش اسلاید ها</a>
+    </div>
     <hr>
     <a href="/admin/showMessages">
         <div>
