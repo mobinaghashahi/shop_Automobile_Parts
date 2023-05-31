@@ -125,6 +125,11 @@ Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
     Route::get('/editSlideShow/{id}', [admin::class, 'showEditSlideShow']);
     Route::post('/editSlideShow', [admin::class, 'editSlideShow']);
 
+    Route::get('/editAllProductPrice', [admin::class, 'editAllProductPricePanel']);
+    Route::post('/editAllProductPrice', [admin::class, 'editAllProductPrice']);
+
+    Route::get('/listCarTypeForJquary/{id}',[admin::class,'listCarTypeForJquary']);
+
 });
 
 Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {
@@ -150,4 +155,4 @@ Route::prefix('/payment')->middleware(UserMiddleware::class)->group(function () 
    Route::get('/verify',[payment::class,'verify']);
 });
 
-Route::get('/admin/listCarTypeForJquary/{id}',[admin::class,'listCarTypeForJquary']);
+

@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\Visit;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
+use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Hash;
 
 class admin extends Controller
@@ -500,8 +501,8 @@ class admin extends Controller
             'file' => 'required',
         ]);
         $file = $request->file('file');
-        $format=explode('.', $request->file('file')->getClientOriginalName());
-        $imageName = substr(md5($request->file('file')->getClientOriginalName().rand(1,5000000000)), 0, 5).'.'.$format[1];
+        $format = explode('.', $request->file('file')->getClientOriginalName());
+        $imageName = substr(md5($request->file('file')->getClientOriginalName() . rand(1, 5000000000)), 0, 5) . '.' . $format[1];
         $slideShow = new SlideShow();
         $slideShow->name = $imageName;
         $slideShow->save();
@@ -545,10 +546,10 @@ class admin extends Controller
             'file' => 'required',
         ]);
         $slideShow = SlideShow::findOrFail($request->id);
-        $slideShowOldName=$slideShow->name;
-        $format=explode('.', $request->file('file')->getClientOriginalName());
-        $sileShowName = $imageName = substr(md5($request->file('file')->getClientOriginalName().rand(1,5000000000)), 0, 5).'.'.$format[1];
-        $slideShow->name=$sileShowName;
+        $slideShowOldName = $slideShow->name;
+        $format = explode('.', $request->file('file')->getClientOriginalName());
+        $sileShowName = $imageName = substr(md5($request->file('file')->getClientOriginalName() . rand(1, 5000000000)), 0, 5) . '.' . $format[1];
+        $slideShow->name = $sileShowName;
         $slideShow->save();
         $imagePath = 'slideshow';
         $mask = $imagePath . "/" . $slideShowOldName;
@@ -560,6 +561,62 @@ class admin extends Controller
             $file = $request->file('file');
             $file->move($imagePath, $sileShowName);
         }
-        return redirect()->intended('/admin/editSlideShow/'.$slideShow->id)->with('msg', 'اسلاید با موفقیت ویرایش شد.');
+        return redirect()->intended('/admin/editSlideShow/' . $slideShow->id)->with('msg', 'اسلاید با موفقیت ویرایش شد.');
+    }
+
+    public function editAllProductPricePanel()
+    {
+        return view("admin/editAllProductPrice");
+    }
+
+    public function editAllProductPrice(Request $request)
+    {
+        $validated = $request->validate([
+            'price' => 'required',
+            'reduceOrIncrease' => 'in:increase,reduce',
+            'percentOrToman' => 'in:percent,toman',
+        ]);
+        $products = Product::all();
+        foreach ($products as $product) {
+            if ($request->percentOrToman == 'toman') {
+
+                if ($request->reduceOrIncrease == 'reduce')
+                    $product->price = $product->price - (int)$request->price;
+                else
+                    $product->price = $product->price + (int)$request->price;
+
+                //اگر قیمت محصولی منفی یا صفر شد مجاز به انجام چنین ویرایش قیمتی نیست.
+                if ($product->price <= 0) {
+                    $errors = new MessageBag([
+                        'badRequest' => ['شما مجاز به انجام این عملیات نیستید.'],
+                    ]);
+                    return redirect()->intended('/admin/editAllProductPrice')->with('errors', $errors);
+                }
+
+            }
+            else if ($request->percentOrToman == 'percent') {
+
+                if ($request->reduceOrIncrease == 'reduce')
+                    $product->price = $product->price - (($product->price*(int)$request->price)/100);
+                else
+                    $product->price = $product->price + (($product->price*(int)$request->price)/100);
+
+                //اگر قیمت محصولی منفی یا صفر شد مجاز به انجام چنین ویرایش قیمتی نیست.
+                if ($product->price <= 0) {
+                    $errors = new MessageBag([
+                        'badRequest' => ['شما مجاز به انجام این عملیات نیستید. قیمت برخی از کالاها منفی خواهد شد.'],
+                    ]);
+                    return redirect()->intended('/admin/editAllProductPrice')->with('errors', $errors);
+                }
+            }
+        }
+
+
+
+
+        foreach ($products as $product) {
+            $product->save();
+        }
+        return redirect()->intended('/admin/editAllProductPrice')->with('msg', 'تغییر با موفقیت انجام شد.');
     }
 }

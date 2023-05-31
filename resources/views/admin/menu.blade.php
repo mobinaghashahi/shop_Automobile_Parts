@@ -34,6 +34,7 @@
     <div class="dropdown-container">
         <a href="/admin/addProduct">افزودن محصول جدید</a>
         <a href="/admin/editProductPanel">ویرایش محصولات</a>
+        <a href="/admin/editAllProductPrice">ویرایش کلی قیمت ها</a>
     </div>
     <button class="dropdown-btn">مدیریت برندها
         <i class="fa fa-caret-down"></i>
