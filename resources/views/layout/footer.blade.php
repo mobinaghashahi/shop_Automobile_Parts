@@ -16,8 +16,8 @@
     <div class="col-3">
         <div class="contentFooter" style="margin-top: 20px">
             <p>فروشگاه یدکی اصلی</p>
-            <a href="https://goo.gl/maps/dzMrSDWcweQtduYi6">
-                <img src="/logo/map.png" width="250" height="200">
+            <a href="https://goo.gl/maps/YDG6HAuJmft51ohi8">
+                <img src="/logo/map.png?v=1" width="250" height="200">
             </a>
         </div>
     </div>
