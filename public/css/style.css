@@ -2,7 +2,14 @@
     font-family: myFirstFont;
     src: url('/font/vazir.ttf');
 }
-
+@font-face {
+    font-family: Bnazanin;
+    src: url('/font/BNazanin.ttf');
+}
+@font-face {
+    font-family: BBBtitr;
+    src: url('/font/BTitrBd.ttf');
+}
 * {
     font-family: myFirstFont;
 }
@@ -399,4 +406,17 @@ tr:nth-child(even) {
     background-image: linear-gradient(to right, #ffffff, #b0b0b0);
     border-radius: inherit;
     animation: load 3s 0.25s linear forwards;
+}
+select option:nth-child(even) {
+    background-color: white; /* رنگ پس زمینه سفید */
+    color: black; /* رنگ متن سیاه */
+}
+
+select option:nth-child(odd) {
+    background-color: #eeeeee; /* رنگ پس زمینه سیاه */
+    color: black; /* رنگ متن سفید */
+}
+
+select option{
+    font-family: BBBtitr;
 }

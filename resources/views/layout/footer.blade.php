@@ -69,6 +69,35 @@
     $('.stop').on('click',function(){
         owl.trigger('stop.owl.autoplay')
     })
+
+
+
+
+//اسکریپت های مربوط به انتخاب شهرستان و استان
+    $('#city').change(function () {
+        var city = $(this).find('option:selected').text();
+    })
+
+    $('#state').change(function () {
+        var id = $(this).find('option:selected').val();
+        $.ajax({
+            method:'get',
+            url:'/cities/'+id,
+            success:function(msg) {
+                $('#city').html(msg);
+            }
+        })
+    });
+    $(document).ready(function() {
+        var id = $(this).find('option:selected').val();
+        $.ajax({
+            method:'get',
+            url:'/cities/'+id,
+            success:function(msg) {
+                $('#city').html(msg);
+            }
+        })
+    });
 </script>
 
 </body>

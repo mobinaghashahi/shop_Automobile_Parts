@@ -1,17 +1,17 @@
 @extends('layout.master')
-
 @section('content')
     @if (\Session::has('msg'))
-        <div class="notification">
+        <div class="notification notificationSuccess">
             <p>{!! \Session::get('msg') !!}</p>
             <span class="notification_progress"></span>
         </div>
     @endif
     @if ($errors->any())
         @foreach($errors->all() as $error)
-            <div class="notification" style="background-image: linear-gradient(45deg, rgba(255,36,36,0.75) 51%, rgba(252,0,0,0.54) 100%);">
+            <div class="notification notificationError">
                 <p>{{$error}}</p>
-                <span style="background-image: linear-gradient(to right,#ffffff,#7c7c7c);" class="notification_progress"></span>
+                <span style="background-image: linear-gradient(to right,#ffffff,#7c7c7c);"
+                      class="notification_progress"></span>
             </div>
         @endforeach
     @endif
@@ -27,6 +27,7 @@
                         </div>
                     </div>
                     @csrf
+
                     <div class="col-6">
                         <div class="col-11">
                             <label>نام و نام خانوادگی<span style="color: red">*</span></label>
@@ -43,6 +44,35 @@
                     </div>
                     <div class="col-6" style="margin-top: 10px">
                         <div class="col-11">
+
+                            <label>استان<span style="color: red">*</span></label>
+                            <select class="inputText" id="state" name="state" style="height: 37px;padding-right: 3px">
+                                @if($currentLocation->count()==0)
+                                    <option value="0" selected disabled>استان را انتخاب کنید</option>
+                                @else
+                                    <option value="{{$currentLocation[0]->provinceId}}">{{$currentLocation[0]->provinceCity}}</option>
+                                @endif
+                                @foreach($provices as $provice)
+                                    <option style="font-size: 15px" value="{{$provice->id}}">{{$provice->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6" style="margin-top: 10px">
+                        <div class="col-11">
+                            <label>شهرستان<span style="color: red">*</span></label>
+                            <select class="inputText" id="city" name="city" style="height: 37px;padding-right: 3px">
+                                @if($currentLocation->count()==0)
+                                    <option value="0" selected disabled>شهر را انتخاب کنید</option>
+                                @else
+                                    <option value="{{$currentLocation[0]->cityId}}">{{$currentLocation[0]->cityName}}</option>
+                                @endif
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-6" style="margin-top: 10px">
+                        <div class="col-11">
                             <label>آدرس<span style="color: red">*</span></label>
                             <input name="address" value="{{Auth::user()->address}}" type="text" class="inputText">
                         </div>
@@ -53,6 +83,7 @@
                             <input name="postCode" value="{{Auth::user()->postCode}}" type="text" class="inputText">
                         </div>
                     </div>
+
                     <div class="col-12" style="margin-top: 20px">
                         <fieldset class="fieldsetPassword">
                             <legend>
@@ -81,11 +112,13 @@
                             </div>
                         </fieldset>
                     </div>
-                    <div class="col-3" >
+                    <div class="col-3">
                         <input type="submit" class="inputSubmit submitProfileChange" value="ثبت تغییرات">
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+
 @endsection

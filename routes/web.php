@@ -34,6 +34,9 @@ use App\Http\Middleware\cartValidForUserMiddleware;
 Route::get('/', [home::class, 'showHome']);
 Route::get('/aboutUs', [home::class, 'aboutUs']);
 
+Route::get('/test', [home::class, 'test']);
+Route::get('/cities/{id}', [home::class, 'cities']);
+
 Route::get('/contact', [home::class, 'showContact']);
 Route::post('/contact', [home::class, 'sendMessage']);
 

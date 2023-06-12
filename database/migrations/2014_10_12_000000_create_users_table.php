@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('postCode')->nullable();
             $table->string('password');
             $table->string('userType')->default("user");
+            $table->unsignedBigInteger('products_id')->nullable();
+            $table->foreign('city_id')->references('id')->on('city');
             $table->rememberToken();
             $table->timestamps();
         });

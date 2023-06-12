@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Cities;
 use App\Models\Contact;
 use App\Models\Product;
+use App\Models\Province;
 use App\Models\SlideShow;
+use App\Models\User;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Console\Input\Input;
 use Illuminate\Support\Arr;
 
@@ -20,7 +24,7 @@ class home extends Controller
         return view('home.home', ['products' => Product::orderBy('id', 'DESC')->groupBy('name')->get(),
             'categorys' => Category::all(),
             'categoryExist' => Product::select('category_id')->groupBy('category_id')->get()->toArray(),
-            'slideShows'=>SlideShow::all()]);
+            'slideShows' => SlideShow::all()]);
     }
 
     public function aboutUs()
@@ -58,25 +62,46 @@ class home extends Controller
         $validated = $request->validate([
             'text' => 'string',
         ]);
-        $whereNameItems=array();
-        $whereDescriptionItems=array();
-        $allResult=array();
+        $whereNameItems = array();
+        $whereDescriptionItems = array();
+        $allResult = array();
 
         $texts = explode(' ', $request->get('text'));
 
-        foreach ($texts as $text){
+        foreach ($texts as $text) {
             $whereNameItems[] = ['name', 'like', '%' . $text . '%'];
             $whereDescriptionItems[] = ['description', 'like', '%' . $text . '%'];
         }
 
-        $resultsNameProduct=Product::where($whereNameItems)->get();
-        $resultsDescriptionProduct=Product::where($whereDescriptionItems)->get();
+        $resultsNameProduct = Product::where($whereNameItems)->get();
+        $resultsDescriptionProduct = Product::where($whereDescriptionItems)->get();
         foreach ($resultsNameProduct as $item) {
-            if(!$resultsDescriptionProduct->contains('id',$item->id)){
+            if (!$resultsDescriptionProduct->contains('id', $item->id)) {
                 $resultsDescriptionProduct->push($item);
             }
         }
 
-        return view('home.showSearchResults',['products'=>$resultsDescriptionProduct]);
+        return view('home.showSearchResults', ['products' => $resultsDescriptionProduct]);
     }
+
+    public function cities($id)
+    {
+
+        $currentLocation = User::join('city', 'city.id', '=', 'users.city_id')
+            ->join('province_cities', 'province_cities.id', '=', 'city.province_id')
+            ->where('users.id', '=', Auth::user()->id)
+            ->select('city.name as cityName', 'province_cities.name as provinceCity', 'province_cities.id as provinceId', 'city.id as cityId')
+            ->get();
+        $citys = Cities::where('province_id', '=', $id)->get();
+
+        $options = '';
+        if($currentLocation->count()!=0&&$id==$currentLocation[0]->provinceId)
+            $options .= "<option value='" . $currentLocation[0]->cityId . "'>" . $currentLocation[0]->cityName . "</option>";
+        if($id==0)
+            $options .= "<option value='0'>ابتدا استان مورد نظر خود را انتخاب نمایید</option>";
+        foreach ($citys as $city)
+            $options .= "<option value='" . $city->id . "'>" . $city->name . "</option>";
+        return $options;
+    }
+
 }

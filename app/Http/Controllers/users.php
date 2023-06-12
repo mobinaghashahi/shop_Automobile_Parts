@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Buy;
 use App\Models\Cart;
+use App\Models\Province;
 use App\Models\User;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -20,7 +21,11 @@ class users extends Controller
     }
 
     public function showProfile(){
-        return view('user.profile');
+        return view('user.profile',['provices'=>Province::all(),'currentLocation'=>User::join('city', 'city.id', '=', 'users.city_id')
+            ->join('province_cities', 'province_cities.id', '=', 'city.province_id')
+            ->where('users.id','=',Auth::user()->id)
+            ->select('city.name as cityName','province_cities.name as provinceCity','province_cities.id as provinceId','city.id as cityId')
+            ->get()]);
     }
     public function editProfile(Request $request){
         $validated = $request->validate([ //داده ها را اعتبار سنجی می کنیم
@@ -29,6 +34,7 @@ class users extends Controller
                 ,Rule::unique('users')->ignore(Auth::user()->id)],
             'nameAndFamily' => 'required|max:255',
             'postCode' => 'max:10|min:10',
+            'city'=>'integer|min:1|max:1881'
         ]);
 
         $user = User::findOrFail(Auth::user()->id);
@@ -46,6 +52,7 @@ class users extends Controller
         $user->phoneNumber = $request->phoneNumber;
         $user->address = $request->address;
         $user->postCode = $request->postCode;
+        $user->city_id = $request->city;
         $user->save();
 
         return redirect()->intended('/user/profile' . $request->id)->with('msg', 'مشخصات شما با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
