@@ -75,23 +75,12 @@
             <div class="col-6">
                 <p style="padding-right: 20px; direction: rtl"><b>{{number_format($totalPrice)}} تومان</b></p>
             </div>
-            <div class="col-6">
-                <p style="padding-right: 20px">هزینه ارسال:</p>
+            <div class="col-12" style="padding: 20px 0px 30px 0px">
+                <hr style="width: 80%;color: rgba(0,0,0,0.8);">
             </div>
-            <div class="col-6">
-                <p style="padding-right: 20px"><b>{{number_format($sendPrice)}} تومان</b></p>
-            </div>
-            <hr style="width: 80%;color: rgba(0,0,0,0.8)">
-            <div class="col-6">
-                <p style="padding-right: 20px">مبلغ قابل پرداخت</p>
-            </div>
-            <div class="col-6">
-                <p style="padding-right: 20px"><b>{{number_format($sendPrice+$totalPrice)}} تومان</b></p>
-            </div>
-            <form action="/payment/pay" method="post">
-                @csrf
+            <form action="/cart/finalApproval" method="get">
                 <div class="col-12" style="display: flex;justify-content: center">
-                    <input style="color:black;width: 90%;" name="enter" class="inputSubmit" type="submit" value="پرداخت">
+                    <input style="color:#000000;width: 90%;" name="enter" class="inputSubmit" type="submit" value="انتخاب نحوه ارسال و پرداخت">
                 </div>
             </form>
         </div>

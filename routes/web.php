@@ -18,6 +18,7 @@ use App\Http\Controllers\Auth\forgetPassword;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\adminMiddleware;
 use App\Http\Middleware\UserMiddleware;
+use App\Http\Middleware\CalculatePostPrice;
 use App\Http\Middleware\cartValidForUserMiddleware;
 
 /*
@@ -151,6 +152,8 @@ Route::prefix('/cart')->group(function () {
 
     Route::get('/showCart',[cart::class,'showCart']);
     Route::get('/deleteOfCart/{id}',[cart::class,'deleteOfCart']);
+
+    Route::get('/finalApproval',[cart::class,'finalApproval'])->middleware(UserMiddleware::class)->middleware(CalculatePostPrice::class);
 });
 
 Route::prefix('/payment')->middleware(UserMiddleware::class)->group(function () {

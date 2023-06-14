@@ -4,8 +4,11 @@ use App\Models\Buy;
 use App\Models\Product;
 use App\Models\Visit;
 use App\Models\Contact;
+use App\Models\User;
+use App\Models\Cities;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 
 
 function calSumPrice($id)
@@ -117,5 +120,14 @@ function totalPriceCart()
 }
 
 function postPrice(){
-    return 0;
+    $userLocation = User::join('city', 'city.id', '=', 'users.city_id')
+        ->join('province_cities', 'province_cities.id', '=', 'city.province_id')
+        ->where('users.id', '=', Auth::user()->id)
+        ->select('province_cities.name as provinceCity')
+        ->get();
+    //ارسال برای تهران رایگان است
+    if($userLocation[0]->provinceCity=='تهران')
+        return 0;
+    //ارسال به سراسر ایران 200 هزارتومان است
+    return 200000;
 }

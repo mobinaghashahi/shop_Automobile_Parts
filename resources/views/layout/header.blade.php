@@ -16,11 +16,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/css/userPanel.css" rel="stylesheet">
-    <link href="/css/style.css?v=3.6" rel="stylesheet">
+    <link href="/css/style.css?v=3.7" rel="stylesheet">
     <link href="/css/styleLogos.css" rel="stylesheet">
-    <link href="/css/styleNavBar.css?v=2.5" rel="stylesheet">
+    <link href="/css/styleNavBar.css?v=2.6" rel="stylesheet">
     <link href="/css/slideShow.css" rel="stylesheet">
-    <link href="/css/RWD.css?v=3.7" rel="stylesheet">
+    <link href="/css/RWD.css?v=3.8" rel="stylesheet">
     <link href="/css/messages.css" rel="stylesheet">
 
     <!--owl -->

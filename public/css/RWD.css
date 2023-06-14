@@ -130,5 +130,11 @@
     .textContact{
         padding: 20px;
     }
+    .inputChange{
+        width: 80%
+    }
+    .centerTextMobile{
+        text-align: right;
+    }
 
 }
