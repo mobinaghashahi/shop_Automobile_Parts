@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-12">
                     <p>
-                        ارسال به سراسر ایران به مبلغ 200 هزارتومن انجام میشود و ارسال برای تهران رایگان است.
+                        ارسال به سراسر ایران به مبلغ 200,000 تومان انجام می شود و ارسال برای تهران رایگان است.
                     </p>
                 </div>
             </div>
@@ -71,13 +71,13 @@
                 </div>
                 <div style="width: 95%">
                     <p style="color: #8f8f8f;">
-                        <span style="color: black;font-weight: bolder">خرید شما:</span> {{number_format($totalPrice)}} هزار تومان
+                        <span style="color: black;font-weight: bolder">خرید شما:</span> {{number_format($totalPrice)}} تومان
                     </p>
                     <p style="color: #8f8f8f;">
-                        <span style="color: black;font-weight: bolder">هزینه ارسال:</span> {{number_format($sendPrice)}} هزار تومان
+                        <span style="color: black;font-weight: bolder">هزینه ارسال:</span> {{number_format($sendPrice)}} تومان
                     </p>
                     <p style="color: #8f8f8f;">
-                        <span style="color: black;font-weight: bolder">مبلغ قابل پرداخت:</span> {{number_format($sendPrice+$totalPrice)}} هزار تومان
+                        <span style="color: black;font-weight: bolder">مبلغ قابل پرداخت:</span> {{number_format($sendPrice+$totalPrice)}} تومان
                     </p>
                 </div>
             </div>
