@@ -1,7 +1,6 @@
 <html>
 
 <head>
-
     <link href="/css/style.css" rel="stylesheet">
 </head>
 <body style="margin: 8px">
@@ -17,7 +16,7 @@
     </div>
     <hr style="width: 90%">
     <div style="width: 100%;float: right;padding: 15px;font-family: Vazir;text-align: right;direction: rtl;padding-top: 80px;padding-right: 50px">
-        <p>آدرس: {{$cart[0]->address}}</p>
+        <p>آدرس: {{$cityAndProvince[0]->provinceCity."- ".$cityAndProvince[0]->cityName."- ".$cart[0]->address}}</p>
         <a>کد پستی: {{$cart[0]->postCode}}</a>
         <a>|</a>
         <a>شماره تلفن: {{$cart[0]->phoneNumber}}</a>
@@ -33,11 +32,6 @@
                     <th>گیرنده</th>
                     <th>{{$cart[0]->nameAndFamily}}</th>
                 </tr>
-                <tr>
-                    <th>وزن محصول</th>
-                    <th>200 کیلوگرم</th>
-                </tr>
-
             </table>
         </div>
     </div>

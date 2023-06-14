@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\Visit;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Hash;
 
@@ -69,7 +70,11 @@ class admin extends Controller
     public function printForSendProduct($id)
     {
         return view('admin.printForSendProduct', ['cart' => Cart::join('users', 'users.id', '=', 'cart.user_id')
-            ->where('cart.id', '=', $id)->get()]);
+            ->where('cart.id', '=', $id)->get(),'cityAndProvince'=>User::join('city', 'city.id', '=', 'users.city_id')
+            ->join('province_cities', 'province_cities.id', '=', 'city.province_id')
+            ->where('users.id','=',Auth::user()->id)
+            ->select('city.name as cityName','province_cities.name as provinceCity','province_cities.id as provinceId','city.id as cityId')
+        ->get()]);
     }
 
 
