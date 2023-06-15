@@ -3,14 +3,14 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="/css/style.css?v=1.2" rel="stylesheet">
-    <link href="/css/styleLogos.css?v=1" rel="stylesheet">
-    <link href="/css/styleNavBar.css?v=1" rel="stylesheet">
-    <link href="/css/slideShow.css?v=1" rel="stylesheet">
-    <link href="/css/RWD.css?v=1" rel="stylesheet">
-    <link href="/css/messages.css?v=1" rel="stylesheet">
-    <link href="/css/adminPanel.css?v=1" rel="stylesheet">
-    <link href="/css/adminPanel.css?v=1" rel="java">
+    <link href="/css/style.css?v=1.3" rel="stylesheet">
+    <link href="/css/styleLogos.css?v=1.1" rel="stylesheet">
+    <link href="/css/styleNavBar.css?v=1.1" rel="stylesheet">
+    <link href="/css/slideShow.css?v=1.1" rel="stylesheet">
+    <link href="/css/RWD.css?v=1.1" rel="stylesheet">
+    <link href="/css/messages.css?v=1.1" rel="stylesheet">
+    <link href="/css/adminPanel.css?v=1.1" rel="stylesheet">
+    <link href="/css/adminPanel.css?v=1.1" rel="java">
 </head>
 <body style="background-color: #eeeeee">
 
