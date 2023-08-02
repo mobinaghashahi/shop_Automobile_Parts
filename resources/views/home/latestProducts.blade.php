@@ -1,3 +1,4 @@
+
 <div class="col-12 divAllProduct">
     <div class="col-12 divTitleBestSeller">
         <h2 class="titleBestSeller">
@@ -11,7 +12,7 @@
         @foreach($products as $product)
                 <a href="/productDetails/{{$product->id}}" style="color:black"><div class="col-12">
                         <div class="col-12 center">
-                            <img class="imageProduct " src="products/{{$product->id}}/1.png" alt="{{$product->name}}">
+                            <img class="imageProduct " src="products/{{$product->id}}/{{$product->imageName}}" alt="{{$product->name}}">
                         </div>
                         <div>
                             <p style="text-align: center">{{$product->name}}</p>

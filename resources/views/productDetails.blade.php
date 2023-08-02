@@ -21,7 +21,7 @@
             </div>
             <div class="col-7">
                 <div class="col-12" style="display: flex;justify-content: center">
-                    <img src="/products/{{$product[0]->id}}/1.png" width="60%" height="60%" title="{{$product[0]->name}}" alt="{{$product[0]->name}}">
+                    <img src="/products/{{$product[0]->id}}/{{$product[0]->imageName}}" width="60%" height="60%" title="{{$product[0]->name}}" alt="{{$product[0]->name}}">
                 </div>
             </div>
             <div class="col-5">

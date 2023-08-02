@@ -13,7 +13,7 @@
                     <div class="col-3">
                         <a href="/productDetails/{{$value[0]['id']}}">
                             <img alt="{{$value[0]['name']}}" title="{{$value[0]['name']}}" style="padding: 5px"
-                                 src="/products/{{$value[0]['id']}}/1.png" width="150" height="150">
+                                 src="/products/{{$value[0]['id']}}/{{$value[0]['imageName']}}" width="150" height="150">
                         </a>
                     </div>
                     <div class="col-9" style="margin-top:15px">

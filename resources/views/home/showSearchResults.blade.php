@@ -6,7 +6,7 @@
             <div class="col-2 products">
                 <a href="/productDetails/{{$product->id}}" style="color: black">
                     <div class="col-12 center">
-                        <img class="imageProduct " src="/products/{{$product->id}}/1.png" alt="{{$product->name}}برند ">
+                        <img class="imageProduct " src="/products/{{$product->id}}/{{$product->imageName}}" alt="{{$product->name}}برند ">
                     </div>
                     <div class="col-12" style="text-align: center">
                         <p>{{$product->name}}</p>

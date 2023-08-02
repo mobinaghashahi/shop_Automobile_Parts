@@ -108,6 +108,8 @@ class admin extends Controller
 
         $index = 1;
         foreach ($carTypes as $carType) {
+            //ساختن نام عکس براساس پارامتر ساعت و هش که بتوان آن را در هر بار تولید منحصر به فرد کرد و از مشکلات کش جلوگیری کرد.
+            $imageName=md5(time()).'.png';
             $product = new Product();
             $product->name = $request->name;
             $product->count = $request->count;
@@ -117,6 +119,7 @@ class admin extends Controller
             $product->carType_id = $carType;
             $product->off_id = $request->off_id;
             $product->description = $request->description;
+            $product->imageName = $imageName;
             $product->save();
 
             $destination = 'products/' . Product::all()->last()->id;
@@ -124,10 +127,10 @@ class admin extends Controller
                 mkdir($destination, 0777, true);
             if (!empty($request->file('file')) && $index == 1) {
                 $file = $request->file('file');
-                $file->move($destination, '1.png');
+                $file->move($destination, $imageName);
                 $firstProductSaveId = Product::all()->last()->id;
             } else {
-                copy('products/' . $firstProductSaveId . '/1.png', $destination . '/1.png');
+                copy('products/' . $firstProductSaveId . '/'.$imageName, $destination . '/1.png');
             }
             $index++;
         }
@@ -198,6 +201,9 @@ class admin extends Controller
             'file' => 'mimes:png'
         ]);
         $product = Product::findOrFail($request->id);
+        //ساختن نام عکس براساس پارامتر ساعت و هش که بتوان آن را در هر بار تولید منحصر به فرد کرد و از مشکلات کش جلوگیری کرد.
+        $imageName=md5(time()).'.png';
+
         $product->name = $request->name;
         $product->count = $request->count;
         $product->price = $request->price;
@@ -206,6 +212,7 @@ class admin extends Controller
         $product->carType_id = $request->carType_id;
         $product->off_id = $request->off_id;
         $product->description = $request->description;
+        $product->imageName = $imageName;
         $product->save();
 
         if (!empty($request->file)) {
@@ -214,7 +221,7 @@ class admin extends Controller
                 mkdir($destination, 0777, true);
             if (!empty($request->file('file'))) {
                 $file = $request->file('file');
-                $file->move($destination, '1.png');
+                $file->move($destination, $imageName);
             }
         }
         return redirect()->intended('/admin/editProduct/' . $request->id)->with('msg', 'محصول با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم

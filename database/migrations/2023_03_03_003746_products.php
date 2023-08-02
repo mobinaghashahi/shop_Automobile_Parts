@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("description",300)->nullable();
             $table->integer("count");
             $table->integer("price");
+            $table->string("imageName");
 
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brand');
