@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer("count");
             $table->integer("price");
             $table->string("imageName");
+            $table->string("availability")->default("instock");
 
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')->references('id')->on('brand');

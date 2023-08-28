@@ -114,6 +114,24 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-3" style="text-align: center">
+                        <label>موجود است</label>
+                        @if($currentlyProduct[0]->availability=="instock")
+                            <input type="radio" id="available" name="availability" value="instock" checked>
+                        @else
+                            <input type="radio" id="available" name="availability" value="instock">
+                        @endif
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <label>موجود نیست</label>
+                        @if($currentlyProduct[0]->availability=="notinstock")
+                            <input type="radio" id="notAvailable" name="availability" value="notinstock" checked>
+                        @else
+                            <input type="radio" id="notAvailable" name="availability" value="notinstock">
+                        @endif
+                    </div>
+                </div>
                 <div class="col-12" style="padding-top: 10px;display: flex;justify-content: center">
                     <div class="col-3">
                         <input class="inputSubmit" type="submit" value="افزودن">

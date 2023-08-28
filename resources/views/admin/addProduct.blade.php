@@ -107,6 +107,16 @@
                         @enderror
                     </div>
                 </div>
+                <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-3" style="text-align: center">
+                        <label>موجود است</label>
+                        <input type="radio" id="available" name="availability" value="instock" checked>
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <label>موجود نیست</label>
+                        <input type="radio" id="notAvailable" name="availability" value="notinstock">
+                    </div>
+                </div>
                 <div class="col-12" style="padding-top: 10px;display: flex;justify-content: center">
                     <div class="col-3">
                         <input class="inputSubmit" type="submit" value="افزودن">

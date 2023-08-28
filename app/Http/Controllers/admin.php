@@ -88,7 +88,6 @@ class admin extends Controller
 
     public function addProduct(Request $request)
     {
-
         $validated = $request->validate([
             'name' => 'required',
             'count' => 'required|integer',
@@ -120,6 +119,7 @@ class admin extends Controller
             $product->off_id = $request->off_id;
             $product->description = $request->description;
             $product->imageName = $imageName;
+            $product->availability = $request->availability;
             $product->save();
 
             $destination = 'products/' . Product::all()->last()->id;
@@ -129,7 +129,7 @@ class admin extends Controller
                 $file = $request->file('file');
                 $file->move($destination, $imageName);
                 $firstProductSaveId = Product::all()->last()->id;
-            } else {
+            } else if ($index != 1) {
                 copy('products/' . $firstProductSaveId . '/'.$imageName, $destination . '/1.png');
             }
             $index++;
@@ -213,6 +213,7 @@ class admin extends Controller
         $product->off_id = $request->off_id;
         $product->description = $request->description;
         $product->imageName = $imageName;
+        $product->availability = $request->availability;
         $product->save();
 
         if (!empty($request->file)) {
