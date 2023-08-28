@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("description",300)->nullable();
             $table->integer("count");
             $table->integer("price");
+            $table->integer("old_price")->default(0);
             $table->string("imageName");
             $table->string("availability")->default("instock");
 

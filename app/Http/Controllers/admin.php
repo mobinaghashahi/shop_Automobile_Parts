@@ -113,6 +113,8 @@ class admin extends Controller
             $product->name = $request->name;
             $product->count = $request->count;
             $product->price = $request->price;
+            //قیمت قدیم کالایی که تازه‌وارد میشود با قیمت فعلی یکسان در نظر گرفته شده است.
+            $product->old_price = $request->price;
             $product->brand_id = $request->brand_id;
             $product->category_id = $request->category_id;
             $product->carType_id = $carType;
@@ -206,6 +208,8 @@ class admin extends Controller
 
         $product->name = $request->name;
         $product->count = $request->count;
+        //قیمت قدیم محصول برابر میشود با قیمتی که قبلا بوده است.
+        $product->old_price = $product->price;
         $product->price = $request->price;
         $product->brand_id = $request->brand_id;
         $product->category_id = $request->category_id;
@@ -593,10 +597,15 @@ class admin extends Controller
         foreach ($products as $product) {
             if ($request->percentOrToman == 'toman') {
 
-                if ($request->reduceOrIncrease == 'reduce')
+                if ($request->reduceOrIncrease == 'reduce'){
+                    $product->old_price = $product->price;
                     $product->price = $product->price - (int)$request->price;
+                }
                 else
+                {
+                    $product->old_price = $product->price;
                     $product->price = $product->price + (int)$request->price;
+                }
 
                 //اگر قیمت محصولی منفی یا صفر شد مجاز به انجام چنین ویرایش قیمتی نیست.
                 if ($product->price <= 0) {
@@ -610,9 +619,16 @@ class admin extends Controller
             else if ($request->percentOrToman == 'percent') {
 
                 if ($request->reduceOrIncrease == 'reduce')
+                {
+                    $product->old_price = $product->price;
                     $product->price = $product->price - (($product->price*(int)$request->price)/100);
+                }
                 else
+                {
+                    $product->old_price = $product->price;
                     $product->price = $product->price + (($product->price*(int)$request->price)/100);
+                }
+
 
                 //اگر قیمت محصولی منفی یا صفر شد مجاز به انجام چنین ویرایش قیمتی نیست.
                 if ($product->price <= 0) {
