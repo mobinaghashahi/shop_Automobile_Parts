@@ -38,7 +38,7 @@
                         @foreach ($products as $product)
                             <tr>
                                 <td class="editeTables">{{$loop->index+1}}</td>
-                                <td>{{$product->id}}</td>
+                                <td>#{{$product->id}}</td>
                                 <td>{{$product->name}}</td>
                                 <td>{{number_format($product->price)}}</td>
                                 <td>{{$product->count}}</td>
