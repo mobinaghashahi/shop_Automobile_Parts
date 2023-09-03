@@ -23,16 +23,18 @@
                     @endif
                     <table>
                         <tr>
-                            <th>کد</th>
-                            <th>نام ماشین</th>
-                            <th>دسته بندی</th>
-                            <th>عملیات</th>
+                            <th class="editeTables" style="width: 50px">ردیف</th>
+                            <th class="editeTables">کد</th>
+                            <th class="editeTables">نام ماشین</th>
+                            <th class="editeTables">دسته بندی</th>
+                            <th class="editeTables">عملیات</th>
                         </tr>
                         @foreach ($carTypes as $CarType)
                             <tr>
                                 @if($CarType->id==1)
                                     @continue
                                 @endif
+                                <td class="editeTables">{{$loop->index+1}}</td>
                                 <td>{{$CarType->id}}</td>
                                 <td>{{$CarType->name}}</td>
                                 <td>{{$CarType->companyName}}</td>

@@ -23,15 +23,17 @@
                     @endif
                     <table>
                         <tr>
-                            <th>کد</th>
-                            <th>دسته بندی</th>
-                            <th>عملیات</th>
+                            <th class="editeTables" style="width: 50px">ردیف</th>
+                            <th class="editeTables">کد</th>
+                            <th class="editeTables">دسته بندی</th>
+                            <th class="editeTables">عملیات</th>
                         </tr>
                         @foreach ($categorys as $category)
                             <tr>
                                 @if($category->id==1)
                                     @continue
                                 @endif
+                                <td class="editeTables">{{$loop->index+1}}</td>
                                 <td>{{$category->id}}</td>
                                 <td>{{$category->name}}</td>
                                 <td>

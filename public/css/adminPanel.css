@@ -145,3 +145,8 @@ tr:nth-child(even) {
     border-radius: inherit;
     animation: load 3s 0.25s linear forwards;
 }
+
+.editeTables{
+    background-color: #3b3b3b;
+    color: white;
+}

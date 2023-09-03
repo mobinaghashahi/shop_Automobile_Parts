@@ -23,16 +23,18 @@
                     @endif
                     <table>
                         <tr>
-                            <th>کد</th>
-                            <th>نام تخفیف</th>
-                            <th>درصد تخفیف</th>
-                            <th>عملیات</th>
+                            <th class="editeTables" style="width: 50px">ردیف</th>
+                            <th class="editeTables">کد</th>
+                            <th class="editeTables">نام تخفیف</th>
+                            <th class="editeTables">درصد تخفیف</th>
+                            <th class="editeTables">عملیات</th>
                         </tr>
                         @foreach ($offs as $off)
                             <tr>
                                 @if($off->id==1)
                                     @continue;
                                 @endif
+                                <td class="editeTables">{{$loop->index+1}}</td>
                                 <td>{{$off->id}}</td>
                                 <td>{{$off->name}}</td>
                                 <td>{{$off->percent}}</td>

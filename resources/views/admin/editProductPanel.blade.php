@@ -23,19 +23,21 @@
                     @endif
                     <table>
                         <tr>
-                            <th>کد</th>
-                            <th>نام محصول</th>
-                            <th>قیمت (تومان)</th>
-                            <th>تعداد</th>
-                            <th>توضیحات</th>
-                            <th>برند</th>
-                            <th>نوع ماشین</th>
-                            <th>تخفیف</th>
-                            <th>دسته بندی</th>
-                            <th>عملیات</th>
+                            <th class="editeTables"> ردیف</th>
+                            <th class="editeTables">کد</th>
+                            <th class="editeTables">نام محصول</th>
+                            <th class="editeTables">قیمت (تومان)</th>
+                            <th class="editeTables">تعداد</th>
+                            <th class="editeTables">توضیحات</th>
+                            <th class="editeTables">برند</th>
+                            <th class="editeTables">نوع ماشین</th>
+                            <th class="editeTables">تخفیف</th>
+                            <th class="editeTables">دسته بندی</th>
+                            <th class="editeTables">عملیات</th>
                         </tr>
                         @foreach ($products as $product)
                             <tr>
+                                <td class="editeTables">{{$loop->index+1}}</td>
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->name}}</td>
                                 <td>{{number_format($product->price)}}</td>

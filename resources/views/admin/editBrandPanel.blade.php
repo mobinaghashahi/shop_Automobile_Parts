@@ -23,15 +23,17 @@
                     @endif
                     <table>
                         <tr>
-                            <th style="width: 50px">کد</th>
-                            <th>نام برند</th>
-                            <th style="width: 80px">عملیات</th>
+                            <th class="editeTables" style="width: 50px">ردیف</th>
+                            <th class="editeTables">کد</th>
+                            <th class="editeTables">نام برند</th>
+                            <th  class="editeTables">عملیات</th>
                         </tr>
                         @foreach ($brands as $brand)
                             @if($brand->id==1)
                                 @continue
                             @endif
                             <tr>
+                                <td class="editeTables">{{$loop->index+1}}</td>
                                 <td>{{$brand->id}}</td>
                                 <td>{{$brand->name}}</td>
                                 <td>
