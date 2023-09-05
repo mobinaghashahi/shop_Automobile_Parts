@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-5">
-                <div class="col-12" style="margin-right: 40px;font-size: 30px">
+                <div class="col-12" style="font-size: 30px">
                     <p style="text-align: right;font-weight: bolder">{{$product[0]->name}}</p>
                 </div>
                 <div class="col-12 productsDetailsText">
@@ -36,7 +36,7 @@
                     <p style="text-align: right;direction: rtl;word-wrap: break-word">{{$product[0]->description}}</p>
                     <input type="text" name="id" value="{{$product[0]->id}}" hidden>
                 </div>
-                <div class="col-3" style="float: right; display: flex;justify-content: center">
+                <div class="col-2" style="float: right; display: flex;justify-content: center">
                     <input type="number" value="1" min="1" max="{{stock($product[0]->id)}}" name="count" style="width: 35%;text-align: center">
                 </div>
                 <div class="col-9" style="float: right; display: flex;justify-content: center">
@@ -45,7 +45,12 @@
                     @else
                         <input disabled class="inputAlert" type="submit" value="ناموجود" style="width: 50%">
                     @endif
+                    @if(!empty(Auth::user()->userType)&&Auth::user()->userType=='admin')
+                        <a class="inputSubmit" href="/admin/editProduct/{{$product[0]->id}}" style="width: 30%;margin-left:20px;box-shadow: 0px 0px 14px -7px #39b200;
+                        background-image: linear-gradient(45deg, #187900 0%, #39b200 51%, #187900 100%);">ویرایش</a>
+                        @endif
                 </div>
+
             </div>
         </div>
     </form>
