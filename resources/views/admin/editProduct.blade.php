@@ -2,7 +2,7 @@
 @section('content')
     <div class="main">
         <div class="col-12" style="text-align: center;padding-top: 15px;">
-            <a style="background-color: #363636;padding: 10px;border-radius: 5px;color: white">افزودن محصول جدید</a>
+            <a style="background-color: #363636;padding: 10px;border-radius: 5px;color: white">ویراش محصول</a>
         </div>
         <div class="blockOfInputs">
             @if (\Session::has('msg'))
