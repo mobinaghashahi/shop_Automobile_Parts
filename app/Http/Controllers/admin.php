@@ -293,9 +293,10 @@ class admin extends Controller
             'file' => 'mimes:png'
         ]);
         $brand = Brand::findOrFail($request->id);
-        $brand->name = $request->name;
-        $brand->save();
-
+        if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin'])) {
+            $brand->name = $request->name;
+            $brand->save();
+        }
         if (!empty($request->file)) {
             $destination = 'brand/' . $request->id;
             if (!is_dir($destination))
@@ -480,8 +481,10 @@ class admin extends Controller
             'file' => 'mimes:png',
         ]);
         $category = Category::findOrFail($request->id);
-        $category->name = $request->name;
-        $category->save();
+        if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin'])) {
+            $category->name = $request->name;
+            $category->save();
+        }
 
         $destination = 'category/' . $request->id;
         if (!is_dir($destination))

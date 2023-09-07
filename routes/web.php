@@ -93,9 +93,9 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/addBrand', [admin::class, 'showAddBrand'])->middleware([loginMiddleware::class,'role:admin']);
     Route::post('/addBrand', [admin::class, 'addBrand'])->middleware([loginMiddleware::class,'role:admin']);
-    Route::get('/editBrandPanel', [admin::class, 'showEditBrandPanel'])->middleware([loginMiddleware::class,'role:admin']);
-    Route::get('/editBrand/{id}', [admin::class, 'showEditBrand'])->middleware([loginMiddleware::class,'role:admin']);
-    Route::post('/editBrand', [admin::class, 'editBrand'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editBrandPanel', [admin::class, 'showEditBrandPanel'])->middleware([loginMiddleware::class,'role:admin|designer']);
+    Route::get('/editBrand/{id}', [admin::class, 'showEditBrand'])->middleware([loginMiddleware::class,'role:admin|designer']);
+    Route::post('/editBrand', [admin::class, 'editBrand'])->middleware([loginMiddleware::class,'role:admin|designer']);
     Route::get('/deleteBrand/{id}', [admin::class, 'deleteBrand'])->middleware([loginMiddleware::class,'role:admin']);
 
     Route::get('/addCarType', [admin::class, 'showAddCarType'])->middleware([loginMiddleware::class,'role:admin']);
@@ -114,10 +114,10 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/addCategory', [admin::class, 'showAddCategory'])->middleware([loginMiddleware::class,'role:admin']);
     Route::post('/addCategory', [admin::class, 'addCategory'])->middleware([loginMiddleware::class,'role:admin']);
-    Route::get('/editCategoryPanel', [admin::class, 'showEditCategoryPanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editCategoryPanel', [admin::class, 'showEditCategoryPanel'])->middleware([loginMiddleware::class,'role:admin|designer']);
     Route::get('/deleteCategory/{id}', [admin::class, 'deleteCategory'])->middleware([loginMiddleware::class,'role:admin']);
-    Route::get('/editCategory/{id}', [admin::class, 'showEditCategory'])->middleware([loginMiddleware::class,'role:admin']);
-    Route::post('/editCategory', [admin::class, 'editCategory'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editCategory/{id}', [admin::class, 'showEditCategory'])->middleware([loginMiddleware::class,'role:admin|designer']);
+    Route::post('/editCategory', [admin::class, 'editCategory'])->middleware([loginMiddleware::class,'role:admin|designer']);
 
     Route::get('/showMessages', [admin::class, 'showMessages'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/seenMessage/{id}', [admin::class, 'seenMessage'])->middleware([loginMiddleware::class,'role:admin']);
