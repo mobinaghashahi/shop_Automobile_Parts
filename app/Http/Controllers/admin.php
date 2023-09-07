@@ -198,28 +198,31 @@ class admin extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
+            'availability' => 'required',
             'count' => 'required|integer',
             'price' => 'required|integer',
             'file' => 'mimes:png'
         ]);
         $product = Product::findOrFail($request->id);
+
         //ساختن نام عکس براساس پارامتر ساعت و هش که بتوان آن را در هر بار تولید منحصر به فرد کرد و از مشکلات کش جلوگیری کرد.
         $imageName=md5(time()).'.png';
 
-        $product->name = $request->name;
-        $product->count = $request->count;
-        //قیمت قدیم محصول برابر میشود با قیمتی که قبلا بوده است.
-        $product->old_price = $product->price;
-        $product->price = $request->price;
-        $product->brand_id = $request->brand_id;
-        $product->category_id = $request->category_id;
-        $product->carType_id = $request->carType_id;
-        $product->off_id = $request->off_id;
-        $product->description = $request->description;
-        $product->imageName = $imageName;
-        $product->availability = $request->availability;
-        $product->save();
-
+        //فقط ادمین میتواند تغییر دهد.
+        if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin'])) {
+            $product->name = $request->name;
+            $product->count = $request->count;
+            //قیمت قدیم محصول برابر میشود با قیمتی که قبلا بوده است.
+            $product->old_price = $product->price;
+            $product->price = $request->price;
+            $product->brand_id = $request->brand_id;
+            $product->category_id = $request->category_id;
+            $product->carType_id = $request->carType_id;
+            $product->off_id = $request->off_id;
+            $product->description = $request->description;
+            $product->availability = $request->availability;
+            $product->save();
+        }
         if (!empty($request->file)) {
             $destination = 'products/' . $request->id;
             if (!is_dir($destination))
@@ -228,6 +231,8 @@ class admin extends Controller
                 $file = $request->file('file');
                 $file->move($destination, $imageName);
             }
+            $product->imageName = $imageName;
+            $product->save();
         }
         return redirect()->intended('/admin/editProduct/' . $request->id)->with('msg', 'محصول با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }

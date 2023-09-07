@@ -16,7 +16,7 @@ use App\Http\Controllers\cart;
 use App\Http\Controllers\payment;
 use App\Http\Controllers\Auth\forgetPassword;
 use App\Http\Middleware\authMiddleware;
-use App\Http\Middleware\adminMiddleware;
+use App\Http\Middleware\loginMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Middleware\CalculatePostPrice;
 use App\Http\Middleware\cartValidForUserMiddleware;
@@ -75,64 +75,64 @@ Route::post('/changeForgetPassword', [forgetPassword::class, 'validateChangeForg
 Route::get('/productDetails/{id}', [products::class, 'showDetails']);
 
 
-Route::prefix('/admin')->middleware(adminMiddleware::class)->group(function () {
-    Route::get('/', [admin::class, 'showDashboard']);
+Route::prefix('/admin')->group(function () {
+    Route::get('/', [admin::class, 'showDashboard'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::post('/sendProduct', [admin::class, 'sendProduct']);
-    Route::get('/undoSendProduct/{id}', [admin::class, 'undoSendProduct']);
-    Route::get('/listOrders/{id}', [admin::class, 'listOrders']);
-    Route::get('/printForSendProduct/{id}', [admin::class, 'printForSendProduct']);
+    Route::post('/sendProduct', [admin::class, 'sendProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/undoSendProduct/{id}', [admin::class, 'undoSendProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/listOrders/{id}', [admin::class, 'listOrders'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/printForSendProduct/{id}', [admin::class, 'printForSendProduct'])->middleware([loginMiddleware::class,'role:admin']);
 
 
-    Route::get('/addProduct', [admin::class, 'showAddProduct']);
-    Route::post('/addProduct', [admin::class, 'addProduct']);
-    Route::get('/editProductPanel', [admin::class, 'showEditProductPanel']);
-    Route::get('/editProduct/{id}', [admin::class, 'showEditProduct']);
-    Route::post('/editProduct', [admin::class, 'editProduct']);
-    Route::get('/deleteProduct/{id}', [admin::class, 'deleteProduct']);
+    Route::get('/addProduct', [admin::class, 'showAddProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/addProduct', [admin::class, 'addProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editProductPanel', [admin::class, 'showEditProductPanel'])->middleware([loginMiddleware::class,'role:admin|designer']);
+    Route::get('/editProduct/{id}', [admin::class, 'showEditProduct'])->middleware([loginMiddleware::class,'role:admin|designer']);
+    Route::post('/editProduct', [admin::class, 'editProduct'])->middleware([loginMiddleware::class,'role:admin|designer']);
+    Route::get('/deleteProduct/{id}', [admin::class, 'deleteProduct'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/addBrand', [admin::class, 'showAddBrand']);
-    Route::post('/addBrand', [admin::class, 'addBrand']);
-    Route::get('/editBrandPanel', [admin::class, 'showEditBrandPanel']);
-    Route::get('/editBrand/{id}', [admin::class, 'showEditBrand']);
-    Route::post('/editBrand', [admin::class, 'editBrand']);
-    Route::get('/deleteBrand/{id}', [admin::class, 'deleteBrand']);
+    Route::get('/addBrand', [admin::class, 'showAddBrand'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/addBrand', [admin::class, 'addBrand'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editBrandPanel', [admin::class, 'showEditBrandPanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editBrand/{id}', [admin::class, 'showEditBrand'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/editBrand', [admin::class, 'editBrand'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/deleteBrand/{id}', [admin::class, 'deleteBrand'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/addCarType', [admin::class, 'showAddCarType']);
-    Route::post('/addCarType', [admin::class, 'addCarType']);
-    Route::get('/editCarTypePanel', [admin::class, 'showEditCarTypePanel']);
-    Route::get('/deleteCarType/{id}', [admin::class, 'deleteCarType']);
-    Route::get('/editCarType/{id}', [admin::class, 'showEditCarType']);
-    Route::post('/editCarType', [admin::class, 'editCarType']);
+    Route::get('/addCarType', [admin::class, 'showAddCarType'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/addCarType', [admin::class, 'addCarType'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editCarTypePanel', [admin::class, 'showEditCarTypePanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/deleteCarType/{id}', [admin::class, 'deleteCarType'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editCarType/{id}', [admin::class, 'showEditCarType'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/editCarType', [admin::class, 'editCarType'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/addOff', [admin::class, 'showAddOff']);
-    Route::post('/addOff', [admin::class, 'addOff']);
-    Route::get('/editOffPanel', [admin::class, 'showEditOffPanel']);
-    Route::get('/deleteOff/{id}', [admin::class, 'deleteOff']);
-    Route::get('/editOff/{id}', [admin::class, 'showEditOff']);
-    Route::post('/editOff', [admin::class, 'editOff']);
+    Route::get('/addOff', [admin::class, 'showAddOff'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/addOff', [admin::class, 'addOff'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editOffPanel', [admin::class, 'showEditOffPanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/deleteOff/{id}', [admin::class, 'deleteOff'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editOff/{id}', [admin::class, 'showEditOff'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/editOff', [admin::class, 'editOff'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/addCategory', [admin::class, 'showAddCategory']);
-    Route::post('/addCategory', [admin::class, 'addCategory']);
-    Route::get('/editCategoryPanel', [admin::class, 'showEditCategoryPanel']);
-    Route::get('/deleteCategory/{id}', [admin::class, 'deleteCategory']);
-    Route::get('/editCategory/{id}', [admin::class, 'showEditCategory']);
-    Route::post('/editCategory', [admin::class, 'editCategory']);
+    Route::get('/addCategory', [admin::class, 'showAddCategory'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/addCategory', [admin::class, 'addCategory'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editCategoryPanel', [admin::class, 'showEditCategoryPanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/deleteCategory/{id}', [admin::class, 'deleteCategory'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editCategory/{id}', [admin::class, 'showEditCategory'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/editCategory', [admin::class, 'editCategory'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/showMessages', [admin::class, 'showMessages']);
-    Route::get('/seenMessage/{id}', [admin::class, 'seenMessage']);
+    Route::get('/showMessages', [admin::class, 'showMessages'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/seenMessage/{id}', [admin::class, 'seenMessage'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/addSlideShow', [admin::class, 'showAddSlideShow']);
-    Route::post('/addSlideShow', [admin::class, 'addSlideShow']);
-    Route::get('/deleteSlideShow/{id}', [admin::class, 'deleteSlideShow']);
-    Route::get('/editSlideShowPanel', [admin::class, 'showEditSlideShowPanel']);
-    Route::get('/editSlideShow/{id}', [admin::class, 'showEditSlideShow']);
-    Route::post('/editSlideShow', [admin::class, 'editSlideShow']);
+    Route::get('/addSlideShow', [admin::class, 'showAddSlideShow'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/addSlideShow', [admin::class, 'addSlideShow'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/deleteSlideShow/{id}', [admin::class, 'deleteSlideShow'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editSlideShowPanel', [admin::class, 'showEditSlideShowPanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editSlideShow/{id}', [admin::class, 'showEditSlideShow'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/editSlideShow', [admin::class, 'editSlideShow'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/editAllProductPrice', [admin::class, 'editAllProductPricePanel']);
-    Route::post('/editAllProductPrice', [admin::class, 'editAllProductPrice']);
+    Route::get('/editAllProductPrice', [admin::class, 'editAllProductPricePanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/editAllProductPrice', [admin::class, 'editAllProductPrice'])->middleware([loginMiddleware::class,'role:admin']);
 
-    Route::get('/listCarTypeForJquary/{id}',[admin::class,'listCarTypeForJquary']);
+    Route::get('/listCarTypeForJquary/{id}',[admin::class,'listCarTypeForJquary'])->middleware([loginMiddleware::class,'role:admin']);
 
 });
 

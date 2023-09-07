@@ -45,7 +45,7 @@
                     @else
                         <input disabled class="inputAlert" type="submit" value="ناموجود" style="width: 50%">
                     @endif
-                    @if(!empty(Auth::user()->userType)&&Auth::user()->userType=='admin')
+                    @if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin', 'designer']))
                         <a class="inputSubmit" href="/admin/editProduct/{{$product[0]->id}}" style="width: 30%;margin-left:20px;box-shadow: 0px 0px 14px -7px #39b200;
                         background-image: linear-gradient(45deg, #187900 0%, #39b200 51%, #187900 100%);text-decoration: none">ویرایش</a>
                         @endif

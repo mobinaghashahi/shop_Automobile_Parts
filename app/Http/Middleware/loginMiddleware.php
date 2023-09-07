@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
 
-class adminMiddleware
+class loginMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,7 +16,7 @@ class adminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(!empty(Auth::user()->userType)&&Auth::user()->userType=='admin')
+        if(!empty(Auth::user()->userType))
             return $next($request);
         return redirect()->intended('/');
 

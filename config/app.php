@@ -184,6 +184,7 @@ return [
         Hekmatinasser\Verta\Laravel\VertaServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
 
         /*
