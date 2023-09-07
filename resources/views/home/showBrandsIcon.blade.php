@@ -5,7 +5,7 @@
     <div class="col-12" style="display: flex;justify-content: center">
         <div class="col-8">
             @foreach($brands as $brand)
-                <div class="col-2">
+                <div class="col-2 brandsIcon">
                     <a style="color: black" href="/brands/{{$brand->id}}">
                     <div class="col-12" style="text-align: center">
                         <img src="/brand/{{$brand->id}}/1.png" width="100" height="100" alt=" برند{{$brand->name}}}}"/>

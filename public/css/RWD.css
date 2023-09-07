@@ -136,5 +136,8 @@
     .centerTextMobile{
         text-align: right;
     }
+    .brandsIcon{
+        width: 33.33%;
+    }
 
 }
