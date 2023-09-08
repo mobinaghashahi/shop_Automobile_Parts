@@ -3,7 +3,7 @@
 
     <div class="col-12 divAllProduct">
         @forelse($products as $product)
-            <div class="col-2 products">
+            <div class="col-3 products">
                 <a href="/productDetails/{{$product->id}}" style="color: black">
                     <div class="col-12 center">
                         <img class="imageProduct " src="/products/{{$product->id}}/{{$product->imageName}}" title="{{$product->name}}" alt="{{$product->name}}">

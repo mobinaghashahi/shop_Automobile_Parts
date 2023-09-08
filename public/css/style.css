@@ -285,7 +285,10 @@ body {
 }
 
 .imageProduct {
-
+    max-width: 100%;
+    max-height: 100%;
+    width: 90%;
+    height: 90%;
 }
 
 .button {
