@@ -25,8 +25,9 @@
         <div class="contentFooter" style="margin-top: 20px">
             <p>نماد و استاندارد ها</p>
             <a href="https://trustseal.enamad.ir/?id=337118&amp;Code=MqbcszGUlIijqFHhUu7l" target="_blank" rel="noopener">
-                <img id="MqbcszGUlIijqFHhUu7l" src="https://Trustseal.eNamad.ir/logo.aspx?id=337118&amp;Code=MqbcszGUlIijqFHhUu7l" />
+                <img style="width: 80px" id="MqbcszGUlIijqFHhUu7l" src="https://Trustseal.eNamad.ir/logo.aspx?id=337118&amp;Code=MqbcszGUlIijqFHhUu7l" />
             </a>
+            <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
         </div>
     </div>
 </div>
