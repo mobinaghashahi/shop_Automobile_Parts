@@ -15,7 +15,7 @@
                     @php
                         $count++
                     @endphp
-                    @if($count==20)
+                    @if($count==15)
                         @break
                     @endif
                         <a href="/productDetails/{{$product->id}}" style="color:black"><div class="col-12">

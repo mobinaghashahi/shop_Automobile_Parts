@@ -21,7 +21,7 @@
                             <p style="text-align: center;direction: rtl"><b>{{number_format($product->price)}}</b>  تومان</p>
                         </div>
                     </div></a>
-            @if($count==20)
+            @if($count==15)
                 @break
             @endif
             @php
