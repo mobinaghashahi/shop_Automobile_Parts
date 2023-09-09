@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-12" style="text-align: center">
                         <p>{{$product->name}}</p>
-                        <p style="direction: rtl"> {{number_format($product->price)}} تومان</p>
+                        <p class="showPriceInBlock"> {{number_format($product->price)}} تومان</p>
                     </div>
                 </a>
             </div>

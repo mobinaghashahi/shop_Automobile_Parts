@@ -512,3 +512,9 @@ select option{
 .centerTextMobile{
     text-align: left;
 }
+
+.showPriceInBlock{
+    text-align: center;
+    direction: rtl;
+    color: #c21c1c;
+}
