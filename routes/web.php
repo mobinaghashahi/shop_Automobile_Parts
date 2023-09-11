@@ -15,6 +15,7 @@ use App\Http\Controllers\productDetails;
 use App\Http\Controllers\cart;
 use App\Http\Controllers\payment;
 use App\Http\Controllers\Auth\forgetPassword;
+use App\Http\Controllers\siteMap;
 use App\Http\Middleware\authMiddleware;
 use App\Http\Middleware\loginMiddleware;
 use App\Http\Middleware\UserMiddleware;
@@ -43,10 +44,15 @@ Route::post('/contact', [home::class, 'sendMessage']);
 
 Route::get('/resultSearch',[home::class, 'showResults']);
 
+
+
 //نقشه وبسایت
 Route::get('/sitemap.xml', function (){
     return "sitemap.xml";
 });
+Route::get('/sitemap-0.xml', [siteMap::class,'productsSiteMap']);
+
+
 
 Route::get('/brands/{id}', [products::class, 'showProductsByBrand']);
 Route::get('/carTypeCategorys/{id}', [products::class, 'showProductsByCarTypeCategorys']);
