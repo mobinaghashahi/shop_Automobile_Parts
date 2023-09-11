@@ -36,7 +36,6 @@
                 </div>
                 <div class="col-12 productsDetailsText">
                     <p style="text-align: right"><b>برند:</b> {{$product[0]->brandName}}</p>
-                    <p style="text-align: right"><b>موجودی:</b> {{stock($product[0]->id)}} عدد</p>
                     <p style="text-align: right"><b>قیمت تکی:</b> {{number_format($product[0]->price)}} تومان</p>
                     <p style="text-align: right;direction: rtl">برای اطلاع از قیمت عمده این محصول تماس حاصل نمایید.</p>
                     <p style="text-align: right;direction: rtl;word-wrap: break-word">{{$product[0]->description}}</p>
