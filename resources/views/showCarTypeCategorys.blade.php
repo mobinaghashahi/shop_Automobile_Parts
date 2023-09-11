@@ -10,9 +10,15 @@
         @forelse($products as $product)
             <div class="col-2 products">
                 <a href="/carTypeProducts/{{$product->carType_id}}/{{$product->category_id}}" style="color: black">
-                    <div class="col-12 center">
-                        <img class="imageProduct " src="/category/{{$product->category_id}}/1.png" alt="{{$product->name}}برند ">
-                    </div>
+                    @if (File::exists('/category/'.$product->category_id.'/1.png'))
+                        <div class="col-12 center">
+                            <img class="imageProduct " src="/category/{{$product->category_id}}/1.png" alt="{{$product->name}}برند ">
+                        </div>
+                    @else
+                        <div class="col-12 center">
+                            <img class="imageProduct" src="/logo/notFound.png" alt="{{$product->name}}">
+                        </div>
+                    @endif
                     <div class="col-12" style="text-align: center">
                         <p>{{$product->name}}</p>
                     </div>

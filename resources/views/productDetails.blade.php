@@ -20,9 +20,15 @@
                 @endif
             </div>
             <div class="col-7">
-                <div class="col-12" style="display: flex;justify-content: center">
-                    <img src="/products/{{$product[0]->id}}/{{$product[0]->imageName}}" width="60%" height="60%" title="{{$product[0]->name}}" alt="{{$product[0]->name}}">
-                </div>
+                @if (File::exists('products/'.$product[0]->id.'/'.$product[0]->imageName))
+                    <div class="col-12 center">
+                        <img class="imageProduct" src="/products/{{$product[0]->id}}/{{$product[0]->imageName}}" alt="{{$product[0]->name}}">
+                    </div>
+                @else
+                    <div class="col-12 center">
+                        <img class="imageProduct" style="width: 70%;height: 70%" src="/logo/notFound.png" alt="{{$product[0]->name}}">
+                    </div>
+                @endif
             </div>
             <div class="col-5">
                 <div class="col-12" style="font-size: 30px">
