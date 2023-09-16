@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CarType;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -10,6 +11,11 @@ class products extends Controller
 {
     public function showDetails($id)
     {
+        //بدست آوردن آی دی ماشین محصول برای استفاده کردن در محصولات مرتبط
+        $product=Product::where('products.id', '=', $id)
+            ->select('carType_id')
+            ->get();
+
         return view('productDetails', ['product' => Product::join('brand', 'brand.id', '=', 'products.brand_id')
             ->join('cartype', 'cartype.id', '=', 'products.cartype_id')
             ->join('category', 'category.id', '=', 'products.category_id')
@@ -18,7 +24,7 @@ class products extends Controller
             ->select('products.*', 'brand.name as brandName',
                 'cartype.name as carTypeName', 'category.name as categoryName'
                 , 'off.name as offName')
-            ->get()]);
+            ->get(),'products' => Product::where('carType_id','=',$product[0]->carType_id)->get()]);
     }
 
     public function showProductsByBrand($id)

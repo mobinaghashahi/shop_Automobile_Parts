@@ -1,4 +1,7 @@
 @extends("layout.master")
+<?php
+use App\Models\Brand;
+?>
 @section('content')
     <form method="post" name="enter" action="/cart/addToCart">
         @csrf
@@ -58,5 +61,6 @@
 
             </div>
         </div>
+        @include('relatedProducts')
     </form>
 @endsection

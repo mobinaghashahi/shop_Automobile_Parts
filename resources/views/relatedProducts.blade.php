@@ -1,8 +1,7 @@
-
 <div class="col-12 divAllProduct">
     <div class="col-12 divTitleBestSeller">
         <h2 class="titleBestSeller">
-            جدید ترین محصولات
+            محصولات مرتبط
         </h2>
     </div>
     @php
