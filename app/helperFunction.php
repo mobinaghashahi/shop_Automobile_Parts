@@ -11,7 +11,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 
 
-function calSumPrice($id)
+function calSumPrice($id): float|int
 {
     $sum = 0;
 
@@ -26,7 +26,7 @@ function calSumPrice($id)
     return $sum;
 }
 
-function callCountSellProducts($id)
+function callCountSellProducts($id): int
 {
     $count = 0;
     $sells = Buy::where('products_id', '=', $id)->get();
@@ -36,20 +36,20 @@ function callCountSellProducts($id)
     return $count;
 }
 
-function stock($id)
+function stock($id): int
 {
     $product = Product::where('id', '=', $id)->get()[0];
     //موجودی را از تعداد کالاهای فروش رفته کم میکنیم
     return $product->count - callCountSellProducts($id);
 }
 
-function countCart()
+function countCart(): int
 {
     return count(session('products'));
 }
 
 
-function visitedMonthAgo()
+function visitedMonthAgo(): array
 {
     //this is for fix groupBy error!!!!!
     \DB::statement("SET SQL_MODE=''");
@@ -89,12 +89,12 @@ function webBrowsersVisit()
     return $chartValues;
 }
 
-function generateCode()
+function generateCode(): int
 {
     return rand(1000, 9999);
 }
 
-function diffrentMin($date)
+function diffrentMin($date): int
 {
 
 //جدا کردن ساخت و تاریخ
@@ -108,7 +108,7 @@ function countNewMessages()
     return Contact::where('state', '=', '0')->get()->count();
 }
 
-function totalPriceCart()
+function totalPriceCart(): float|int
 {
     $totalPrice = 0;
     $sendPrice = postPrice();
@@ -119,7 +119,8 @@ function totalPriceCart()
     return $totalPrice + $sendPrice;
 }
 
-function postPrice(){
+function postPrice(): int
+{
     $userLocation = User::join('city', 'city.id', '=', 'users.city_id')
         ->join('province_cities', 'province_cities.id', '=', 'city.province_id')
         ->where('users.id', '=', Auth::user()->id)

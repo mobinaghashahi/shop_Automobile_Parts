@@ -20,6 +20,7 @@ class loginController extends Controller
         $credentials = $request->only('phoneNumber', 'password'); //فیلد های مورد نظر رو داخل متغیر میریزیم
         if (Auth::attempt($credentials)) { //اگر کاربری با مشخصات داده شده موجود باشد نتیجه صحیح باز میگردد
             $request->session()->regenerate(); //سشن را بازسازی می کنیم
+            saveLoginLog($request->phoneNumber);
             return redirect()->intended('/'); //کاربر احراز هویت شده را با داشبورد منتقل می کنیم
         }
         return back()->withErrors([ //کاربر پیدا نشد و هنگام بازگشت به صفحه ورود خطا را نشان میدهیم
