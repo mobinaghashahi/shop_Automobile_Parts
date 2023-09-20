@@ -5,7 +5,7 @@
         @forelse($products as $product)
             <div class="col-2 products">
                 <a href="/productDetails/{{$product->id}}" style="color: black">
-                    @if (File::exists('/products/'.$product->id.'/'.$product->imageName))
+                    @if (File::exists('products/'.$product->id.'/'.$product->imageName))
                         <div class="col-12 center">
                             <img class="imageProduct" src="/products/{{$product->id}}/{{$product->imageName}}" alt="{{$product->name}}">
                         </div>
