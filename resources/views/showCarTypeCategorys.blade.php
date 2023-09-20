@@ -10,7 +10,7 @@
         @forelse($products as $product)
             <div class="col-2 products">
                 <a href="/carTypeProducts/{{$product->carType_id}}/{{$product->category_id}}" style="color: black">
-                    @if (File::exists('/category/'.$product->category_id.'/1.png'))
+                    @if (File::exists('category/'.$product->category_id.'/1.png'))
                         <div class="col-12 center">
                             <img class="imageProduct " src="/category/{{$product->category_id}}/1.png" alt="{{$product->name}}برند ">
                         </div>
