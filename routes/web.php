@@ -140,6 +140,9 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/listCarTypeForJquary/{id}',[admin::class,'listCarTypeForJquary'])->middleware([loginMiddleware::class,'role:admin']);
 
+    Route::post('/addColor', [admin::class, 'addColor'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/addColorShow', [admin::class, 'showAddColor'])->middleware([loginMiddleware::class,'role:admin']);
+
 });
 
 Route::prefix('/user')->middleware(UserMiddleware::class)->group(function () {

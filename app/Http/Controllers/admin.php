@@ -7,6 +7,7 @@ use App\Models\Buy;
 use App\Models\CarType;
 use App\Models\Category;
 use App\Models\Cart;
+use App\Models\Color;
 use App\Models\Contact;
 use App\Models\Off;
 use App\Models\Product;
@@ -656,4 +657,26 @@ class admin extends Controller
         }
         return redirect()->intended('/admin/editAllProductPrice')->with('msg', 'تغییر با موفقیت انجام شد.');
     }
+
+    public function showAddColor()
+    {
+        return view('admin.addColor');
+    }
+
+    public function addColor(Request $request)
+    {
+
+        $validated = $request->validate([
+            'hexColorCode' => 'required',
+            'name' => 'required',
+        ]);
+
+        $color = new Color();
+        $color->name=$request->name;
+        $color->hexColorCode=$request->hexColorCode;
+        $color->save();
+
+        return redirect()->intended('/admin/addColorShow')->with('msg', 'رنگ با موفقیت افزوده شد.');
+    }
+
 }
