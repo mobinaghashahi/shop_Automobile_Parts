@@ -142,6 +142,10 @@ Route::prefix('/admin')->group(function () {
 
     Route::post('/addColor', [admin::class, 'addColor'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/addColorShow', [admin::class, 'showAddColor'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editColorShowPanel', [admin::class, 'editColorShowPanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/deleteColor/{id}', [admin::class, 'deleteColor'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/editColor/{id}', [admin::class, 'showEditColor'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/editColor', [admin::class, 'editColor'])->middleware([loginMiddleware::class,'role:admin']);
 
 });
 

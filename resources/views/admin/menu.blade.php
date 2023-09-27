@@ -69,6 +69,7 @@
     </button>
     <div class="dropdown-container">
         <a href="/admin/addColorShow">افزودن رنگ جدید</a>
+        <a href="/admin/editColorShowPanel">ویرایش رنگ ها</a>
     </div>
     <button class="dropdown-btn">مدیریت اسلاید ها
         <i class="fa fa-caret-down"></i>

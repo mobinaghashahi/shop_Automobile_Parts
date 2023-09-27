@@ -679,4 +679,32 @@ class admin extends Controller
         return redirect()->intended('/admin/addColorShow')->with('msg', 'رنگ با موفقیت افزوده شد.');
     }
 
+    public function editColorShowPanel(){
+        return view('admin.editColorPanel', ['colors' => Color::all()]);
+    }
+
+    public function deleteColor($id){
+        $color = Color::findOrFail($id);
+        $colorName=$color->name;
+        $color->delete();
+        return redirect()->intended('/admin/editColorShowPanel')->with('msg', ' رنگ '.$colorName.' با موفقیت حذف شد.');
+    }
+
+    public function showEditColor($id){
+        return view('admin.editColor',['color'=>Color::findOrFail($id)]);
+    }
+
+    public function editColor(Request $request){
+        $validated = $request->validate([
+            'hexColorCode' => 'required',
+            'name' => 'required',
+        ]);
+
+        $color = Color::findOrFail($request->id);
+        $color->name=$request->name;
+        $color->hexColorCode=$request->hexColorCode;
+        $color->save();
+        return redirect()->intended('/admin/editColorShowPanel')->with('msg', ' رنگ با موفقیت ویرایش شد.');
+    }
+
 }
