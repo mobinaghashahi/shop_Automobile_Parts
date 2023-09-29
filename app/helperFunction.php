@@ -43,6 +43,13 @@ function stock($id): int
     return $product->count - callCountSellProducts($id);
 }
 
+//a function for check availability
+function isInStock($id): bool {
+    $product=Product::find($id);
+    if($product->availability=="instock"&&stock($id)>0)
+        return true;
+    return false;
+}
 function countCart(): int
 {
     return count(session('products'));

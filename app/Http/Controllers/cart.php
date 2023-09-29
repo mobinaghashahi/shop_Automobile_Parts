@@ -36,7 +36,7 @@ class cart extends Controller
             'id' => 'required|integer',
         ]);
 
-        if(stock($request->id)<$request->count)
+        if(stock($request->id)<$request->count||!isInStock($request->id))
         {
             return back()->withErrors([
                 'outOfRange' => 'موجودی کافی نیست.',
