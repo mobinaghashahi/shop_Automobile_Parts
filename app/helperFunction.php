@@ -43,6 +43,15 @@ function stock($id): int
     return $product->count - callCountSellProducts($id);
 }
 
+//a function for check availability
+function isInStock($id): bool
+{
+    $products=Product::find($id);
+    if($products->availability=="instock"&&stock($id)>0)
+        return true;
+    return false;
+}
+
 function countCart(): int
 {
     return count(session('products'));
@@ -127,7 +136,7 @@ function postPrice(): int
         ->select('province_cities.name as provinceCity')
         ->get();
     //ارسال برای تهران رایگان است
-    if($userLocation[0]->provinceCity=='تهران')
+    if ($userLocation[0]->provinceCity == 'تهران')
         return 0;
     //ارسال به سراسر ایران 200 هزارتومان است
     return 200000;
