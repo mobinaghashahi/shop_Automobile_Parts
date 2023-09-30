@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-4">
-                        <input name="count" value="{{$currentlyProduct[0]->count}}" style="text-align: center"
+                        <input id="count" name="count" value="{{$currentlyProduct[0]->count}}" style="text-align: center"
                                class="inputText" placeholder="تعداد">
                     </div>
                 </div>
@@ -132,6 +132,24 @@
                         @endif
                     </div>
                 </div>
+                <div class="col-6 titleTextInput" style="display: flex;justify-content: center;float: left">
+                    <div class="col-3" style="text-align: center">
+                        <label>رنگ بندی دارد</label>
+                        @if($currentlyProduct[0]->coloring=="true")
+                            <input type="radio" id="coloring" name="coloring" value="true" checked>
+                        @else
+                            <input type="radio" id="coloring" name="coloring" value="true">
+                        @endif
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <label>رنگ بندی ندارد</label>
+                        @if($currentlyProduct[0]->coloring=="true")
+                            <input type="radio" id="notColoring" name="coloring" value="false">
+                        @else
+                            <input type="radio" id="notColoring" name="coloring" value="false" checked>
+                        @endif
+                    </div>
+                </div>
                 <div class="col-12" style="padding-top: 10px;display: flex;justify-content: center">
                     <div class="col-3">
                         <input class="inputSubmit" type="submit" value="افزودن">
@@ -140,4 +158,22 @@
             </form>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        let count = 2;
+        $(document).ready(function () {
+            $('input:radio[name=coloring]').change(function () {
+                changeCountInput()
+            })
+        });
+        function changeCountInput(){
+            if ($("input[name='coloring']:checked").val() == 'true') {
+                $('#count').attr("readonly", true)
+                $('#count').val("0");
+            } else {
+                $('#count').attr("readonly", false)
+                $('#count').val("");
+            }
+        }
+    </script>
 @endsection

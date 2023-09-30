@@ -123,6 +123,7 @@ class admin extends Controller
             $product->description = $request->description;
             $product->imageName = $imageName;
             $product->availability = $request->availability;
+            $product->coloring = $request->coloring;
             $product->save();
 
             $destination = 'products/' . Product::all()->last()->id;
@@ -222,6 +223,7 @@ class admin extends Controller
             $product->off_id = $request->off_id;
             $product->description = $request->description;
             $product->availability = $request->availability;
+            $product->coloring = $request->coloring;
             $product->save();
         }
         if (!empty($request->file)) {

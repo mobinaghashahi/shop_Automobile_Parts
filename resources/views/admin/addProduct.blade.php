@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-4">
-                        <input name="count" style="text-align: center" class="inputText" placeholder="تعداد">
+                        <input id="count" name="count" style="text-align: center" class="inputText" placeholder="تعداد">
                     </div>
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
@@ -117,6 +117,16 @@
                         <input type="radio" id="notAvailable" name="availability" value="notinstock">
                     </div>
                 </div>
+                <div class="col-6 titleTextInput" style="display: flex;justify-content: center;float: left">
+                    <div class="col-3" style="text-align: center">
+                        <label>رنگ بندی دارد</label>
+                        <input type="radio" id="coloring" name="coloring" value="true">
+                    </div>
+                    <div class="col-3" style="text-align: center">
+                        <label>رنگ بندی ندارد</label>
+                        <input type="radio" id="notColoring" name="coloring" value="false" checked>
+                    </div>
+                </div>
                 <div class="col-12" style="padding-top: 10px;display: flex;justify-content: center">
                     <div class="col-3">
                         <input class="inputSubmit" type="submit" value="افزودن">
@@ -127,19 +137,33 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-        let count=2;
-        $(document).ready(function(){
-            $("#addCarTypeBtn").click(function(){
-                    $.get("/admin/listCarTypeForJquary/"+count, function(data, status){
-                        $("#carType").append(data);
-                        $('#countCarTypeFild').val(count);
-                        count++;
+        let count = 2;
+        $(document).ready(function () {
+            $("#addCarTypeBtn").click(function () {
+                $.get("/admin/listCarTypeForJquary/" + count, function (data, status) {
+                    $("#carType").append(data);
+                    $('#countCarTypeFild').val(count);
+                    count++;
                 });
             });
+            $('input:radio[name=coloring]').change(function () {
+                changeCountInput()
+            })
         });
-        $( window ).on( "load", function() {
+        $(window).on("load", function () {
             $('#countCarTypeFild').val(1);
+            changeCountInput();
+
         });
 
+        function changeCountInput(){
+            if ($("input[name='coloring']:checked").val() == 'true') {
+                $('#count').attr("readonly", true)
+                $('#count').val("0");
+            } else {
+                $('#count').attr("readonly", false)
+                $('#count').val("");
+            }
+        }
     </script>
 @endsection
