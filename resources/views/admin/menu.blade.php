@@ -3,14 +3,19 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="/css/style.css?v=1.4" rel="stylesheet">
-    <link href="/css/styleLogos.css?v=1.2" rel="stylesheet">
-    <link href="/css/styleNavBar.css?v=1.2" rel="stylesheet">
-    <link href="/css/slideShow.css?v=1.2" rel="stylesheet">
-    <link href="/css/RWD.css?v=1.2" rel="stylesheet">
-    <link href="/css/messages.css?v=1.2" rel="stylesheet">
-    <link href="/css/adminPanel.css?v=1.2" rel="stylesheet">
-    <link href="/css/adminPanel.css?v=1.2" rel="java">
+    <link href="/css/style.css?v=1.3" rel="stylesheet">
+    <link href="/css/styleLogos.css?v=1.3" rel="stylesheet">
+    <link href="/css/styleNavBar.css?v=1.3" rel="stylesheet">
+    <link href="/css/slideShow.css?v=1.3" rel="stylesheet">
+    <link href="/css/RWD.css?v=1.3" rel="stylesheet">
+    <link href="/css/messages.css?v=1.3" rel="stylesheet">
+    <link href="/css/adminPanel.css?v=1.3" rel="stylesheet">
+    <link href="/css/adminPanel.css?v=1.3" rel="java">
+    <!--font awesome for internet Icons-->
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+
+
 </head>
 <body style="background-color: #eeeeee">
 
@@ -34,6 +39,7 @@
     <div class="dropdown-container">
         <a href="/admin/addProduct">افزودن محصول جدید</a>
         <a href="/admin/editProductPanel">ویرایش محصولات</a>
+        <a href="/admin/managementColorProductPanel">مدیریت رنگ محصولات</a>
         <a href="/admin/editAllProductPrice">ویرایش کلی قیمت ها</a>
     </div>
     <button class="dropdown-btn">مدیریت برندها

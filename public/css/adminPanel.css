@@ -1,3 +1,7 @@
+@font-face {
+    font-family: FontAwesome;
+    src: url('/css/font-awesome-4.7.0/fonts/FontAwesome.otf');
+}
 /* Fixed sidenav, full height */
 .sidenav {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 10px;
@@ -149,4 +153,17 @@ tr:nth-child(even) {
 .editeTables{
     background-color: #3b3b3b;
     color: white;
+}
+
+.selected a::before{
+    font-family: "FontAwesome";
+    content:"\f00c";
+    display: inline-block;
+    padding-right: 4px;
+    vertical-align: middle;
+    color: gray;
+    font-weight: 900;
+}
+.selectOption{
+    cursor: pointer;
 }

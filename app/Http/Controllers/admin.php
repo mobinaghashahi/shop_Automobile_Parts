@@ -11,6 +11,7 @@ use App\Models\Color;
 use App\Models\Contact;
 use App\Models\Off;
 use App\Models\Product;
+use App\Models\ProductColor;
 use App\Models\SlideShow;
 use App\Models\User;
 use App\Models\Visit;
@@ -19,6 +20,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Facades\Hash;
+use function PHPUnit\Framework\isNull;
 
 class admin extends Controller
 {
@@ -71,11 +73,11 @@ class admin extends Controller
     public function printForSendProduct($id)
     {
         return view('admin.printForSendProduct', ['cart' => Cart::join('users', 'users.id', '=', 'cart.user_id')
-            ->where('cart.id', '=', $id)->get(),'cityAndProvince'=>User::join('city', 'city.id', '=', 'users.city_id')
+            ->where('cart.id', '=', $id)->get(), 'cityAndProvince' => User::join('city', 'city.id', '=', 'users.city_id')
             ->join('province_cities', 'province_cities.id', '=', 'city.province_id')
-            ->where('users.id','=',Auth::user()->id)
-            ->select('city.name as cityName','province_cities.name as provinceCity','province_cities.id as provinceId','city.id as cityId')
-        ->get()]);
+            ->where('users.id', '=', Auth::user()->id)
+            ->select('city.name as cityName', 'province_cities.name as provinceCity', 'province_cities.id as provinceId', 'city.id as cityId')
+            ->get()]);
     }
 
 
@@ -109,7 +111,7 @@ class admin extends Controller
         $index = 1;
         foreach ($carTypes as $carType) {
             //ساختن نام عکس براساس پارامتر ساعت و هش که بتوان آن را در هر بار تولید منحصر به فرد کرد و از مشکلات کش جلوگیری کرد.
-            $imageName=md5(time()).'.png';
+            $imageName = md5(time()) . '.png';
             $product = new Product();
             $product->name = $request->name;
             $product->count = $request->count;
@@ -134,7 +136,7 @@ class admin extends Controller
                 $file->move($destination, $imageName);
                 $firstProductSaveId = Product::all()->last()->id;
             } else if ($index != 1) {
-                copy('products/' . $firstProductSaveId . '/'.$imageName, $destination . '/1.png');
+                copy('products/' . $firstProductSaveId . '/' . $imageName, $destination . '/1.png');
             }
             $index++;
         }
@@ -208,10 +210,10 @@ class admin extends Controller
         $product = Product::findOrFail($request->id);
 
         //ساختن نام عکس براساس پارامتر ساعت و هش که بتوان آن را در هر بار تولید منحصر به فرد کرد و از مشکلات کش جلوگیری کرد.
-        $imageName=md5(time()).'.png';
+        $imageName = md5(time()) . '.png';
 
         //فقط ادمین میتواند تغییر دهد.
-        if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin'])) {
+        if (!empty(Auth::user()->userType) && Auth::user()->hasRole(['admin'])) {
             $product->name = $request->name;
             $product->count = $request->count;
             //قیمت قدیم محصول برابر میشود با قیمتی که قبلا بوده است.
@@ -296,7 +298,7 @@ class admin extends Controller
             'file' => 'mimes:png'
         ]);
         $brand = Brand::findOrFail($request->id);
-        if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin'])) {
+        if (!empty(Auth::user()->userType) && Auth::user()->hasRole(['admin'])) {
             $brand->name = $request->name;
             $brand->save();
         }
@@ -484,7 +486,7 @@ class admin extends Controller
             'file' => 'mimes:png',
         ]);
         $category = Category::findOrFail($request->id);
-        if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin'])) {
+        if (!empty(Auth::user()->userType) && Auth::user()->hasRole(['admin'])) {
             $category->name = $request->name;
             $category->save();
         }
@@ -608,12 +610,10 @@ class admin extends Controller
         foreach ($products as $product) {
             if ($request->percentOrToman == 'toman') {
 
-                if ($request->reduceOrIncrease == 'reduce'){
+                if ($request->reduceOrIncrease == 'reduce') {
                     $product->old_price = $product->price;
                     $product->price = $product->price - (int)$request->price;
-                }
-                else
-                {
+                } else {
                     $product->old_price = $product->price;
                     $product->price = $product->price + (int)$request->price;
                 }
@@ -626,18 +626,14 @@ class admin extends Controller
                     return redirect()->intended('/admin/editAllProductPrice')->with('errors', $errors);
                 }
 
-            }
-            else if ($request->percentOrToman == 'percent') {
+            } else if ($request->percentOrToman == 'percent') {
 
-                if ($request->reduceOrIncrease == 'reduce')
-                {
+                if ($request->reduceOrIncrease == 'reduce') {
                     $product->old_price = $product->price;
-                    $product->price = $product->price - (($product->price*(int)$request->price)/100);
-                }
-                else
-                {
+                    $product->price = $product->price - (($product->price * (int)$request->price) / 100);
+                } else {
                     $product->old_price = $product->price;
-                    $product->price = $product->price + (($product->price*(int)$request->price)/100);
+                    $product->price = $product->price + (($product->price * (int)$request->price) / 100);
                 }
 
 
@@ -650,8 +646,6 @@ class admin extends Controller
                 }
             }
         }
-
-
 
 
         foreach ($products as $product) {
@@ -674,39 +668,106 @@ class admin extends Controller
         ]);
 
         $color = new Color();
-        $color->name=$request->name;
-        $color->hexColorCode=$request->hexColorCode;
+        $color->name = $request->name;
+        $color->hexColorCode = $request->hexColorCode;
         $color->save();
 
         return redirect()->intended('/admin/addColorShow')->with('msg', 'رنگ با موفقیت افزوده شد.');
     }
 
-    public function editColorShowPanel(){
+    public function editColorShowPanel()
+    {
         return view('admin.editColorPanel', ['colors' => Color::all()]);
     }
 
-    public function deleteColor($id){
+    public function deleteColor($id)
+    {
         $color = Color::findOrFail($id);
-        $colorName=$color->name;
+        $colorName = $color->name;
         $color->delete();
-        return redirect()->intended('/admin/editColorShowPanel')->with('msg', ' رنگ '.$colorName.' با موفقیت حذف شد.');
+        return redirect()->intended('/admin/editColorShowPanel')->with('msg', ' رنگ ' . $colorName . ' با موفقیت حذف شد.');
     }
 
-    public function showEditColor($id){
-        return view('admin.editColor',['color'=>Color::findOrFail($id)]);
+    public function showEditColor($id)
+    {
+        return view('admin.editColor', ['color' => Color::findOrFail($id)]);
     }
 
-    public function editColor(Request $request){
+    public function editColor(Request $request)
+    {
         $validated = $request->validate([
             'hexColorCode' => 'required',
             'name' => 'required',
         ]);
 
         $color = Color::findOrFail($request->id);
-        $color->name=$request->name;
-        $color->hexColorCode=$request->hexColorCode;
+        $color->name = $request->name;
+        $color->hexColorCode = $request->hexColorCode;
         $color->save();
         return redirect()->intended('/admin/editColorShowPanel')->with('msg', ' رنگ با موفقیت ویرایش شد.');
+    }
+
+    public function managementColorProductPanel()
+    {
+        $productsColoring = Product::where("products.coloring", "=", "true")->get();
+        foreach ($productsColoring as $productColoring) {
+            $id = $productColoring['id'];
+            //ذخیره کردن نام و آیدی محصول در آرایه
+            $products['products'.$id]['id'] = $productColoring['id'];
+            $products['products'.$id]['name'] = $productColoring['name'];
+            $products['products'.$id]['color']=null;
+
+            //کوئری برای جدا کردن رنگ محصولات
+            $colorsForProduct = Product::join('productcolor', 'productcolor.product_id', '=', 'products.id')
+                ->join('color', 'color.id', '=', 'productcolor.color_id')
+                ->where('products.id','=',$id)
+                ->select('color.hexColorCode','productcolor.id as productcolor_id')
+                ->get();
+            //ذخیره کردن رنگ های جدا شده در آرایه برای ارسال به فرم
+            foreach ($colorsForProduct as $colorForProduct) {
+                $products['products'.$id]['color'][$colorForProduct['productcolor_id']] = $colorForProduct['hexColorCode'];
+            }
+        }
+        return view('admin.managementColorProductPanel',['products'=>$products]);
+    }
+
+    public function managementColorProduct($id)
+    {
+        return view('admin.managementColorProduct',['colorProducts'=>Product::join('productcolor', 'productcolor.product_id', '=', 'products.id')
+            ->join('color', 'color.id', '=', 'productcolor.color_id')
+            ->where('products.id','=',$id)
+            ->select('color.hexColorCode','products.name','productcolor.differentPrice','productcolor.id as productColorId')
+            ->get(),'productId'=>$id]);
+    }
+
+    public function deleteColorProduct($productId,$productColorId)
+    {
+        $productColor = ProductColor::findOrFail($productColorId);
+        $productColor->delete();
+        return redirect()->intended('/admin/managementColorProduct/'.$productId)->with('msg', ' رنگ با موفقیت حذف شد.');
+    }
+
+    public function addColorProductShow($id)
+    {
+        $colors=Color::all();
+        $nonExistColors=$colors->except(ProductColor::where('product_id','=',$id)->select('color_id')->get()->pluck('color_id')->toArray());
+        return view('admin.addColorProduct',['colors'=>$nonExistColors,'productId'=>$id]);
+    }
+    public function addColorProduct(Request $request)
+    {
+
+        $validated = $request->validate([
+            'product_id' => 'required',
+            'differentPrice' => 'required',
+            'color_id'=>'required'
+        ]);
+        $productColor=new ProductColor();
+        $productColor->differentPrice=$request->differentPrice;
+        $productColor->color_id=$request->color_id;
+        $productColor->product_id=$request->product_id;
+        $productColor->save();
+
+        return redirect()->intended('/admin/addColorProduct/'.$request->product_id)->with('msg', ' رنگ با موفقیت افزوده شد.');
     }
 
 }

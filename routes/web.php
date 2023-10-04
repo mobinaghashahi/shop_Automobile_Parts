@@ -140,12 +140,20 @@ Route::prefix('/admin')->group(function () {
 
     Route::get('/listCarTypeForJquary/{id}',[admin::class,'listCarTypeForJquary'])->middleware([loginMiddleware::class,'role:admin']);
 
+    //مدیریت رنگ جدید
     Route::post('/addColor', [admin::class, 'addColor'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/addColorShow', [admin::class, 'showAddColor'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/editColorShowPanel', [admin::class, 'editColorShowPanel'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/deleteColor/{id}', [admin::class, 'deleteColor'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/editColor/{id}', [admin::class, 'showEditColor'])->middleware([loginMiddleware::class,'role:admin']);
     Route::post('/editColor', [admin::class, 'editColor'])->middleware([loginMiddleware::class,'role:admin']);
+
+    //مدیریت رنگ محصولات
+    Route::get('/managementColorProductPanel', [admin::class, 'managementColorProductPanel'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/managementColorProduct/{id}', [admin::class, 'managementColorProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/deleteColorProduct/{productId}/{productColorId}', [admin::class, 'deleteColorProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/addColorProduct/{id}', [admin::class, 'addColorProductShow'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::post('/addColorProduct', [admin::class, 'addColorProduct'])->middleware([loginMiddleware::class,'role:admin']);
 
 });
 
