@@ -33,8 +33,9 @@ class users extends Controller
             'regex:/[0]{1}[0-9]{10}/','min:11','max:11'
                 ,Rule::unique('users')->ignore(Auth::user()->id)],
             'nameAndFamily' => 'required|max:255',
-            'postCode' => 'max:10|min:10',
-            'city'=>'integer|min:1|max:1881'
+            'postCode' => 'required|max:10|min:10',
+            'address' => 'required',
+            'city'=>'required|integer|min:1|max:1881'
         ]);
 
         $user = User::findOrFail(Auth::user()->id);
