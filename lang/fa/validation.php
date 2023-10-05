@@ -198,6 +198,7 @@ return [
         'postCode' => 'کد پستی',
         'nameAndFamily' => 'نام و نام خانوادگی',
         'newPassword' => 'رمز عبور جدید',
+        'city' => 'شهرستان',
     ],
 
 ];

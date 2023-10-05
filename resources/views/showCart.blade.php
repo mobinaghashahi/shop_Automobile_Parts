@@ -78,9 +78,9 @@
             <div class="col-12" style="padding: 20px 0px 30px 0px">
                 <hr style="width: 80%;color: rgba(0,0,0,0.8);">
             </div>
-            <form action="/cart/finalApproval" method="get">
+            <form action="/cart/addUserInformation" method="get">
                 <div class="col-12" style="display: flex;justify-content: center">
-                    <input style="color:#000000;width: 90%;" name="enter" class="inputSubmit" type="submit" value="انتخاب نحوه ارسال و پرداخت">
+                    <input style="color:#000000;width: 90%;" name="enter" class="inputSubmit" type="submit" value="ادامه جهت تسویه حساب">
                 </div>
             </form>
         </div>

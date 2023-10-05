@@ -120,12 +120,12 @@ function countNewMessages()
 function totalPriceCart(): float|int
 {
     $totalPrice = 0;
-    $sendPrice = postPrice();
+    //$sendPrice = postPrice();
     foreach (session('products') as $key => $value) {
         $result = Product::where('id', '=', $key)->get();
         $totalPrice += $result[0]->price * $value;
     }
-    return $totalPrice + $sendPrice;
+    return $totalPrice;
 }
 
 function postPrice(): int
