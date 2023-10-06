@@ -21,6 +21,7 @@ use App\Http\Middleware\loginMiddleware;
 use App\Http\Middleware\UserMiddleware;
 use App\Http\Middleware\CalculatePostPrice;
 use App\Http\Middleware\cartValidForUserMiddleware;
+use App\Http\Middleware\CheckSessionExist;
 
 /*
 |--------------------------------------------------------------------------
@@ -171,7 +172,7 @@ Route::prefix('/cart')->group(function () {
     Route::post('/decreaseCount',[cart::class,'decreaseCount']);
     Route::post('/increaseCount',[cart::class,'increaseCount']);
 
-    Route::get('/showCart',[cart::class,'showCart']);
+    Route::get('/showCart',[cart::class,'showCart'])->middleware(CheckSessionExist::class);
     Route::get('/deleteOfCart/{id}',[cart::class,'deleteOfCart']);
 
     Route::get('/addUserInformation',[cart::class,'addUserInformation'])->middleware(UserMiddleware::class);

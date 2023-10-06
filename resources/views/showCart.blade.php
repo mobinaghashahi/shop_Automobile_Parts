@@ -12,8 +12,12 @@
                 <div class="col-12 blockProductsCart">
                     <div class="col-3">
                         <a href="/productDetails/{{$value[0]['id']}}">
-                            <img alt="{{$value[0]['name']}}" title="{{$value[0]['name']}}" style="padding: 5px"
-                                 src="/products/{{$value[0]['id']}}/{{$value[0]['imageName']}}" width="150" height="150">
+                            @if (File::exists('products/'.$value[0]['id'].'/'.$value[0]['imageName']))
+                                    <img alt="{{$value[0]['name']}}" title="{{$value[0]['name']}}" style="padding: 5px"
+                                         src="/products/{{$value[0]['id']}}/{{$value[0]['imageName']}}" width="150" height="150">
+                            @else
+                                    <img width="150" height="150" style="padding: 5px" src="/logo/notFound.png" alt="{{$value[0]['name']}}">
+                            @endif
                         </a>
                     </div>
                     <div class="col-9" style="margin-top:15px">
