@@ -194,6 +194,11 @@ return [
         'password' => 'رمز عبور',
         'password_confirmation' => 'تاییدیه رمز عبور',
         'phoneNumber' => 'شماره تلفن',
+        'address' => 'آدرس',
+        'postCode' => 'کد پستی',
+        'nameAndFamily' => 'نام و نام خانوادگی',
+        'newPassword' => 'رمز عبور جدید',
+        'city' => 'شهرستان',
     ],
 
 ];

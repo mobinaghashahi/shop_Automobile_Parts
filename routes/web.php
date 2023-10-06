@@ -174,11 +174,12 @@ Route::prefix('/cart')->group(function () {
     Route::get('/showCart',[cart::class,'showCart']);
     Route::get('/deleteOfCart/{id}',[cart::class,'deleteOfCart']);
 
+    Route::get('/addUserInformation',[cart::class,'addUserInformation'])->middleware(UserMiddleware::class);
     Route::get('/finalApproval',[cart::class,'finalApproval'])->middleware(UserMiddleware::class)->middleware(CalculatePostPrice::class);
 });
 
 Route::prefix('/payment')->middleware(UserMiddleware::class)->group(function () {
-   Route::post('/pay',[payment::class,'pay']);
+   Route::post('/pay',[payment::class,'pay'])->middleware(CalculatePostPrice::class);
    Route::get('/verify',[payment::class,'verify']);
 });
 
