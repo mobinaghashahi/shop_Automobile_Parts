@@ -43,8 +43,6 @@ Route::get('/cities/{id}', [home::class, 'cities']);
 Route::get('/contact', [home::class, 'showContact']);
 Route::post('/contact', [home::class, 'sendMessage']);
 
-Route::get('/resultSearch',[home::class, 'showResults']);
-
 
 
 //نقشه وبسایت
@@ -54,7 +52,7 @@ Route::get('/sitemap.xml', function (){
 Route::get('/sitemap-0.xml', [siteMap::class,'productsSiteMap']);
 
 
-
+Route::get('/resultSearch',[products::class, 'showResults']);
 Route::get('/brands/{id}', [products::class, 'showProductsByBrand']);
 Route::get('/carTypeCategorys/{id}', [products::class, 'showProductsByCarTypeCategorys']);
 Route::get('/carTypeProducts/{carType_id}/{category_id}', [products::class, 'showCarTypeProducts']);
