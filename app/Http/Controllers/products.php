@@ -30,17 +30,16 @@ class products extends Controller
 
     public function showProductsByBrand($id)
     {
-        $products=Product::where('brand_id', '=', $id)->paginate(12);
+        $products = Product::where('brand_id', '=', $id)->paginate(12);
 
-        //dd(Product::where('brand_id', '=', $id)->paginate(12)->lastPage());
 
         //بدست آوردن تعداد صفحات موجود از این برند
         $countOfPage = $products->lastPage();
 
         return view('showBrandProducts', ['products' => $products,
             'pages' => $countOfPage,
-            'currentPage'=>$products->currentPage(),
-            'brand_id'=>$id]);
+            'currentPage' => $products->currentPage(),
+            'brand_id' => $id]);
     }
 
     public function showProductsByCarTypeCategorys($id)
@@ -59,10 +58,20 @@ class products extends Controller
 
     public function showCarTypeProducts($carType_id, $category_id)
     {
-        return view('showCarTypeProducts', ['products' => Product::where('carType_id', '=', $carType_id)
+        $products = Product::where('carType_id', '=', $carType_id)
             ->where('category_id', '=', $category_id)
-            ->get()]);
+            ->paginate(12);
+
+        //بدست آوردن تعداد صفحات موجود از این برند
+        $countOfPage = $products->lastPage();
+
+        return view('showCarTypeProducts', ['products' => $products,
+            'pages' => $countOfPage,
+            'currentPage' => $products->currentPage(),
+            'carType_id' => $carType_id,
+            'category_id'=>$category_id]);
     }
+
     public function showResults(Request $request)
     {
         $validated = $request->validate([
