@@ -91,7 +91,7 @@
                 <div class="col-12" style="display: flex;float: right;justify-content: right">
                     <div style="padding-right: 5px;line-height: 5px;font-size: 12px">
                         <p style="font-weight: bolder;line-height: 20px">:دفتر مرکزی قزوین</p>
-                        <p>قزوین، بلوار نوروزیان، روبروی بانک ملت، بین البرز ۳۹ و ۴۱ </p>
+                        <p>تهران،اسلامشهر، بلوار گلها، بین البرز ۳۹ و ۴۱</p>
                     </div>
                     <img src="/logo/location.svg" alt="location" data-v-b13dc018="">
                 </div>
