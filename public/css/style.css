@@ -11,6 +11,11 @@
     src: url('/font/BTitrBd.ttf');
 }
 @font-face {
+    font-family: ;
+    src: url('/font/0 Koodak Bold.TTF');
+}
+
+@font-face {
     font-family: FontAwesome;
     src: url('/css/font-awesome-4.7.0/fonts/FontAwesome.otf');
 }
@@ -531,6 +536,9 @@ select option{
     text-align: center;
     direction: rtl;
     color: #c21c1c;
+}
+.showPriceFont{
+    font-family: Koodak;
 }
 .postDetail a::before{
     font-family: "FontAwesome";

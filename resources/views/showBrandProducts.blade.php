@@ -17,7 +17,7 @@
                     @endif
                     <div class="col-12" style="text-align: center">
                         <p>{{$product->name}}</p>
-                        <p class="showPriceInBlock"> {{number_format($product->price)}} تومان</p>
+                        <p class="showPriceInBlock"> <b class="showPriceFont">{{number_format($product->price)}}</b> تومان</p>
                     </div>
                 </a>
             </div>
