@@ -23,4 +23,9 @@ class apiProducts extends Controller
         $post_data = json_encode($post_data,JSON_UNESCAPED_SLASHES);
         return $post_data;
     }
+
+    public function getAllProductsEmalls()
+    {
+        return view('emalls',['products'=>Product::all()]);
+    }
 }

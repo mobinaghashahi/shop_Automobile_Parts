@@ -524,7 +524,9 @@ select option{
 .centerTextMobile{
     text-align: left;
 }
-
+.w-5{
+    display: none;
+}
 .showPriceInBlock{
     text-align: center;
     direction: rtl;
