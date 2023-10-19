@@ -591,17 +591,26 @@ class admin extends Controller
 
     public function editAllProductPricePanel()
     {
-        return view("admin/editAllProductPrice");
+        return view("admin/editAllProductPrice",['brands'=>Brand::all()]);
     }
 
     public function editAllProductPrice(Request $request)
     {
         $validated = $request->validate([
             'price' => 'required',
+            'brand' => 'required|integer',
             'reduceOrIncrease' => 'in:increase,reduce',
             'percentOrToman' => 'in:percent,toman',
         ]);
-        $products = Product::all();
+
+        //انتخاب تمامی برند ها
+        if($request->brand==0)
+            $products = Product::all();
+        //انتخاب یک برند خاص
+        else
+            $products= Product::where('brand_id','=',$request->brand)->get();
+
+
         foreach ($products as $product) {
             if ($request->percentOrToman == 'toman') {
 
