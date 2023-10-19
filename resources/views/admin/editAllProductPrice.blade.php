@@ -22,27 +22,36 @@
 
             <form method="post" name="enter" enctype="multipart/form-data" action="/admin/editAllProductPrice">
                 @csrf
-                <div class="col-12" style="text-align: center;padding-top: 40px">
-                    <label style="background-color: #de1717;padding: 10px;border-radius: 10px;color: white"> تغییرات
-                        قیمت برروی تمامی محصولات اعمال خواهد شد!!</label>
-                </div>
-                <div class="col-12 titleTextInput" style="display: flex;justify-content: center;padding-top: 50px">
+                <div class="col-12 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-4">
                         <input name="price" style="text-align: center" class="inputText"
                                placeholder="قیمت (درصد/ تومان)">
                     </div>
                 </div>
-                <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
-                    <div class="col-6" style="text-align: center">
+                <div class="col-4 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-10" style="text-align: center">
                         <label>قیمت ها بر حسب</label>
                         <select class="inputText" style="background-color: white" name="percentOrToman" id="cars">
-                                <option value="percent">درصد</option>
-                                <option value="toman">تومان</option>
+                            <option value="percent">درصد</option>
+                            <option value="toman">تومان</option>
                         </select>
                     </div>
                 </div>
-                <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
-                    <div class="col-6" style="text-align: center">
+                <div class="col-4 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-10" style="text-align: center">
+                        <label>برند</label>
+                        <select class="inputText" style="background-color: white" name="brand" id="brands">
+                            <option value="0">تمام برندها</option>
+                            @foreach($brands as $brand)
+                                @if($brand->id!=1)
+                                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                                @endif
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col-4 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-10" style="text-align: center">
                         <label>کاهش/ افزایش</label>
                         <select class="inputText" style="background-color: white" name="reduceOrIncrease" id="cars">
                             <option value="reduce">کاهش</option>
