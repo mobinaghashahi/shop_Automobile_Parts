@@ -69,12 +69,14 @@ class admin extends Controller
 
     public function printForSendProduct($id)
     {
+
         return view('admin.printForSendProduct', ['cart' => Cart::join('users', 'users.id', '=', 'cart.user_id')
-            ->where('cart.id', '=', $id)->get(),'cityAndProvince'=>User::join('city', 'city.id', '=', 'users.city_id')
+            ->join('city', 'city.id', '=', 'users.city_id')
             ->join('province_cities', 'province_cities.id', '=', 'city.province_id')
-            ->where('users.id','=',Auth::user()->id)
-            ->select('city.name as cityName','province_cities.name as provinceCity','province_cities.id as provinceId','city.id as cityId')
-        ->get()]);
+            ->where('cart.id', '=', $id)
+            ->select('city.name as cityName','province_cities.name as provinceCity','users.address as address','users.postCode as postCode', 'users.address as address'
+                ,'users.nameAndFamily as nameAndFamily', 'users.phoneNumber as phoneNumber')
+            ->get()]);
     }
 
 
