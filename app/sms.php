@@ -15,14 +15,14 @@ function sendSmsForgetPassword($phoneNumber, $code)
     echo $client->sendPatternSms($fromNum, $toNum, $user, $pass, $pattern_code, $input_data);
 }
 
-function sendNewOrderSms($name, $price)
+function sendNewOrderSms($name, $price,$number)
 {
 
     $client = new SoapClient("http://188.0.240.110/class/sms/wsdlservice/server.php?wsdl");
     $user = env("SMS_USERNAME");
     $pass = env("SMS_PASSWORD");
     $fromNum = "+3000505";
-    $toNum = array("09139638917");
+    $toNum = array($number);
     $pattern_code = "de2bsqxz3oz1cuv";
     $input_data = array(
         "name" => $name,

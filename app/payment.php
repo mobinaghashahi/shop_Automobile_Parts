@@ -16,7 +16,8 @@ function responseCodeChecker($response)
     } else if (!empty(json_decode($response)->data->code)) {
         if (json_decode($response)->data->code == 100 || json_decode($response)->data->code == 101) {
             //ارسال پیامک خرید موفق
-            sendNewOrderSms(Auth::user()->nameAndFamily, session('amount'));
+            sendNewOrderSms(Auth::user()->nameAndFamily, session('amount'),"09139638917");
+            sendNewOrderSms(Auth::user()->nameAndFamily, session('amount'),"09129231997");
             return "ok";
         }
     } else {
