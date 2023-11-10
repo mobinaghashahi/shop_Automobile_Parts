@@ -58,53 +58,17 @@
                 </div>
             </div>
             <div class="col-12" style="margin-bottom: 10px">
-                <label style="color: white;">کد پیگیری پست 16 رقمی</label>
+                <label style="color: white;">کد پیگیری پست</label>
             </div>
             <div class="col-12">
                 <input type="text" class="inputText" name="postCode" id="postCode">
             </div>
             <input style="visibility: hidden" type="text" class="inputText" name="idProduct" id="idProducts">
             <div class="col-12" style="display: flex;justify-content: center;padding-top: 10px;padding-bottom: 15px;">
-                <input style="width: 20%;background-image: linear-gradient(45deg, #45cb1b 0%, #408500 51%, #43c200 100%);" class="inputSubmit" name="enter" type="submit" value="ثبت">
-            </div>
-            <div id="progressBar" style="height: 20px; background-color: red;float: left;border-radius: 10px;margin-bottom: 7px"></div>
-            <div id="truck" style="position: absolute;bottom:0%;" >
-                <img src="/logo/truck.png" width="70px" height="40px">
+                <input style=";background-image: linear-gradient(45deg, #45cb1b 0%, #408500 51%, #43c200 100%);text-align: center" class="inputSubmit" name="enter" type="submit" value="ثبت">
             </div>
             <script>
                 $(document).ready(function(){
-                    $("#postCode").on('keypress', function(event) {
-                        let progressBarLength=$("#postCode").val().length;
-                        if(progressBarLength>=16) {
-                            event.preventDefault();
-                            let progressBarLength=$("#postCode").val().length;
-                            let progressBarPercent=0;
-                            progressBarPercent=100;
-                            $('#progressBar').css('width',parseInt(progressBarPercent+1)+'%');
-                            $('#truck').css('left',parseInt(progressBarPercent-progressBarLength+1)+'%');
-                            $('#progressBar').css('background-color','green');
-                            return 0;
-                        }
-                    });
-
-                    $("#postCode").on('keyup', function(event) {
-                        let progressBarLength=$("#postCode").val().length;
-                        let progressBarPercent=0;
-                        if(progressBarLength<16){
-                            progressBarPercent=progressBarLength*6.25;
-                            $('#progressBar').css('background-color','red');
-                        }
-                        else if(progressBarLength===16){
-                            progressBarPercent=100;
-                            $('#progressBar').css('background-color','green');
-                        }else{
-                            event.preventDefault();
-                            return 0;
-                        }
-                        $('#progressBar').css('width',parseInt(progressBarPercent+1)+'%');
-                        $('#truck').css('left',parseInt(progressBarPercent-progressBarLength)+'%');
-                    });
-
                     $("#closeEnterPostForm").click(function (){
                         $("#enterPostBlock").css('display', 'none');
                         $("#main").css('filter','blur(0px)');
@@ -221,6 +185,7 @@
                             <th>ردیف</th>
                             <th>نام خریدار</th>
                             <th>شناسه پرداخت</th>
+                            <th>کد رهگیری</th>
                             <th>عملیات</th>
                         </tr>
                         @foreach ($registeredOrders as $registeredOrder)
@@ -228,6 +193,7 @@
                                 <td>{{$loop->index+1}}</td>
                                 <td>{{$registeredOrder->name}}</td>
                                 <td>{{$registeredOrder->paymentCode}}</td>
+                                <td>{{$registeredOrder->sendPostCode}}</td>
                                 <td>
                                     <div class="col-4">
                                         <a href="/admin/undoSendProduct/{{$registeredOrder->id}}"> <img

@@ -41,7 +41,7 @@ class admin extends Controller
     public function sendProduct(Request $request)
     {
         $validated = $request->validate([
-            'postCode' => 'required|integer|digits:16',
+            'postCode' => 'required',
             'idProduct' => 'required|integer',
         ]);
         $buy = Cart::findOrFail($request->idProduct);
