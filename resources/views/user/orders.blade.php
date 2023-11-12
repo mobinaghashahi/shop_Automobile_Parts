@@ -24,8 +24,10 @@
                                 <td>{{$order->paymentCode}}</td>
                                 @if($order->state==0)
                                     <td>در دست اقدام</td>
-                                @else
+                                @elseif($order->state==1)
                                     <td style="background-color: #4DC7A0">ارسال شده</td>
+                                @elseif($order->state==2)
+                                    <td style="background-color: #c74d4d">لغو شده</td>
                                 @endif
                                 <td>{{number_format($order->totalPrice)}} </td>
                                 <td>{{$order->sendPostCode}} </td>

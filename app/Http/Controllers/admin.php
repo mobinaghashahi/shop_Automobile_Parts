@@ -33,6 +33,11 @@ class admin extends Controller
                 ->select('cart.*', 'users.nameAndFamily as name')
                 ->limit(10)
                 ->get(),
+            'canceledOrders'=>Cart::join('users', 'users.id', '=', 'cart.user_id')
+                ->where('cart.state', '=', 2)
+                ->select('cart.*', 'users.nameAndFamily as name')
+                ->limit(10)
+                ->get(),
             'visitedMonthAgo' => visitedMonthAgo(),
             'webBrowsersVisit' => webBrowsersVisit(),
         ]);
@@ -666,5 +671,21 @@ class admin extends Controller
             $product->save();
         }
         return redirect()->intended('/admin/editAllProductPrice')->with('msg', 'تغییر با موفقیت انجام شد.');
+    }
+
+    public function undoCancelOrders($id){
+        $buy = Cart::findOrFail($id);
+        $buy->state = 0;
+        $buy->sendPostCode = '';
+        $buy->save();
+        return redirect()->intended('/admin')->with('msg', 'سفارش با موفقیت از لیست لغو شده ها حذف شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
+    }
+
+    public function cancelOrder($id){
+        $buy = Cart::findOrFail($id);
+        $buy->state = 2;
+        $buy->sendPostCode = '';
+        $buy->save();
+        return redirect()->intended('/admin')->with('msg', 'سفارش با موفقیت لغو شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم
     }
 }

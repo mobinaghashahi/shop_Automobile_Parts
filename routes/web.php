@@ -87,6 +87,8 @@ Route::prefix('/admin')->group(function () {
     Route::get('/undoSendProduct/{id}', [admin::class, 'undoSendProduct'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/listOrders/{id}', [admin::class, 'listOrders'])->middleware([loginMiddleware::class,'role:admin']);
     Route::get('/printForSendProduct/{id}', [admin::class, 'printForSendProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/undoCancelOrders/{id}', [admin::class, 'undoCancelOrders'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::get('/cancelOrder/{id}', [admin::class, 'cancelOrder'])->middleware([loginMiddleware::class,'role:admin']);
 
 
     Route::get('/addProduct', [admin::class, 'showAddProduct'])->middleware([loginMiddleware::class,'role:admin']);
