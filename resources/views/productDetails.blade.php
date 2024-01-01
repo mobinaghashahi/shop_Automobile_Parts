@@ -68,12 +68,8 @@ use App\Models\Brand;
       "@context": "https://schema.org/",
       "@type": "Product",
       "name": "{{$product[0]->name}}",
-      "image": [
-        "https://yadakasli.ir/products/{{$product[0]->id}}/{{$product[0]->imageName}}"
-       ],
+      "image": "https://yadakasli.ir/products/{{$product[0]->id}}/{{$product[0]->imageName}}",
       "description": "{{$product[0]->description}}",
-      "sku": "{{$product[0]->id}}",
-      "mpn": "{{$product[0]->id}}",
       "brand": {
         "@type": "Brand",
         "name": "{{$product[0]->brandName}}"
@@ -82,7 +78,7 @@ use App\Models\Brand;
         "@type": "Offer",
         "url": "https://yadakasli.ir/productDetails/{{$product[0]->id}}",
         "priceCurrency": "IRR",
-        "price": "{{number_format($product[0]->price)}}",
+        "price": "{{$product[0]->price}}",
         "itemCondition": "https://schema.org/NewCondition",
         "availability": "https://schema.org/{{$product[0]->availability}}"
       }

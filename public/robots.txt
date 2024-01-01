@@ -1,2 +1,3 @@
 User-agent: *
-Sitemap: http://yadakasli.ir/sitemap.xml
+Sitemap: https://yadakasli.ir/sitemap.xml
+Sitemap: https://yadakasli.ir/sitemap-0.xml
