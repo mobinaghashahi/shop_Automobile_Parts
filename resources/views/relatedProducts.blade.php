@@ -23,7 +23,7 @@
                             <p style="text-align: center">{{$product->name}}</p>
                         </div>
                         <div>
-                            <p class="showPriceInBlock"><b>{{number_format($product->price)}}</b>  تومان</p>
+                            <p class="showPriceInBlock" style=""><b class="showPriceFont">{{number_format($product->price)}}</b>  تومان</p>
                         </div>
                     </div></a>
             @if($count==15)
