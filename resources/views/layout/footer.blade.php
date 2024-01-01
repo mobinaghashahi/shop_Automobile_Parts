@@ -51,16 +51,18 @@
         responsive:{
             0:{
                 items:1,
-                nav:true
+                nav:true,
+                loop:true
             },
             600:{
                 items:3,
-                nav:false
+                nav:false,
+                loop:true
             },
             1000:{
                 items:6,
                 nav:true,
-                loop:false
+                loop:true
             }
         }
     });
