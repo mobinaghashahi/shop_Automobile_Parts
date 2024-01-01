@@ -44,14 +44,16 @@ use App\Models\Brand;
                     <p style="text-align: right;direction: rtl;word-wrap: break-word">{{$product[0]->description}}</p>
                     <input type="text" name="id" value="{{$product[0]->id}}" hidden>
                 </div>
-                <div class="col-2" style="float: right; display: flex;justify-content: center">
-                    <input type="number" value="1" min="1" max="{{stock($product[0]->id)}}" name="count" style="width: 35%;text-align: center">
+                <div class="col-4" style="float: right; display: flex;justify-content: center;padding-top: 20px">
+                    <input type="button" value="-" class="minus">
+                    <input type="number" value="1" min="1" max="{{stock($product[0]->id)}}" class="count" name="count" style="width: 10%;text-align: center;">
+                    <input type="button" value="+" class="plus">
                 </div>
-                <div class="col-9" style="float: right; display: flex;justify-content: center">
+                <div class="col-8" style="float: right; display: flex;justify-content: center;padding-top: 10px">
                     @if(isInStock($product[0]->id))
-                        <input class="inputSubmit" type="submit" value="خرید" style="width: 50%">
+                        <input class="inputSubmit" type="submit" value="خرید" style="width: 80%">
                     @else
-                        <input disabled class="inputAlert" type="submit" value="ناموجود" style="width: 50%">
+                        <input disabled class="inputAlert" type="submit" value="ناموجود" style="width: 70%">
                     @endif
                     @if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin', 'designer']))
                         <a class="inputSubmit" href="/admin/editProduct/{{$product[0]->id}}" style="width: 30%;margin-left:20px;box-shadow: 0px 0px 14px -7px #39b200;
@@ -63,6 +65,21 @@ use App\Models\Brand;
         </div>
         @include('relatedProducts')
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    //این اسکریپت برای کم و زیاد کردن مقدار تعداد محصولی که میخواهیم خریداری کنیم استفاده میشود.
+    <script>
+        $(document).ready(function () {
+            $("body").on('click', '.plus', function (e) {
+                let value =$(".count").val()
+                $(".count").val(+value+1)
+            })
+            $("body").on('click', '.minus', function (e) {
+                let value =$(".count").val()
+                if(value>1)
+                    $(".count").val(+value-1)
+            })
+        })
+    </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org/",
