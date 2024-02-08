@@ -4,13 +4,13 @@ use App\Models\Brand;
 ?>
 @section('content')
 
-    <--meta tags for use in TOROB-->
+    <!--meta tags for use in TOROB-->
     <meta name="product_name" content="{{$product[0]->name}}">
     <meta name="product_price" content="{{$product[0]->price}}">
     <meta name="product_old_price" content="{{$product[0]->old_price}}">
     <meta name="availability" content="{{$product[0]->availability}}">
     <meta property="og:image" content="{{$product[0]->imageName}}">
-    <--***********>
+    <!--***********-->
     <form method="post" name="enter" action="/cart/addToCart">
         @csrf
         <div class="col-12" style="padding: 10px 0px 10px 0px">
