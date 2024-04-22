@@ -21,6 +21,20 @@
             @endif
 
             <form method="post" name="enter" enctype="multipart/form-data" action="/admin/editProduct">
+                <div class="col-12" style="margin-top: 50px">
+                    @if (File::exists('products/'.$currentlyProduct[0]->id.'/'.$currentlyProduct[0]->imageName))
+                        <div class="col-12 center">
+                            <img class="imageProduct" style="width: 15%;height: 15%"
+                                 src="/products/{{$currentlyProduct[0]->id}}/{{$currentlyProduct[0]->imageName}}"
+                                 alt="{{$currentlyProduct[0]->name}}">
+                        </div>
+                    @else
+                        <div class="col-12 center">
+                            <img class="imageProduct" style="width: 15%;height: 15%" src="/logo/notFound.png"
+                                 alt="{{$currentlyProduct[0]->name}}">
+                        </div>
+                    @endif
+                </div>
                 @csrf
                 <input name="id" value="{{$currentlyProduct[0]->id}}" style="text-align: center;display: none"
                        class="inputText" placeholder="نام محصول">
