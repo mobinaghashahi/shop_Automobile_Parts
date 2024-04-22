@@ -22,6 +22,13 @@
 
             <form method="post" name="enter" enctype="multipart/form-data" action="/admin/editBrand">
                 @csrf
+                <div class="col-12">
+                    <div class="col-12 center" style="padding-top: 40px">
+                            <img
+                                style="width: 10%;height: 10%" src="/brand/{{$brand[0]->id}}/1.png"
+                                " alt="برند {{$brand[0]->name}}"/>
+                    </div>
+                </div>
                 <input name="id" value="{{$brand[0]->id}}" style="text-align: center;display: none" class="inputText" placeholder="نام برند">
                 <div class="col-12 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-3">
