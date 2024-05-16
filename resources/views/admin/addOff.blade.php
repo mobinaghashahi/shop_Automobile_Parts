@@ -23,13 +23,23 @@
             <form method="post" name="enter" enctype="multipart/form-data" action="/admin/addOff">
                 @csrf
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
-                    <div class="col-3">
+                    <div class="col-6">
                         <input name="name" style="text-align: center" class="inputText" placeholder="نام تخفیف">
                     </div>
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
-                    <div class="col-3">
+                    <div class="col-6">
                         <input name="percent" style="text-align: center" class="inputText" placeholder="درصد تخفیف">
+                    </div>
+                </div>
+                <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-6" style="text-align: center">
+                        <label>برند</label>
+                        <select class="inputText" style="background-color: white" name="brand_id" id="cars">
+                            @foreach ($brand as $index => $brandRows)
+                                <option value="{{$brandRows->id}}">{{$brandRows->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 

@@ -382,17 +382,19 @@ class admin extends Controller
 
     public function showAddOff()
     {
-        return view('admin.addOff');
+        return view('admin.addOff',['brand' => Brand::all()]);
     }
 
     public function addOff(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required',
-            'percent' => 'required|integer|min:0|max:100'
+            'percent' => 'required|integer|min:0|max:100',
+            'brand_id'=>'required|integer'
         ]);
         $off = new Off();
         $off->name = $request->name;
+        $off->brand_id = $request->brand_id;
         $off->percent = $request->percent;
         $off->save();
 
