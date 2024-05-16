@@ -415,17 +415,21 @@ class admin extends Controller
 
     public function showEditOff($id)
     {
-        return view('admin.editOff', ['off' => Off::where('id', '=', $id)->get()]);
+        return view('admin.editOff', ['off' => Off::join('brand','brand.id','=','off.brand_id')->where('off.id', '=', $id)
+            ->select('brand.name as brandName','brand.id as brandID','off.id as offID','off.name as offName','off.percent as offPercent')
+            ->get(),'brand'=>Brand::all()]);
     }
 
     public function editOff(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required',
-            'percent' => 'required|integer|min:0|max:100'
+            'percent' => 'required|integer|min:0|max:100',
+            'brand_id'=>'required|integer'
         ]);
         $off = Off::findOrFail($request->id);
         $off->name = $request->name;
+        $off->brand_id = $request->brand_id;
         $off->percent = $request->percent;
         $off->save();
         return redirect()->intended('/admin/editOff/' . $request->id)->with('msg', 'تخفیف با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم

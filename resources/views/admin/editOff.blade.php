@@ -23,14 +23,30 @@
             <form method="post" name="enter" enctype="multipart/form-data" action="/admin/editOff">
                 @csrf
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
-                    <input name="id" value="{{$off[0]->id}}" style="display:none;text-align: center" class="inputText" placeholder="نام تخفیف">
+                    <input name="id" value="{{$off[0]->offID}}" style="display:none;text-align: center" class="inputText"
+                           placeholder="نام تخفیف">
                     <div class="col-3">
-                        <input name="name" value="{{$off[0]->name}}" style="text-align: center" class="inputText" placeholder="نام تخفیف">
+                        <input name="name" value="{{$off[0]->offName}}" style="text-align: center" class="inputText"
+                               placeholder="نام تخفیف">
                     </div>
                 </div>
                 <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
                     <div class="col-3">
-                        <input name="percent" value="{{$off[0]->percent}}" style="text-align: center" class="inputText" placeholder="درصد تخفیف">
+                        <input name="percent" value="{{$off[0]->offPercent}}" style="text-align: center" class="inputText"
+                               placeholder="درصد تخفیف">
+                    </div>
+                </div>
+                <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
+                    <div class="col-6" style="text-align: center">
+                        <label>برند</label>
+                        <select class="inputText" style="background-color: white" name="brand_id" id="cars">
+                            <option value="{{$off[0]->brandID}}">{{$off[0]->brandName}}</option>
+                            @foreach ($brand as $index => $brandRows)
+                                @if($off[0]->brandID!=$brandRows->id)
+                                    <option value="{{$brandRows->id}}">{{$brandRows->name}}</option>
+                                @endif
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
