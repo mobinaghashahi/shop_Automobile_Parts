@@ -15,6 +15,10 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->integer('percent');
+
+            $table->unsignedBigInteger('brand_id');
+            $table->foreign('brand_id')->references('id')->on('brand');
+
             $table->rememberToken();
             $table->timestamps();
         });
