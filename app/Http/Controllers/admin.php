@@ -261,7 +261,7 @@ class admin extends Controller
 
     public function showAddBrand()
     {
-        return view('admin.addBrand');
+        return view('admin.addBrand',['offs'=>Off::all()]);
     }
 
     public function addBrand(Request $request)
@@ -269,9 +269,11 @@ class admin extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'file' => 'required',
+            'off_id' => 'required|integer',
         ]);
         $brand = new Brand();
         $brand->name = $request->name;
+        $brand->off_id = $request->off_id;
         $brand->save();
 
         $destination = 'brand/' . Brand::all()->last()->id;
@@ -290,18 +292,23 @@ class admin extends Controller
 
     public function showEditBrand($id)
     {
-        return view('admin.editBrand', ['brand' => Brand::where('id', '=', $id)->get()]);
+        return view('admin.editBrand', ['brand' => Brand::join('off','brand.off_id','=','off.id')
+            ->select('brand.name as brandName','brand.id as id','off.name as offName','off.id as offID')
+            ->where('brand.id', '=', $id)->get(),
+            'offs'=>Off::all()]);
     }
 
     public function editBrand(Request $request)
     {
         $validated = $request->validate([
             'name' => 'required',
-            'file' => 'mimes:png'
+            'file' => 'mimes:png',
+            'off_id' => 'required|integer'
         ]);
         $brand = Brand::findOrFail($request->id);
         if(!empty(Auth::user()->userType)&&Auth::user()->hasRole(['admin'])) {
             $brand->name = $request->name;
+            $brand->off_id = $request->off_id;
             $brand->save();
         }
         if (!empty($request->file)) {
@@ -390,11 +397,9 @@ class admin extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'percent' => 'required|integer|min:0|max:100',
-            'brand_id'=>'required|integer'
         ]);
         $off = new Off();
         $off->name = $request->name;
-        $off->brand_id = $request->brand_id;
         $off->percent = $request->percent;
         $off->save();
 
@@ -415,8 +420,8 @@ class admin extends Controller
 
     public function showEditOff($id)
     {
-        return view('admin.editOff', ['off' => Off::join('brand','brand.id','=','off.brand_id')->where('off.id', '=', $id)
-            ->select('brand.name as brandName','brand.id as brandID','off.id as offID','off.name as offName','off.percent as offPercent')
+        return view('admin.editOff', ['off' => Off::where('off.id', '=', $id)
+            ->select('off.id as offID','off.name as offName','off.percent as offPercent')
             ->get(),'brand'=>Brand::all()]);
     }
 
@@ -425,11 +430,9 @@ class admin extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'percent' => 'required|integer|min:0|max:100',
-            'brand_id'=>'required|integer'
         ]);
         $off = Off::findOrFail($request->id);
         $off->name = $request->name;
-        $off->brand_id = $request->brand_id;
         $off->percent = $request->percent;
         $off->save();
         return redirect()->intended('/admin/editOff/' . $request->id)->with('msg', 'تخفیف با موفقیت ویرایش شد.'); //کاربر را به صفحه مورد نظر هدایت میکنیم

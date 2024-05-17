@@ -36,20 +36,6 @@
                                placeholder="درصد تخفیف">
                     </div>
                 </div>
-                <div class="col-6 titleTextInput" style="display: flex;justify-content: center">
-                    <div class="col-6" style="text-align: center">
-                        <label>برند</label>
-                        <select class="inputText" style="background-color: white" name="brand_id" id="cars">
-                            <option value="{{$off[0]->brandID}}">{{$off[0]->brandName}}</option>
-                            @foreach ($brand as $index => $brandRows)
-                                @if($off[0]->brandID!=$brandRows->id)
-                                    <option value="{{$brandRows->id}}">{{$brandRows->name}}</option>
-                                @endif
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-
                 <div class="col-12" style="padding-top: 10px;display: flex;justify-content: center">
                     <div class="col-3">
                         <input class="inputSubmit" type="submit" value="افزودن">
