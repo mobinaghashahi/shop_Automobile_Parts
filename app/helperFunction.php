@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Visit;
 use App\Models\Contact;
 use App\Models\User;
+use App\Models\Off;
 use App\Models\Cities;
 use Hekmatinasser\Verta\Verta;
 use Illuminate\Support\Arr;
@@ -140,4 +141,11 @@ function postPrice(): int
         return 0;
     //ارسال به سراسر ایران 200 هزارتومان است
     return 200000;
+}
+function offPercentByBrandID($brand_id){
+    $offPercent=Off::select('percent')->where('brand_id','=',$brand_id)->get();
+    return $offPercent[0]->percent;
+}
+function offCalculation($offPercent,$price){
+    return ($price*(100-$offPercent))/100;
 }

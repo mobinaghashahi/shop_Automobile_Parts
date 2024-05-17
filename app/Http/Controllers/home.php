@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Cities;
 use App\Models\Contact;
+use App\Models\Off;
 use App\Models\Product;
 use App\Models\Province;
 use App\Models\SlideShow;
@@ -24,7 +25,10 @@ class home extends Controller
         return view('home.home', ['products' => Product::orderBy('id', 'DESC')->groupBy('name')->get(),
             'categorys' => Category::all(),
             'categoryExist' => Product::select('category_id')->groupBy('category_id')->get()->toArray(),
-            'slideShows' => SlideShow::all()]);
+            'slideShows' => SlideShow::all(),
+            'off'=>Off::all(),
+            'offCategorys'=>Off::pluck("brand_id")->toArray()
+            ]);
     }
 
     public function aboutUs()

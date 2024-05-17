@@ -32,7 +32,16 @@
                                     <p style="text-align: center">{{$product->name}}</p>
                                 </div>
                                 <div>
-                                    <p class="showPriceInBlock" style=""><b class="showPriceFont">{{number_format($product->price)}}</b>  تومان</p>
+                                    <!-- چک کردن تخفیف محصول-->
+                                    @if(\App\Models\Off::where('brand_id','=',$product->brand_id)->first())
+                                        <s><p class="showPriceInBlock" style="line-height: 10px;color: gray"><b class="showPriceFont">{{number_format($product->price)}}</b>
+                                                تومان</p></s>
+                                        <p class="showPriceInBlock" style="line-height: 10px"><b class="showPriceFont">{{number_format(offCalculation(offPercentByBrandID($product->brand_id),$product->price))}}</b>
+                                            تومان</p>
+                                    @else
+                                        <p class="showPriceInBlock" style="line-height: 10px"><b class="showPriceFont">{{number_format($product->price)}}</b>
+                                            تومان</p>
+                                    @endif
                                 </div>
                             </div></a>
                 @endif
