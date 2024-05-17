@@ -29,10 +29,7 @@ return new class extends Migration
 
             $table->unsignedBigInteger('carType_id');
             $table->foreign('carType_id')->references('id')->on('carType');
-
-            $table->unsignedBigInteger('off_id');
-            $table->foreign('off_id')->references('id')->on('off');
-
+            
             $table->rememberToken();
             $table->timestamps();
         });

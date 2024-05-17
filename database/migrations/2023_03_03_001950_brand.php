@@ -15,6 +15,10 @@ return new class extends Migration
         Schema::create('brand', function (Blueprint $table) {
             $table->id();
             $table->string("name");
+
+            $table->unsignedBigInteger('off_id');
+            $table->foreign('off_id')->references('id')->on('off');
+
             $table->rememberToken();
             $table->timestamps();
         });
