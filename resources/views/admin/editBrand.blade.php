@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-12" style="padding-top: 10px;display: flex;justify-content: center">
                     <div class="col-3">
-                        <input class="inputSubmit" type="submit" value="افزودن">
+                        <input class="inputSubmit" type="submit" value="ویرایش">
                     </div>
                 </div>
             </form>
