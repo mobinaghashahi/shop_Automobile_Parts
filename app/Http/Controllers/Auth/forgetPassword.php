@@ -21,6 +21,7 @@ class forgetPassword extends Controller
     {
         $validated = $request->validate([
             'phoneNumber' => 'required|regex:/[0]{1}[0-9]{10}/|min:11|max:11',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         $user = User::where('phoneNumber', '=', $request->phoneNumber)->get();
 
