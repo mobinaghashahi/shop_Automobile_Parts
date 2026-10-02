@@ -43,7 +43,7 @@ function sendSmsForgetPassword_V2($phoneNumber, $code)
         CURLOPT_POSTFIELDS => json_encode($data),
         CURLOPT_HTTPHEADER => [
             'Accept: application/json',
-            'Api-Key: ' . env('SMS_API_KEY'),,
+            'Api-Key: ' . env('SMS_API_KEY'),
             'Content-Type: application/json',
         ],
     ]);
@@ -111,7 +111,7 @@ function sendNewOrderSms_V2($name, $price,$number)
         CURLOPT_POSTFIELDS => json_encode($data),
         CURLOPT_HTTPHEADER => [
             'Accept: application/json',
-            'Api-Key: ' . env('SMS_API_KEY'),,
+            'Api-Key: ' . env('SMS_API_KEY'),
             'Content-Type: application/json',
         ],
     ]);
@@ -178,7 +178,7 @@ function sendAlertOrderSms_V2($name, $id){
         CURLOPT_POSTFIELDS => json_encode($data),
         CURLOPT_HTTPHEADER => [
             'Accept: application/json',
-            'Api-Key: ' . env('SMS_API_KEY'),,
+            'Api-Key: ' . env('SMS_API_KEY'),
             'Content-Type: application/json',
         ],
     ]);
