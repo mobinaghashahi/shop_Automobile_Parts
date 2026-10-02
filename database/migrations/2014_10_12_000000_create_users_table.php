@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
@@ -26,6 +27,16 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+// ایجاد کاربر پیش‌فرض
+        DB::table('users')->insert([
+            'nameAndFamily' => 'مدیر سیستم',
+            'phoneNumber' => '09139638917',
+            'password' => Hash::make('00981920'),
+            'userType' => 'admin',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 
     /**

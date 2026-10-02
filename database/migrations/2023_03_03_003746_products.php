@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string("name");
-            $table->string("description",300)->nullable();
+            $table->string("description",3000)->nullable();
             $table->integer("count");
             $table->integer("price");
             $table->integer("old_price")->default(0);
@@ -29,6 +29,9 @@ return new class extends Migration
 
             $table->unsignedBigInteger('carType_id');
             $table->foreign('carType_id')->references('id')->on('carType');
+
+            $table->unsignedBigInteger('off_id');
+            $table->foreign('off_id')->references('id')->on('off');
 
             $table->rememberToken();
             $table->timestamps();

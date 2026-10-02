@@ -26,7 +26,7 @@
                     </div>
                     <div>
                         <!-- چک کردن تخفیف محصول-->
-                        @if(\App\Models\Off::where('brand_id','=',$product->brand_id)->first())
+                        @if(\App\Models\Brand::where('id', $product->brand_id)->where('off_id', '!=', 1)->exists())
                             <s><p class="showPriceInBlock" style="line-height: 10px;color: gray"><b class="showPriceFont">{{number_format($product->price)}}</b>
                             تومان</p></s>
                         <p class="showPriceInBlock" style="line-height: 10px"><b class="showPriceFont">{{number_format(offCalculation(offPercentByBrandID($product->brand_id),$product->price))}}</b>

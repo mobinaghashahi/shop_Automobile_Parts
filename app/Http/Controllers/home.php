@@ -26,8 +26,7 @@ class home extends Controller
             'categorys' => Category::all(),
             'categoryExist' => Product::select('category_id')->groupBy('category_id')->get()->toArray(),
             'slideShows' => SlideShow::all(),
-            'off'=>Off::all(),
-            'offCategorys'=>Off::pluck("brand_id")->toArray()
+            'off'=>Off::all()
             ]);
     }
 

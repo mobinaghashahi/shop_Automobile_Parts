@@ -7,29 +7,29 @@ use App\Models\Brand;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('brand', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
+            $table->string('name');
 
             $table->unsignedBigInteger('off_id');
-            $table->foreign('off_id')->references('id')->on('off');
+            $table->foreign('off_id')
+                ->references('id')
+                ->on('off');
 
             $table->rememberToken();
             $table->timestamps();
         });
-        Brand::firstOrCreate([
-            'name' => 'نامعلوم'
+
+        DB::table('brand')->insert([
+            'name' => 'نامعلوم',
+            'off_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now(),
         ]);
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('brand');

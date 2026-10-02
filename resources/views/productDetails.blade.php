@@ -74,8 +74,8 @@ use App\Models\Brand;
         @include('relatedProducts')
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    //این اسکریپت برای کم و زیاد کردن مقدار تعداد محصولی که میخواهیم خریداری کنیم استفاده میشود.
     <script>
+        //این اسکریپت برای کم و زیاد کردن مقدار تعداد محصولی که میخواهیم خریداری کنیم استفاده میشود.
         $(document).ready(function () {
             $("body").on('click', '.plus', function (e) {
                 let value =$(".count").val()
