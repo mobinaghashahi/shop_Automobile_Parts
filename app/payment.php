@@ -9,15 +9,15 @@ function responseCodeChecker($response)
 
         if (json_decode($response)->errors->code == -50) {
             //ارسال پیامک هشدار
-            sendAlertOrderSms(Auth::user()->nameAndFamily, json_decode($response)->data->ref_id);
+            sendAlertOrderSms_V2(Auth::user()->nameAndFamily, json_decode($response)->data->ref_id);
             return "differentCost";
         }
 
     } else if (!empty(json_decode($response)->data->code)) {
         if (json_decode($response)->data->code == 100 || json_decode($response)->data->code == 101) {
             //ارسال پیامک خرید موفق
-            sendNewOrderSms(Auth::user()->nameAndFamily, session('amount'),"09139638917");
-            sendNewOrderSms(Auth::user()->nameAndFamily, session('amount'),"09129231997");
+            sendNewOrderSms_V2(Auth::user()->nameAndFamily, session('amount'),"09139638917");
+            sendNewOrderSms_V2(Auth::user()->nameAndFamily, session('amount'),"09129231997");
             return "ok";
         }
     } else {

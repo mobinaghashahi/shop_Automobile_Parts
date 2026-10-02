@@ -20,8 +20,7 @@ class forgetPassword extends Controller
     public function forgetPasswordSendSms(Request $request)
     {
         $validated = $request->validate([
-            'phoneNumber' => 'required|regex:/[0]{1}[0-9]{10}/|min:11|max:11',
-            'g-recaptcha-response' => 'required|captcha',
+            'phoneNumber' => 'required|regex:/[0]{1}[0-9]{10}/|min:11|max:11'
         ]);
         $user = User::where('phoneNumber', '=', $request->phoneNumber)->get();
 
@@ -40,7 +39,7 @@ class forgetPassword extends Controller
         $forgetPass->date = Verta::now();
         $forgetPass->save();
 
-        sendSmsForgetPassword($request->phoneNumber,$code);
+        sendSmsForgetPassword_V2($request->phoneNumber,$code);
 
         $encryptPhoneNumber = Crypt::encrypt($request->phoneNumber);
 
