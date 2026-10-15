@@ -13,19 +13,42 @@
             <p><a href="/contact" style="text-decoration: none;color: white">تماس با ما</a></p>
         </div>
     </div>
+
     <div class="col-3">
-        <div class="contentFooter" style="margin-top: 20px">
+        <div class="contentFooter" style="margin-top: 20px;">
             <p>فروشگاه یدکی اصلی</p>
-            <a href="https://goo.gl/maps/YDG6HAuJmft51ohi8">
-                <img src="/logo/map.png?v=1" width="250" height="200">
-            </a>
+
+            <div style="
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        ">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3843.5113131381368!2d47.1312643!3d36.385292!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4002bb000e72774d%3A0x1620d798f3eccebf!2z2YXbjNmG24wg2YXYp9ix2qnYqiDYotmC2Kcg2LXYp9iv2YI!5e1!3m2!1sen!2s!4v1792054846477!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style="border: 0; display: block;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin">
+                </iframe>
+            </div>
         </div>
     </div>
+
     <div class="col-3">
         <div class="contentFooter" style="margin-top: 20px">
             <p>نماد و استاندارد ها</p>
-            <a href="https://trustseal.enamad.ir/?id=337118&amp;Code=MqbcszGUlIijqFHhUu7l" target="_blank" rel="noopener">
-                <img style="width: 80px" src="/logo/enamad.png" />
+            <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=7848082&Code=E7ooZowlFfkX79zqKvMAfXP2N0wKPcWI">
+                <img
+                    referrerpolicy="origin"
+                    src="https://trustseal.enamad.ir/logo.aspx?id=7848082&Code=E7ooZowlFfkX79zqKvMAfXP2N0wKPcWI"
+                    alt="نماد اعتماد الکترونیکی"
+                    style="width: 80px; cursor: pointer;"
+                />
             </a>
             <script src="https://www.zarinpal.com/webservice/TrustCode" type="text/javascript"></script>
         </div>
