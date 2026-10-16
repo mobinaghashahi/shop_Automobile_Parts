@@ -5,10 +5,10 @@
     <div class="col-12" style="background-image: url('/logo/background.jpg')">
         <div class="col-12">
             <p style="direction: rtl;text-align: right;padding: 40px 40px 0px 40px;font-weight: bolder;font-size: 40px;margin: 0px">
-                تماس با <span style="color: #ed6b13">یدکی اصلی</span></p>
-            <p class="textContact">کاربر گرامی یدکی اصلی؛ باعث افتخار ماست تا نظرات خود را با ما از طریق این فرم به
+                تماس با <span style="color: #ed6b13">غرب یدک</span></p>
+            <p class="textContact">کاربر گرامی غرب یدک؛ باعث افتخار ماست تا نظرات خود را با ما از طریق این فرم به
                 اشتراک بگذارید.
-                جهت اعلام شکایت، نظر، انتقاد و پیشنهاد در مورد سرویس‌دهی وب‌سایت یدکی اصلی می‌توانید با شماره تلفن
+                جهت اعلام شکایت، نظر، انتقاد و پیشنهاد در مورد سرویس‌دهی وب‌سایت غرب یدک می‌توانید با شماره تلفن
                 ۰۹۱۲۹۲۳۱۹۹۷ تماس بگیرید یا از طریق فرم زیر موضوع موردنظر را با ما در میان بگذارید. </p>
         </div>
         <div class="col-12">
@@ -77,7 +77,6 @@
                     <div style="padding-right: 5px;line-height: 5px;font-size: 12px">
                         <p style="font-weight: bolder;line-height: 20px">:راه های ارتباطی</p>
                         <a style="text-decoration: none;color: black" href="tel:09129231997"><p>۰۹۱۲۹۲۳۱۹۹۷</p></a>
-                        <a style="text-decoration: none;color: black" href="tel:09129366202"><p>۰۹۱۲۹۳۶۶۲۰۲</p></a>
                     </div>
                     <img src="/logo/phone.svg" alt="location" data-v-b13dc018="">
                 </div>
@@ -91,7 +90,7 @@
                 <div class="col-12" style="display: flex;float: right;justify-content: right">
                     <div style="padding-right: 5px;line-height: 5px;font-size: 12px">
                         <p style="font-weight: bolder;line-height: 20px">:دفتر مرکزی</p>
-                        <p>تهران،اسلامشهر، بلوار گلها، بین البرز ۳۹ و ۴۱</p>
+                        <p></p>
                     </div>
                     <img src="/logo/location.svg" alt="location" data-v-b13dc018="">
                 </div>

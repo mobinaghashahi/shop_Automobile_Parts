@@ -16,7 +16,7 @@
 
     <div class="col-3">
         <div class="contentFooter" style="margin-top: 20px">
-            <p>فروشگاه یدکی اصلی</p>
+            <p>فروشگاه غرب یدک</p>
             <a href="https://balad.ir/location?latitude=36.385497&longitude=47.131602&zoom=16.500000"
                target="_blank"
                rel="noopener noreferrer">
