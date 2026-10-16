@@ -49,6 +49,21 @@ class admin extends Controller
             'postCode' => 'required',
             'idProduct' => 'required|integer',
         ]);
+
+        //پیدا کردن یوزر مورد نظر
+        $buy = Cart::with('user')->findOrFail($request->idProduct);
+
+        $user = $buy->user;
+
+        if ($user) {
+            $phoneNumber = $user->phoneNumber;
+            $nameAndFamily = $user->nameAndFamily;
+            sendSentOrderSmsToCustomer($nameAndFamily,$request->postCode,$phoneNumber);
+
+        }
+
+
+
         $buy = Cart::findOrFail($request->idProduct);
         $buy->state = 1;
         $buy->sendPostCode = $request->postCode;

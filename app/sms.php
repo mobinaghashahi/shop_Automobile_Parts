@@ -201,3 +201,57 @@ function sendAlertOrderSms_V2($name, $id){
         'response' => json_decode($response, true),
     ];
 }
+
+
+function sendSentOrderSmsToCustomer($name, $orderTrack, $number)
+{
+    $curl = curl_init();
+
+    $data = [
+        "code" => "wCGi5CXXAR", // کد Pattern
+        "attributes" => [
+            "name" => $name,
+            "orderTrack" => $orderTrack
+            // اگر Pattern فقط یک متغیر دارد، همین کافی است
+        ],
+        "recipient" => $number,
+        "line_number" => "50002178584000",
+        "number_format" => "english"
+    ];
+
+    curl_setopt_array($curl, [
+        CURLOPT_URL => 'https://api.iranpayamak.com/ws/v1/sms/pattern',
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => json_encode($data),
+        CURLOPT_HTTPHEADER => [
+            'Accept: application/json',
+            'Api-Key: ' . env('SMS_API_KEY'),
+            'Content-Type: application/json',
+        ],
+    ]);
+
+    $response = curl_exec($curl);
+
+    if ($response === false) {
+        $error = curl_error($curl);
+        curl_close($curl);
+
+        throw new Exception("SMS API Error: " . $error);
+    }
+
+    $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    curl_close($curl);
+
+    return [
+        'status' => $httpCode,
+        'response' => json_decode($response, true),
+    ];
+}
+
