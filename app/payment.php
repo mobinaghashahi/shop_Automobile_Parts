@@ -42,7 +42,7 @@ function pay($totalPrice)
         CURLOPT_POSTFIELDS => '{
   "merchant_id": "' . env("MERCHANT_ID") . '",
   "amount": "' . $totalPrice . '",
-  "callback_url": "https://yadakasli.ir/payment/verify",
+  "callback_url": "https://gharbyadak.ir/payment/verify",
   "description": "Transaction description.",
   "currency": "IRT",
   "metadata": {
