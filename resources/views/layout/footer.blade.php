@@ -3,7 +3,6 @@
         <div class="contentFooter">
             <p>اطلاعات تماس</p>
             <p><a style="text-decoration: none;color: white" href="tel:09129231997">تماس:<br>09129231997</a></p>
-            <p>ایمیل: yadakasli3113@gmail.com</p>
             <p>آدرس:<br>آذربایجان غربی، تکاب بلوار نسرین‌پور، روبه روی دانشگاه پیام نور، خیابان شهيد قاضیان، یدکی غرب</p>
         </div>
     </div>

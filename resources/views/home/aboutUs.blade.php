@@ -4,7 +4,7 @@
     <div class="col-12" style="display: flex;justify-content: center;background-image: url('/logo/background.jpg')">
         <div class="col-5" style="margin:20px 0px 20px 0px;padding: 20px">
             <p style="text-align: center;direction: rtl;line-height: 40px;font-size: larger;font-weight: bolder">
-                به فروشگاه لوازم یدکی اصلی باقری خوش آمدید
+                به فروشگاه لوازم غرب یدک خوش آمدید
             </p>
             <p style="text-align: right;direction: rtl;text-align: justify;text-justify: inter-word;line-height: 40px ">
                 با ما تجربه خرید مطمئن دست اولی و ارزان تر از همه جا را داشته باشید.
@@ -12,7 +12,7 @@
                 برای خرید کافی است قطعه مورد نظر خود را جست و جو و انتخاب کنید تا در سریعترین زمان ممکن قطعه خود را دریافت کنید.
             </p>
             <p style="text-align: right;direction: rtl;text-align: justify;text-justify: inter-word;line-height: 40px ">
-                آدرس: تهران،اسلامشهر، بلوار گلها، بین البرز ۳۹ و ۴۱
+                آدرس: آذربایجان غربی، تکاب بلوار نسرین‌پور، روبه روی دانشگاه پیام نور، خیابان شهيد قاضیان، یدکی غرب
             </p>
         </div>
 
