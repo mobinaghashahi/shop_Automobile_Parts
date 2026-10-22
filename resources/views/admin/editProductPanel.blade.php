@@ -49,11 +49,19 @@
                                 <td>{{$product->categoryName}}</td>
                                 <td>
 
-                                    <div class="col-6">
-                                        <a href="/admin/deleteProduct/{{$product->id}}"> <img src="/logo/delete.png"
-                                                                                              width="15"
-                                                                                              height="15"></a>
-                                    </div>
+                                    @if(Auth::check() && Auth::user()->hasRole('admin'))
+                                        <div class="col-6">
+                                            <form method="post" action="{{ route('admin.products.destroy', ['id' => $product->id]) }}"
+                                                  data-product-delete data-product-name="{{ $product->name }}" data-product-id="{{ $product->id }}"
+                                                  data-product-image="{{ asset('products/'.$product->id.'/'.$product->imageName) }}">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="button" data-product-delete-trigger aria-label="حذف محصول" style="background: none; border: 0; padding: 0; cursor: pointer;">
+                                                    <img src="/logo/delete.png" width="15" height="15" alt="">
+                                                </button>
+                                            </form>
+                                        </div>
+                                    @endif
                                     <div class="col-6">
                                         <a href="/admin/editProduct/{{$product->id}}"> <img src="/logo/pen.png"
                                                                                             width="15" height="15"></a>
@@ -66,4 +74,7 @@
             </div>
         </div>
     </div>
+    @if(Auth::check() && Auth::user()->hasRole('admin'))
+        @include('components.product-delete-dialog')
+    @endif
 @endsection

@@ -11,6 +11,14 @@ use App\Models\Brand;
     <meta name="availability" content="{{$product[0]->availability}}">
     <meta property="og:image" content="{{$product[0]->imageName}}">
     <!--***********-->
+    @if(Auth::check() && Auth::user()->hasRole('admin'))
+        <form id="delete-product-form" method="post" action="{{ route('admin.products.destroy', ['id' => $product[0]->id]) }}"
+              data-product-delete data-product-name="{{ $product[0]->name }}" data-product-id="{{ $product[0]->id }}"
+              data-product-image="{{ asset('products/'.$product[0]->id.'/'.$product[0]->imageName) }}">
+            @csrf
+            @method('DELETE')
+        </form>
+    @endif
     <form method="post" name="enter" action="/cart/addToCart">
         @csrf
         <div class="col-12" style="padding: 10px 0px 10px 0px">
@@ -68,11 +76,22 @@ use App\Models\Brand;
                         background-image: linear-gradient(45deg, #187900 0%, #39b200 51%, #187900 100%);text-decoration: none">ویرایش</a>
                         @endif
                 </div>
+                @if(Auth::check() && Auth::user()->hasRole('admin'))
+                    <div class="col-12" style="float: right; display: flex; justify-content: center; padding-top: 10px;">
+                        <button type="button" form="delete-product-form" data-product-delete-trigger class="inputSubmit"
+                                style="width: 90%; background-image: linear-gradient(45deg, #b91c1c 0%, #ef4444 51%, #b91c1c 100%); box-shadow: 0px 0px 14px -7px #b91c1c;">
+                            حذف محصول
+                        </button>
+                    </div>
+                @endif
 
             </div>
         </div>
         @include('relatedProducts')
     </form>
+    @if(Auth::check() && Auth::user()->hasRole('admin'))
+        @include('components.product-delete-dialog')
+    @endif
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script>
         //این اسکریپت برای کم و زیاد کردن مقدار تعداد محصولی که میخواهیم خریداری کنیم استفاده میشود.

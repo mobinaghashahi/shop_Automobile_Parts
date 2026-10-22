@@ -263,14 +263,14 @@ class admin extends Controller
     {
         $product = Product::findOrFail($id);
         $product->delete();
-        $imagePath = 'products/' . $id;
+        $imagePath = public_path('products/' . $product->id);
         $mask = $imagePath . "/*";
         if (is_dir($imagePath)) {
             //برای حذف یک دایرکتوری در php باید اول تمام فایل های موجود در آن دایرکتوری را حذف کرد و بعد آن دایرکتوری را حذف کرد
             array_map("unlink", glob($mask));
             rmdir($imagePath);
         }
-        return redirect()->intended('/admin/editProductPanel')->with('msg', 'محصول با موفقیت حذف شد.');
+        return redirect('/admin/editProductPanel')->with('msg', 'محصول با موفقیت حذف شد.');
     }
 
 

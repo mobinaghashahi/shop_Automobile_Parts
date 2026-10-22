@@ -96,7 +96,7 @@ Route::prefix('/admin')->group(function () {
     Route::get('/editProductPanel', [admin::class, 'showEditProductPanel'])->middleware([loginMiddleware::class,'role:admin|designer']);
     Route::get('/editProduct/{id}', [admin::class, 'showEditProduct'])->middleware([loginMiddleware::class,'role:admin|designer']);
     Route::post('/editProduct', [admin::class, 'editProduct'])->middleware([loginMiddleware::class,'role:admin|designer']);
-    Route::get('/deleteProduct/{id}', [admin::class, 'deleteProduct'])->middleware([loginMiddleware::class,'role:admin']);
+    Route::delete('/deleteProduct/{id}', [admin::class, 'deleteProduct'])->middleware([loginMiddleware::class,'role:admin'])->name('admin.products.destroy');
 
     Route::get('/addBrand', [admin::class, 'showAddBrand'])->middleware([loginMiddleware::class,'role:admin']);
     Route::post('/addBrand', [admin::class, 'addBrand'])->middleware([loginMiddleware::class,'role:admin']);
